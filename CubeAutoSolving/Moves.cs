@@ -629,1154 +629,134 @@ namespace CubeAutoSolving
         // Поворот правой стороны + среднего слоя по часовой стрелке
         public void Rw()
         {
-            DoMoveInside(
-                3,
-                true
-            );
-            DoMoveOutside(
-                new int[]
-                {                   
-                    5,
-                    4, 
-                    0, 
-                    2                 
-                },
-                new int[] 
-                {
-                    2, 0,
-                    0, 2,
-                    2, 0,
-                    2, 0
-                },
-                new bool[]
-                {
-                    true, false,
-                    true, false,
-                    true, false,
-                    true, false
-                }
-            );
-            DoMoveOutside(
-                new int[]
-                {
-                    4,
-                    0,
-                    2,
-                    5
-                },
-                new int[]
-                {
-                    1, 0,
-                    1, 2,
-                    1, 2,
-                    1, 2
-                },
-                new bool[] 
-                { 
-                    true, false,
-                    true, false,
-                    true, false,
-                    true, false
-                }
-            );
+            R();
+            Mi();
         }
 
         // Поворот правой стороны + среднего слоя ппротив часовой стрелки
         public void Rwi()
         {
-            DoMoveInside(
-                3,
-                false
-            );
-            DoMoveOutside(
-                new int[] 
-                {
-                    5,
-                    2,
-                    0, 
-                    4
-                },
-                new int[]
-                {
-                    2, 0,
-                    2, 0,
-                    2, 0,
-                    0, 2
-                },
-                new bool[] 
-                { 
-                    true, false,
-                    true, false,
-                    true, false,
-                    true, false
-                }
-            );
-            DoMoveOutside(
-                new int[]
-                {
-                    4,
-                    5,
-                    2,
-                    0
-                },
-                new int[]
-                {
-                    1, 0,
-                    1, 2,
-                    1, 2,
-                    1, 2
-                },
-                new bool[] 
-                { 
-                    true, false,
-                    true, false,
-                    true, false,
-                    true, false
-                }
-            );
+            Ri();
+            M();
         }
 
         // Поворот левой стороны + среднего слоя по часовой стрелке
         public void Lw()
         {
-            DoMoveInside(
-                1,
-                true
-            );
-            DoMoveOutside(
-                new int[]
-                {
-                    5,
-                    2,
-                    0,
-                    4
-                },
-                new int[] 
-                {
-                    0, 2,
-                    0, 2,
-                    0, 2,
-                    2, 0
-                },
-                new bool[]
-                {
-                    true, false,
-                    true, false,
-                    true, false,
-                    true, false
-                }
-            );
-            DoMoveOutside(
-                new int[]
-                {
-                    4,
-                    5,
-                    2,
-                    0
-                },
-                new int[]
-                {
-                    1, 0,
-                    1, 2,
-                    1, 2,
-                    1, 2
-                },
-                new bool[] 
-                { 
-                    true, false,
-                    true, false,
-                    true, false,
-                    true, false
-                }
-            );
+            L();
+            M();
         }
 
         // Поворот левой стороны + среднего слоя против часовой стрелки
         public void Lwi()
         {
-            DoMoveInside(
-                1,
-                false
-            );
-            DoMoveOutside(
-                new int[]
-                {
-                    5,
-                    4,
-                    0,
-                    2
-                },
-                new int[]
-                {
-                    0, 2,
-                    2, 0,
-                    0, 2,
-                    0, 2
-                },
-                new bool[]
-                {
-                    true, false,
-                    true, false,
-                    true, false,
-                    true, false
-                }
-            );
-            DoMoveOutside(
-                new int[]
-                {
-                    4,
-                    0,
-                    2,
-                    5
-                },
-                new int[]
-                {
-                    1, 0,
-                    1, 2,
-                    1, 2,
-                    1, 2
-                },
-                new bool[] 
-                { 
-                    true, false,
-                    true, false,
-                    true, false,
-                    true, false
-                }
-            );
+            Li();
+            Mi();
         }
 
         // Поворот фронтовой стороны + среднего слоя по часовой стрелке
         public void Fw()
         {
-            DoMoveInside(
-                5,
-                true
-            );
-            DoMoveOutside(
-                new int[]
-                {
-                    4,
-                    3,
-                    2, 
-                    1
-                },
-                new int[]
-                {
-                    2, 2,
-                    2, 2,
-                    2, 2,
-                    2, 2
-                },
-                new bool[] 
-                { 
-                    false, true,
-                    false, true,
-                    false, true,
-                    false, true
-                }
-            );
-            DoMoveOutside(
-                new int[]
-                {
-                    4,
-                    1,
-                    2,
-                    3
-                },
-                new int[]
-                {
-                    0, 1,
-                    0, 1,
-                    0, 1,
-                    0, 1
-                },
-                new bool[] 
-                { 
-                    false, true,
-                    false, true,
-                    false, true,
-                    false, true
-                }
-            );
+            F();
+            S();
         }
 
         // Поворот фронтовой стороны + среднего слоя против часовой стрелки
         public void Fwi()
         {
-            DoMoveInside(
-                5,
-                false
-            );
-            DoMoveOutside(
-                new int[]
-                {
-                    4, 
-                    1, 
-                    2, 
-                    3
-                },
-                new int[]
-                {
-                    2, 2,
-                    2, 2,
-                    2, 2,
-                    2, 2
-                },
-                new bool[] 
-                { 
-                    false, true,
-                    false, true,                
-                    false, true,
-                    false, true
-                }
-            );
-            DoMoveOutside(
-                new int[]
-                {
-                    4,
-                    3,
-                    2,
-                    1
-                },
-                new int[]
-                {
-                    0, 1,
-                    0, 1,
-                    0, 1,
-                    0, 1
-                },
-                new bool[] 
-                { 
-                    false, true,
-                    false, true,
-                    false, true,
-                    false, true
-                }
-            );
+            Fi();
+            Si();
         }
 
         // Поворот задней стороны + среднего слоя по часовой стрелке
         public void Bw()
         {
-            DoMoveInside(
-                0, 
-                true 
-            );
-            DoMoveOutside(
-                new int[]
-                {
-                    2, 
-                    3, 
-                    4, 
-                    1  
-                }, 
-                new int[] 
-                {
-                    0, 0,
-                    0, 0,
-                    0, 0,
-                    0, 0
-                }, 
-                new bool[] 
-                { 
-                    false, true,
-                    false, true,
-                    false, true,
-                    false, true
-                } 
-            );
-            DoMoveOutside(
-                new int[]
-                {
-                    4,
-                    3,
-                    2,
-                    1
-                },
-                new int[]
-                {
-                    0, 1,
-                    0, 1,
-                    0, 1,
-                    0, 1
-                },
-                new bool[] 
-                { 
-                    false, true,
-                    false, true,
-                    false, true,
-                    false, true
-                }
-            );
+            B();
+            Si();
         }
 
         // Поворот задней стороны + среднего слоя против часовой стрелки
         public void Bwi()
         {
-            DoMoveInside(
-                0,
-                false
-            );
-            DoMoveOutside(
-                new int[]
-                {
-                    2, 
-                    1, 
-                    4, 
-                    3
-                },
-                new int[]
-                {
-                    0, 0,
-                    0, 0,
-                    0, 0,
-                    0, 0
-                },
-                new bool[] 
-                { 
-                    false, true,
-                    false, true,
-                    false, true,
-                    false, true
-                }
-            );
-            DoMoveOutside(
-                new int[]
-                {
-                    4,
-                    1,
-                    2,
-                    3
-                },
-                new int[]
-                {
-                    0, 1,
-                    0, 1,
-                    0, 1,
-                    0, 1
-                },
-                new bool[] 
-                { 
-                    false, true,
-                    false, true,
-                    false, true,
-                    false, true
-                }
-            );
+            Bi();
+            S();
         }
 
         // Поворот верхней стороны + среднего слоя по часовой стрелке
         public void Uw()
         {
-            DoMoveInside(
-                2,
-                true
-            );
-            DoMoveOutside(
-                new int[]
-                {
-                    5, 
-                    3, 
-                    0, 
-                    1
-                },
-                new int[]
-                {
-                    0, 0,
-                    0, 2,
-                    2, 2,
-                    2, 0
-                },
-                new bool[] 
-                { 
-                    false, true,
-                    true, false,
-                    false, true,
-                    true, false
-                }
-            );
-            DoMoveOutside(
-                new int[]
-                {
-                    5,
-                    3,
-                    0,
-                    1
-                },
-                new int[]
-                {
-                    0, 1,
-                    1, 0,
-                    0, 1,
-                    1, 0
-                },
-                new bool[] 
-                { 
-                    false, true,
-                    true, false,
-                    false, true,
-                    true, false
-                }
-            );
+            U();
+            Ei();
         }
 
         // Поворот верхней стороны + среднего слоя против часовой стрелки
         public void Uwi()
         {
-            DoMoveInside(
-                2,
-                false
-            );
-            DoMoveOutside(
-                new int[]
-                {
-                    5,
-                    1, 
-                    0, 
-                    3
-                },
-                new int[]
-                {
-                    0, 0,
-                    2, 0,
-                    2, 2,
-                    0, 2
-                },
-                new bool[] 
-                { 
-                    false, true,
-                    true, false,
-                    false, true,
-                    true, false
-                }
-            );
-            DoMoveOutside(
-                new int[]
-                {
-                    5,
-                    1,
-                    0,
-                    3
-                },
-                new int[]
-                {
-                    0, 1,
-                    1, 0,
-                    0, 1,
-                    1, 0
-                },
-                new bool[] 
-                { 
-                    false, true,
-                    true, false,
-                    false, true,
-                    true, false
-                }
-            );
+            Ui();
+            E();
         }
 
         // Поворот нижней стороны + среднего слоя по часовой стрелке
         public void Dw()
         {
-            DoMoveInside(
-                4,
-                true
-            );
-            DoMoveOutside(
-                new int[]
-                {
-                    5,
-                    1, 
-                    0, 
-                    3
-                },
-                new int[]
-                {
-                    2, 2,
-                    0, 2,
-                    0, 0,
-                    2, 0
-                },
-                new bool[] 
-                { 
-                    false, true,
-                    true, false,
-                    false, true,
-                    true, false
-                }
-            );
-            DoMoveOutside(
-                new int[]
-                {
-                    5,
-                    1,
-                    0,
-                    3
-                },
-                new int[]
-                {
-                    0, 1,
-                    1, 0,
-                    0, 1,
-                    1, 0
-                },
-                new bool[] 
-                { 
-                    false, true,
-                    true, false,
-                    false, true,
-                    true, false
-                }
-            );
+            D();
+            E();
         }
 
         // Поворот нижней стороны + среднего слоя против часовой стрелки
         public void Dwi()
         {
-            DoMoveInside(
-                4,
-                true
-            );
-            DoMoveOutside(
-                new int[]
-                {
-                    5,
-                    1, 
-                    0, 
-                    3
-                },
-                new int[]
-                {
-                    2, 2,
-                    0, 2,
-                    0, 0,
-                    2, 0
-                },
-                new bool[] 
-                { 
-                    false, true,
-                    true, false,
-                    false, true,
-                    true, false
-                }
-            );
-            DoMoveOutside(
-                new int[]
-                {
-                    5,
-                    3,
-                    0,
-                    1
-                },
-                new int[]
-                {
-                    0, 1,
-                    1, 0,
-                    0, 1,
-                    1, 0
-                },
-                new bool[] 
-                { 
-                    false, true,
-                    true, false,
-                    false, true,
-                    true, false
-                }
-            );
+            Di();
+            Ei();
         }
 
         //  Повороты всего куба
         // Поворот куба относительно правой стороны по часовой стрелке
         public void x()
         {
-            DoMoveInside(
-                3,
-                true
-            );
-            DoMoveOutside(
-                new int[]
-                {                   
-                    5,
-                    4, 
-                    0, 
-                    2                 
-                },
-                new int[] 
-                {
-                    2, 0,
-                    0, 2,
-                    2, 0,
-                    2, 0
-                },
-                new bool[]
-                {
-                    true, false,
-                    true, false,
-                    true, false,
-                    true, false
-                }
-            );
-            DoMoveOutside(
-                new int[]
-                {
-                    4,
-                    0,
-                    2,
-                    5
-                },
-                new int[]
-                {
-                    1, 0,
-                    1, 2,
-                    1, 2,
-                    1, 2
-                },
-                new bool[] 
-                { 
-                    true, false,
-                    true, false,
-                    true, false,
-                    true, false
-                }
-            );
-            DoMoveInside(
-                1,
-                false
-            );
-            DoMoveOutside(
-                new int[]
-                {
-                    5,
-                    4,
-                    0,
-                    2
-                },
-                new int[]
-                {
-                    0, 2,
-                    2, 0,
-                    0, 2,
-                    0, 2
-                },
-                new bool[]
-                {
-                    true, false,
-                    true, false,
-                    true, false,
-                    true, false
-                }
-            );
+            R();
+            Mi();
+            Li();
         }
 
         // Поворот куба относительно правой стороны против часовой стрелки
         public void xi()
         {
-            DoMoveInside(
-                3,
-                false
-            );
-            DoMoveOutside(
-                new int[] 
-                {
-                    5,
-                    2,
-                    0, 
-                    4
-                },
-                new int[]
-                {
-                    2, 0,
-                    2, 0,
-                    2, 0,
-                    0, 2
-                },
-                new bool[] 
-                { 
-                    true, false,
-                    true, false,
-                    true, false,
-                    true, false
-                }
-            );
-            DoMoveOutside(
-                new int[]
-                {
-                    4,
-                    5,
-                    2,
-                    0
-                },
-                new int[]
-                {
-                    1, 0,
-                    1, 2,
-                    1, 2,
-                    1, 2
-                },
-                new bool[] 
-                { 
-                    true, false,
-                    true, false,
-                    true, false,
-                    true, false
-                }
-            );
-            DoMoveInside(
-                1,
-                true
-            );
-            DoMoveOutside(
-                new int[]
-                {
-                    5,
-                    2,
-                    0,
-                    4
-                },
-                new int[] 
-                {
-                    0, 2,
-                    0, 2,
-                    0, 2,
-                    2, 0
-                },
-                new bool[]
-                {
-                    true, false,
-                    true, false,
-                    true, false,
-                    true, false
-                }
-            );
+            Ri();
+            M();
+            L();
         }
 
         // Поворот куба относительно верхней стороны по часовой стрелке
         public void y()
         {
-            DoMoveInside(
-                2,
-                true
-            );
-            DoMoveOutside(
-                new int[]
-                {
-                    5, 
-                    3, 
-                    0, 
-                    1
-                },
-                new int[]
-                {
-                    0, 0,
-                    0, 2,
-                    2, 2,
-                    2, 0
-                },
-                new bool[] 
-                { 
-                    false, true,
-                    true, false,
-                    false, true,
-                    true, false
-                }
-            );
-            DoMoveOutside(
-                new int[]
-                {
-                    5,
-                    3,
-                    0,
-                    1
-                },
-                new int[]
-                {
-                    0, 1,
-                    1, 0,
-                    0, 1,
-                    1, 0
-                },
-                new bool[] 
-                { 
-                    false, true,
-                    true, false,
-                    false, true,
-                    true, false
-                }
-            );
-            DoMoveInside(
-                4,
-                false
-            );
-            DoMoveOutside(
-                new int[]
-                {
-                    5,
-                    3,
-                    0, 
-                    1
-                },
-                new int[]
-                {
-                    2, 2,
-                    2, 0,
-                    0, 0,
-                    0, 2
-                },
-                new bool[] 
-                { 
-                    false, true,
-                    true, false,
-                    false, true,
-                    true, false
-                }
-            );
+            U();
+            Ei();
+            Di();
         }
 
         // Поворот куба относительно верхней стороны против часовой стрелки
         public void yi()
         {
-            DoMoveInside(
-                2,
-                false
-            );
-            DoMoveOutside(
-                new int[]
-                {
-                    5,
-                    1, 
-                    0, 
-                    3
-                },
-                new int[]
-                {
-                    0, 0,
-                    2, 0,
-                    2, 2,
-                    0, 2
-                },
-                new bool[] 
-                { 
-                    false, true,
-                    true, false,
-                    false, true,
-                    true, false
-                }
-            );
-            DoMoveOutside(
-                new int[]
-                {
-                    5,
-                    1,
-                    0,
-                    3
-                },
-                new int[]
-                {
-                    0, 1,
-                    1, 0,
-                    0, 1,
-                    1, 0
-                },
-                new bool[] 
-                { 
-                    false, true,
-                    true, false,
-                    false, true,
-                    true, false
-                }
-            );
-            DoMoveInside(
-                4,
-                true
-            );
-            DoMoveOutside(
-                new int[]
-                {
-                    5,
-                    1, 
-                    0, 
-                    3
-                },
-                new int[]
-                {
-                    2, 2,
-                    0, 2,
-                    0, 0,
-                    2, 0
-                },
-                new bool[] 
-                { 
-                    false, true,
-                    true, false,
-                    false, true,
-                    true, false
-                }
-            );
+            Ui();
+            E();
+            D();
         }
 
         // Поворот куба относительно фронтальной стороны по часовой стрелке
         public void z()
         {
-            DoMoveInside(
-                5,
-                true
-            );
-            DoMoveOutside(
-                new int[]
-                {
-                    4,
-                    3,
-                    2, 
-                    1
-                },
-                new int[]
-                {
-                    2, 2,
-                    2, 2,
-                    2, 2,
-                    2, 2
-                },
-                new bool[] 
-                { 
-                    false, true,
-                    false, true,
-                    false, true,
-                    false, true
-                }
-            );
-            DoMoveOutside(
-                new int[]
-                {
-                    4,
-                    1,
-                    2,
-                    3
-                },
-                new int[]
-                {
-                    0, 1,
-                    0, 1,
-                    0, 1,
-                    0, 1
-                },
-                new bool[] 
-                { 
-                    false, true,
-                    false, true,
-                    false, true,
-                    false, true
-                }
-            );
-            DoMoveInside(
-                0,
-                false
-            );
-            DoMoveOutside(
-                new int[]
-                {
-                    2, 
-                    1, 
-                    4, 
-                    3
-                },
-                new int[]
-                {
-                    0, 0,
-                    0, 0,
-                    0, 0,
-                    0, 0
-                },
-                new bool[] 
-                { 
-                    false, true,
-                    false, true,
-                    false, true,
-                    false, true
-                }
-            );
+            F();
+            S();
+            Bi();
         }
 
         // Поворот куба относительно фронтальной стороны против часовой стрелки
         public void zi()
         {
-            DoMoveInside(
-                5,
-                false
-            );
-            DoMoveOutside(
-                new int[]
-                {
-                    4, 
-                    1, 
-                    2, 
-                    3
-                },
-                new int[]
-                {
-                    2, 2,
-                    2, 2,
-                    2, 2,
-                    2, 2
-                },
-                new bool[] 
-                { 
-                    false, true,
-                    false, true,                
-                    false, true,
-                    false, true
-                }
-            );
-            DoMoveOutside(
-                new int[]
-                {
-                    4,
-                    3,
-                    2,
-                    1
-                },
-                new int[]
-                {
-                    0, 1,
-                    0, 1,
-                    0, 1,
-                    0, 1
-                },
-                new bool[] 
-                { 
-                    false, true,
-                    false, true,
-                    false, true,
-                    false, true
-                }
-            );
-            DoMoveInside(
-                0,
-                true
-            );
-            DoMoveOutside(
-                new int[]
-                {
-                    2,
-                    3,
-                    4,
-                    1
-                },
-                new int[]
-                {
-                    0, 0,
-                    0, 0,
-                    0, 0,
-                    0, 0
-                },
-                new bool[]
-                { 
-                    false, true,
-                    false, true,
-                    false, true,
-                    false, true
-                }
-            );
+            Fi();
+            Si();
+            B();
         }
         
         // Универсальный метод для поворота блоков грани

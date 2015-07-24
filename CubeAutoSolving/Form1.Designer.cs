@@ -103,7 +103,24 @@
             this.secondMiddleEdge = new System.Windows.Forms.Button();
             this.thirdMiddleEdgeInvert = new System.Windows.Forms.Button();
             this.thirdMiddleEdge = new System.Windows.Forms.Button();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.RightAndMiddleEdges = new System.Windows.Forms.Button();
+            this.RightAndMiddleEdgesInvert = new System.Windows.Forms.Button();
+            this.FrontAndMiddleEdgesInvert = new System.Windows.Forms.Button();
+            this.LeftAndMiddleEdgesInvert = new System.Windows.Forms.Button();
+            this.FrontAndMiddleEdges = new System.Windows.Forms.Button();
+            this.LeftAndMiddleEdges = new System.Windows.Forms.Button();
+            this.DownAndMiddleEdgesInvert = new System.Windows.Forms.Button();
+            this.DownAndMiddleEdges = new System.Windows.Forms.Button();
+            this.UpAndMiddleEdgesInvert = new System.Windows.Forms.Button();
+            this.UpAndMiddleEdges = new System.Windows.Forms.Button();
+            this.BackAndMiddleEdgesInvert = new System.Windows.Forms.Button();
+            this.BackAndMiddleEdges = new System.Windows.Forms.Button();
+            this.z_cubeInvert = new System.Windows.Forms.Button();
+            this.z_cube = new System.Windows.Forms.Button();
+            this.y_cubeInvert = new System.Windows.Forms.Button();
+            this.y_cube = new System.Windows.Forms.Button();
+            this.x_cubeInvert = new System.Windows.Forms.Button();
+            this.x_cube = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.b_r_w)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.b_w)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.b_w_o)).BeginInit();
@@ -712,7 +729,7 @@
             this.InizializatingCube.Dock = System.Windows.Forms.DockStyle.Top;
             this.InizializatingCube.Location = new System.Drawing.Point(0, 0);
             this.InizializatingCube.Name = "InizializatingCube";
-            this.InizializatingCube.Size = new System.Drawing.Size(812, 23);
+            this.InizializatingCube.Size = new System.Drawing.Size(849, 23);
             this.InizializatingCube.TabIndex = 56;
             this.InizializatingCube.Text = "Inizializate cube";
             this.InizializatingCube.UseVisualStyleBackColor = true;
@@ -720,7 +737,7 @@
             // 
             // DownEdgeInvert
             // 
-            this.DownEdgeInvert.Location = new System.Drawing.Point(725, 351);
+            this.DownEdgeInvert.Location = new System.Drawing.Point(600, 306);
             this.DownEdgeInvert.Name = "DownEdgeInvert";
             this.DownEdgeInvert.Size = new System.Drawing.Size(75, 23);
             this.DownEdgeInvert.TabIndex = 58;
@@ -730,7 +747,7 @@
             // 
             // DownEdge
             // 
-            this.DownEdge.Location = new System.Drawing.Point(644, 351);
+            this.DownEdge.Location = new System.Drawing.Point(519, 306);
             this.DownEdge.Name = "DownEdge";
             this.DownEdge.Size = new System.Drawing.Size(75, 23);
             this.DownEdge.TabIndex = 59;
@@ -740,7 +757,7 @@
             // 
             // UpEdge
             // 
-            this.UpEdge.Location = new System.Drawing.Point(644, 322);
+            this.UpEdge.Location = new System.Drawing.Point(519, 277);
             this.UpEdge.Name = "UpEdge";
             this.UpEdge.Size = new System.Drawing.Size(75, 23);
             this.UpEdge.TabIndex = 61;
@@ -750,7 +767,7 @@
             // 
             // UpEdgeInvert
             // 
-            this.UpEdgeInvert.Location = new System.Drawing.Point(725, 322);
+            this.UpEdgeInvert.Location = new System.Drawing.Point(600, 277);
             this.UpEdgeInvert.Name = "UpEdgeInvert";
             this.UpEdgeInvert.Size = new System.Drawing.Size(75, 23);
             this.UpEdgeInvert.TabIndex = 60;
@@ -760,7 +777,7 @@
             // 
             // BackEdge
             // 
-            this.BackEdge.Location = new System.Drawing.Point(644, 293);
+            this.BackEdge.Location = new System.Drawing.Point(519, 248);
             this.BackEdge.Name = "BackEdge";
             this.BackEdge.Size = new System.Drawing.Size(75, 23);
             this.BackEdge.TabIndex = 63;
@@ -770,7 +787,7 @@
             // 
             // BackEdgeInvert
             // 
-            this.BackEdgeInvert.Location = new System.Drawing.Point(725, 293);
+            this.BackEdgeInvert.Location = new System.Drawing.Point(600, 248);
             this.BackEdgeInvert.Name = "BackEdgeInvert";
             this.BackEdgeInvert.Size = new System.Drawing.Size(75, 23);
             this.BackEdgeInvert.TabIndex = 62;
@@ -780,7 +797,7 @@
             // 
             // FrontEdge
             // 
-            this.FrontEdge.Location = new System.Drawing.Point(644, 262);
+            this.FrontEdge.Location = new System.Drawing.Point(519, 219);
             this.FrontEdge.Name = "FrontEdge";
             this.FrontEdge.Size = new System.Drawing.Size(75, 23);
             this.FrontEdge.TabIndex = 65;
@@ -790,7 +807,7 @@
             // 
             // FrontEdgeInvert
             // 
-            this.FrontEdgeInvert.Location = new System.Drawing.Point(725, 262);
+            this.FrontEdgeInvert.Location = new System.Drawing.Point(600, 219);
             this.FrontEdgeInvert.Name = "FrontEdgeInvert";
             this.FrontEdgeInvert.Size = new System.Drawing.Size(75, 23);
             this.FrontEdgeInvert.TabIndex = 64;
@@ -800,7 +817,7 @@
             // 
             // LeftEdge
             // 
-            this.LeftEdge.Location = new System.Drawing.Point(644, 233);
+            this.LeftEdge.Location = new System.Drawing.Point(519, 190);
             this.LeftEdge.Name = "LeftEdge";
             this.LeftEdge.Size = new System.Drawing.Size(75, 23);
             this.LeftEdge.TabIndex = 67;
@@ -810,7 +827,7 @@
             // 
             // LeftEdgeInvert
             // 
-            this.LeftEdgeInvert.Location = new System.Drawing.Point(725, 233);
+            this.LeftEdgeInvert.Location = new System.Drawing.Point(600, 190);
             this.LeftEdgeInvert.Name = "LeftEdgeInvert";
             this.LeftEdgeInvert.Size = new System.Drawing.Size(75, 23);
             this.LeftEdgeInvert.TabIndex = 66;
@@ -820,7 +837,7 @@
             // 
             // RightEdge
             // 
-            this.RightEdge.Location = new System.Drawing.Point(644, 204);
+            this.RightEdge.Location = new System.Drawing.Point(519, 161);
             this.RightEdge.Name = "RightEdge";
             this.RightEdge.Size = new System.Drawing.Size(75, 23);
             this.RightEdge.TabIndex = 69;
@@ -830,7 +847,7 @@
             // 
             // RightEdgeInvert
             // 
-            this.RightEdgeInvert.Location = new System.Drawing.Point(725, 204);
+            this.RightEdgeInvert.Location = new System.Drawing.Point(600, 161);
             this.RightEdgeInvert.Name = "RightEdgeInvert";
             this.RightEdgeInvert.Size = new System.Drawing.Size(75, 23);
             this.RightEdgeInvert.TabIndex = 68;
@@ -841,9 +858,9 @@
             // StartSolve
             // 
             this.StartSolve.Font = new System.Drawing.Font("Consolas", 14F);
-            this.StartSolve.Location = new System.Drawing.Point(644, 72);
+            this.StartSolve.Location = new System.Drawing.Point(519, 29);
             this.StartSolve.Name = "StartSolve";
-            this.StartSolve.Size = new System.Drawing.Size(156, 126);
+            this.StartSolve.Size = new System.Drawing.Size(318, 126);
             this.StartSolve.TabIndex = 70;
             this.StartSolve.Text = "Start\r\nsolving";
             this.StartSolve.UseVisualStyleBackColor = true;
@@ -851,7 +868,7 @@
             // 
             // MiddleEdge
             // 
-            this.MiddleEdge.Location = new System.Drawing.Point(644, 380);
+            this.MiddleEdge.Location = new System.Drawing.Point(519, 335);
             this.MiddleEdge.Name = "MiddleEdge";
             this.MiddleEdge.Size = new System.Drawing.Size(75, 23);
             this.MiddleEdge.TabIndex = 71;
@@ -861,7 +878,7 @@
             // 
             // MiddleEdgeInvert
             // 
-            this.MiddleEdgeInvert.Location = new System.Drawing.Point(725, 380);
+            this.MiddleEdgeInvert.Location = new System.Drawing.Point(600, 335);
             this.MiddleEdgeInvert.Name = "MiddleEdgeInvert";
             this.MiddleEdgeInvert.Size = new System.Drawing.Size(75, 23);
             this.MiddleEdgeInvert.TabIndex = 72;
@@ -871,7 +888,7 @@
             // 
             // secondMeddleEdge
             // 
-            this.secondMeddleEdge.Location = new System.Drawing.Point(644, 409);
+            this.secondMeddleEdge.Location = new System.Drawing.Point(519, 364);
             this.secondMeddleEdge.Name = "secondMeddleEdge";
             this.secondMeddleEdge.Size = new System.Drawing.Size(75, 23);
             this.secondMeddleEdge.TabIndex = 73;
@@ -881,7 +898,7 @@
             // 
             // secondMiddleEdge
             // 
-            this.secondMiddleEdge.Location = new System.Drawing.Point(725, 409);
+            this.secondMiddleEdge.Location = new System.Drawing.Point(600, 364);
             this.secondMiddleEdge.Name = "secondMiddleEdge";
             this.secondMiddleEdge.Size = new System.Drawing.Size(75, 23);
             this.secondMiddleEdge.TabIndex = 74;
@@ -891,7 +908,7 @@
             // 
             // thirdMiddleEdgeInvert
             // 
-            this.thirdMiddleEdgeInvert.Location = new System.Drawing.Point(725, 438);
+            this.thirdMiddleEdgeInvert.Location = new System.Drawing.Point(600, 393);
             this.thirdMiddleEdgeInvert.Name = "thirdMiddleEdgeInvert";
             this.thirdMiddleEdgeInvert.Size = new System.Drawing.Size(75, 23);
             this.thirdMiddleEdgeInvert.TabIndex = 75;
@@ -901,7 +918,7 @@
             // 
             // thirdMiddleEdge
             // 
-            this.thirdMiddleEdge.Location = new System.Drawing.Point(644, 438);
+            this.thirdMiddleEdge.Location = new System.Drawing.Point(519, 393);
             this.thirdMiddleEdge.Name = "thirdMiddleEdge";
             this.thirdMiddleEdge.Size = new System.Drawing.Size(75, 23);
             this.thirdMiddleEdge.TabIndex = 76;
@@ -909,13 +926,211 @@
             this.thirdMiddleEdge.UseVisualStyleBackColor = true;
             this.thirdMiddleEdge.Click += new System.EventHandler(this.moveButton_Click);
             // 
+            // RightAndMiddleEdges
+            // 
+            this.RightAndMiddleEdges.Location = new System.Drawing.Point(681, 161);
+            this.RightAndMiddleEdges.Name = "RightAndMiddleEdges";
+            this.RightAndMiddleEdges.Size = new System.Drawing.Size(75, 23);
+            this.RightAndMiddleEdges.TabIndex = 77;
+            this.RightAndMiddleEdges.Text = "Rw";
+            this.RightAndMiddleEdges.UseVisualStyleBackColor = true;
+            this.RightAndMiddleEdges.Click += new System.EventHandler(this.moveButton_Click);
+            // 
+            // RightAndMiddleEdgesInvert
+            // 
+            this.RightAndMiddleEdgesInvert.Location = new System.Drawing.Point(762, 161);
+            this.RightAndMiddleEdgesInvert.Name = "RightAndMiddleEdgesInvert";
+            this.RightAndMiddleEdgesInvert.Size = new System.Drawing.Size(75, 23);
+            this.RightAndMiddleEdgesInvert.TabIndex = 78;
+            this.RightAndMiddleEdgesInvert.Text = "Rw`";
+            this.RightAndMiddleEdgesInvert.UseVisualStyleBackColor = true;
+            this.RightAndMiddleEdgesInvert.Click += new System.EventHandler(this.moveButton_Click);
+            // 
+            // FrontAndMiddleEdgesInvert
+            // 
+            this.FrontAndMiddleEdgesInvert.Location = new System.Drawing.Point(762, 219);
+            this.FrontAndMiddleEdgesInvert.Name = "FrontAndMiddleEdgesInvert";
+            this.FrontAndMiddleEdgesInvert.Size = new System.Drawing.Size(75, 23);
+            this.FrontAndMiddleEdgesInvert.TabIndex = 80;
+            this.FrontAndMiddleEdgesInvert.Text = "Fw`";
+            this.FrontAndMiddleEdgesInvert.UseVisualStyleBackColor = true;
+            this.FrontAndMiddleEdgesInvert.Click += new System.EventHandler(this.moveButton_Click);
+            // 
+            // LeftAndMiddleEdgesInvert
+            // 
+            this.LeftAndMiddleEdgesInvert.Location = new System.Drawing.Point(762, 190);
+            this.LeftAndMiddleEdgesInvert.Name = "LeftAndMiddleEdgesInvert";
+            this.LeftAndMiddleEdgesInvert.Size = new System.Drawing.Size(75, 23);
+            this.LeftAndMiddleEdgesInvert.TabIndex = 79;
+            this.LeftAndMiddleEdgesInvert.Text = "Lw`";
+            this.LeftAndMiddleEdgesInvert.UseVisualStyleBackColor = true;
+            this.LeftAndMiddleEdgesInvert.Click += new System.EventHandler(this.moveButton_Click);
+            // 
+            // FrontAndMiddleEdges
+            // 
+            this.FrontAndMiddleEdges.Location = new System.Drawing.Point(681, 219);
+            this.FrontAndMiddleEdges.Name = "FrontAndMiddleEdges";
+            this.FrontAndMiddleEdges.Size = new System.Drawing.Size(75, 23);
+            this.FrontAndMiddleEdges.TabIndex = 82;
+            this.FrontAndMiddleEdges.Text = "Fw";
+            this.FrontAndMiddleEdges.UseVisualStyleBackColor = true;
+            this.FrontAndMiddleEdges.Click += new System.EventHandler(this.moveButton_Click);
+            // 
+            // LeftAndMiddleEdges
+            // 
+            this.LeftAndMiddleEdges.Location = new System.Drawing.Point(681, 190);
+            this.LeftAndMiddleEdges.Name = "LeftAndMiddleEdges";
+            this.LeftAndMiddleEdges.Size = new System.Drawing.Size(75, 23);
+            this.LeftAndMiddleEdges.TabIndex = 81;
+            this.LeftAndMiddleEdges.Text = "Lw";
+            this.LeftAndMiddleEdges.UseVisualStyleBackColor = true;
+            this.LeftAndMiddleEdges.Click += new System.EventHandler(this.moveButton_Click);
+            // 
+            // DownAndMiddleEdgesInvert
+            // 
+            this.DownAndMiddleEdgesInvert.Location = new System.Drawing.Point(762, 306);
+            this.DownAndMiddleEdgesInvert.Name = "DownAndMiddleEdgesInvert";
+            this.DownAndMiddleEdgesInvert.Size = new System.Drawing.Size(75, 23);
+            this.DownAndMiddleEdgesInvert.TabIndex = 88;
+            this.DownAndMiddleEdgesInvert.Text = "Dw`";
+            this.DownAndMiddleEdgesInvert.UseVisualStyleBackColor = true;
+            this.DownAndMiddleEdgesInvert.Click += new System.EventHandler(this.moveButton_Click);
+            // 
+            // DownAndMiddleEdges
+            // 
+            this.DownAndMiddleEdges.Location = new System.Drawing.Point(681, 306);
+            this.DownAndMiddleEdges.Name = "DownAndMiddleEdges";
+            this.DownAndMiddleEdges.Size = new System.Drawing.Size(75, 23);
+            this.DownAndMiddleEdges.TabIndex = 87;
+            this.DownAndMiddleEdges.Text = "Dw";
+            this.DownAndMiddleEdges.UseVisualStyleBackColor = true;
+            this.DownAndMiddleEdges.Click += new System.EventHandler(this.moveButton_Click);
+            // 
+            // UpAndMiddleEdgesInvert
+            // 
+            this.UpAndMiddleEdgesInvert.Location = new System.Drawing.Point(762, 277);
+            this.UpAndMiddleEdgesInvert.Name = "UpAndMiddleEdgesInvert";
+            this.UpAndMiddleEdgesInvert.Size = new System.Drawing.Size(75, 23);
+            this.UpAndMiddleEdgesInvert.TabIndex = 86;
+            this.UpAndMiddleEdgesInvert.Text = "Uw`";
+            this.UpAndMiddleEdgesInvert.UseVisualStyleBackColor = true;
+            this.UpAndMiddleEdgesInvert.Click += new System.EventHandler(this.moveButton_Click);
+            // 
+            // UpAndMiddleEdges
+            // 
+            this.UpAndMiddleEdges.Location = new System.Drawing.Point(681, 277);
+            this.UpAndMiddleEdges.Name = "UpAndMiddleEdges";
+            this.UpAndMiddleEdges.Size = new System.Drawing.Size(75, 23);
+            this.UpAndMiddleEdges.TabIndex = 85;
+            this.UpAndMiddleEdges.Text = "Uw";
+            this.UpAndMiddleEdges.UseVisualStyleBackColor = true;
+            this.UpAndMiddleEdges.Click += new System.EventHandler(this.moveButton_Click);
+            // 
+            // BackAndMiddleEdgesInvert
+            // 
+            this.BackAndMiddleEdgesInvert.Location = new System.Drawing.Point(762, 248);
+            this.BackAndMiddleEdgesInvert.Name = "BackAndMiddleEdgesInvert";
+            this.BackAndMiddleEdgesInvert.Size = new System.Drawing.Size(75, 23);
+            this.BackAndMiddleEdgesInvert.TabIndex = 84;
+            this.BackAndMiddleEdgesInvert.Text = "Bw`";
+            this.BackAndMiddleEdgesInvert.UseVisualStyleBackColor = true;
+            this.BackAndMiddleEdgesInvert.Click += new System.EventHandler(this.moveButton_Click);
+            // 
+            // BackAndMiddleEdges
+            // 
+            this.BackAndMiddleEdges.Location = new System.Drawing.Point(681, 248);
+            this.BackAndMiddleEdges.Name = "BackAndMiddleEdges";
+            this.BackAndMiddleEdges.Size = new System.Drawing.Size(75, 23);
+            this.BackAndMiddleEdges.TabIndex = 83;
+            this.BackAndMiddleEdges.Text = "Bw";
+            this.BackAndMiddleEdges.UseVisualStyleBackColor = true;
+            this.BackAndMiddleEdges.Click += new System.EventHandler(this.moveButton_Click);
+            // 
+            // z_cubeInvert
+            // 
+            this.z_cubeInvert.Location = new System.Drawing.Point(762, 393);
+            this.z_cubeInvert.Name = "z_cubeInvert";
+            this.z_cubeInvert.Size = new System.Drawing.Size(75, 23);
+            this.z_cubeInvert.TabIndex = 94;
+            this.z_cubeInvert.Text = "z`";
+            this.z_cubeInvert.UseVisualStyleBackColor = true;
+            this.z_cubeInvert.Click += new System.EventHandler(this.moveButton_Click);
+            // 
+            // z_cube
+            // 
+            this.z_cube.Location = new System.Drawing.Point(681, 393);
+            this.z_cube.Name = "z_cube";
+            this.z_cube.Size = new System.Drawing.Size(75, 23);
+            this.z_cube.TabIndex = 93;
+            this.z_cube.Text = "z";
+            this.z_cube.UseVisualStyleBackColor = true;
+            this.z_cube.Click += new System.EventHandler(this.moveButton_Click);
+            // 
+            // y_cubeInvert
+            // 
+            this.y_cubeInvert.Location = new System.Drawing.Point(762, 364);
+            this.y_cubeInvert.Name = "y_cubeInvert";
+            this.y_cubeInvert.Size = new System.Drawing.Size(75, 23);
+            this.y_cubeInvert.TabIndex = 92;
+            this.y_cubeInvert.Text = "y`";
+            this.y_cubeInvert.UseVisualStyleBackColor = true;
+            this.y_cubeInvert.Click += new System.EventHandler(this.moveButton_Click);
+            // 
+            // y_cube
+            // 
+            this.y_cube.Location = new System.Drawing.Point(681, 364);
+            this.y_cube.Name = "y_cube";
+            this.y_cube.Size = new System.Drawing.Size(75, 23);
+            this.y_cube.TabIndex = 91;
+            this.y_cube.Text = "y";
+            this.y_cube.UseVisualStyleBackColor = true;
+            this.y_cube.Click += new System.EventHandler(this.moveButton_Click);
+            // 
+            // x_cubeInvert
+            // 
+            this.x_cubeInvert.Location = new System.Drawing.Point(762, 335);
+            this.x_cubeInvert.Name = "x_cubeInvert";
+            this.x_cubeInvert.Size = new System.Drawing.Size(75, 23);
+            this.x_cubeInvert.TabIndex = 90;
+            this.x_cubeInvert.Text = "x`";
+            this.x_cubeInvert.UseVisualStyleBackColor = true;
+            this.x_cubeInvert.Click += new System.EventHandler(this.moveButton_Click);
+            // 
+            // x_cube
+            // 
+            this.x_cube.Location = new System.Drawing.Point(681, 335);
+            this.x_cube.Name = "x_cube";
+            this.x_cube.Size = new System.Drawing.Size(75, 23);
+            this.x_cube.TabIndex = 89;
+            this.x_cube.Text = "x";
+            this.x_cube.UseVisualStyleBackColor = true;
+            this.x_cube.Click += new System.EventHandler(this.moveButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(812, 473);
+            this.ClientSize = new System.Drawing.Size(849, 428);
+            this.Controls.Add(this.z_cubeInvert);
+            this.Controls.Add(this.z_cube);
+            this.Controls.Add(this.y_cubeInvert);
+            this.Controls.Add(this.y_cube);
+            this.Controls.Add(this.x_cubeInvert);
+            this.Controls.Add(this.x_cube);
+            this.Controls.Add(this.DownAndMiddleEdgesInvert);
+            this.Controls.Add(this.DownAndMiddleEdges);
+            this.Controls.Add(this.UpAndMiddleEdgesInvert);
+            this.Controls.Add(this.UpAndMiddleEdges);
+            this.Controls.Add(this.BackAndMiddleEdgesInvert);
+            this.Controls.Add(this.BackAndMiddleEdges);
+            this.Controls.Add(this.FrontAndMiddleEdges);
+            this.Controls.Add(this.LeftAndMiddleEdges);
+            this.Controls.Add(this.FrontAndMiddleEdgesInvert);
+            this.Controls.Add(this.LeftAndMiddleEdgesInvert);
+            this.Controls.Add(this.RightAndMiddleEdgesInvert);
+            this.Controls.Add(this.RightAndMiddleEdges);
             this.Controls.Add(this.thirdMiddleEdge);
             this.Controls.Add(this.thirdMiddleEdgeInvert);
             this.Controls.Add(this.secondMiddleEdge);
@@ -1130,7 +1345,24 @@
         private System.Windows.Forms.Button secondMiddleEdge;
         private System.Windows.Forms.Button thirdMiddleEdgeInvert;
         private System.Windows.Forms.Button thirdMiddleEdge;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Button RightAndMiddleEdges;
+        private System.Windows.Forms.Button RightAndMiddleEdgesInvert;
+        private System.Windows.Forms.Button FrontAndMiddleEdgesInvert;
+        private System.Windows.Forms.Button LeftAndMiddleEdgesInvert;
+        private System.Windows.Forms.Button FrontAndMiddleEdges;
+        private System.Windows.Forms.Button LeftAndMiddleEdges;
+        private System.Windows.Forms.Button DownAndMiddleEdgesInvert;
+        private System.Windows.Forms.Button DownAndMiddleEdges;
+        private System.Windows.Forms.Button UpAndMiddleEdgesInvert;
+        private System.Windows.Forms.Button UpAndMiddleEdges;
+        private System.Windows.Forms.Button BackAndMiddleEdgesInvert;
+        private System.Windows.Forms.Button BackAndMiddleEdges;
+        private System.Windows.Forms.Button z_cubeInvert;
+        private System.Windows.Forms.Button z_cube;
+        private System.Windows.Forms.Button y_cubeInvert;
+        private System.Windows.Forms.Button y_cube;
+        private System.Windows.Forms.Button x_cubeInvert;
+        private System.Windows.Forms.Button x_cube;
 
 
 
