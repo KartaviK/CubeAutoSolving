@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Drawing;
 using System.Reflection;
 
 namespace CubeAutoSolving
 {
     static class Moves 
     {
-        //  Инициализация
         // Инициализация массива
         public static char[][,] cube = new char[6][,]{
             new char[3,3],
@@ -20,7 +18,7 @@ namespace CubeAutoSolving
         public static void ResetCube()
         {
             // Одномерный массив чаров для инициализации массива куба
-            char[] ColorsStart = new char[6]
+            char[] colors = new char[6]
             {
                 'b', 
                 'r', 
@@ -34,7 +32,7 @@ namespace CubeAutoSolving
             for (int k = 0; k < 6; k++)
                 for (int i = 0; i < 3; i++)
                     for (int j = 0; j < 3; j++)
-                        cube[k][i, j] = ColorsStart[k];
+                        cube[k][i, j] = colors[k];
         }
         
         // Вызов методов по строковой формуле (рефлексия)
@@ -42,9 +40,8 @@ namespace CubeAutoSolving
         {
             string[] moves = formula.Split(' ');
             foreach (string move in moves)
-        {
-                move.Replace('\'', 'i');
-                MethodInfo moveMethod = typeof(Moves).GetMethod(move);
+            {
+                MethodInfo moveMethod = typeof(Moves).GetMethod(move.Replace('\'', 'i'));
                 moveMethod.Invoke(null, null);
             }
         }
@@ -807,7 +804,7 @@ namespace CubeAutoSolving
             }
         }
 
-        private static void DoMoveInside(int Face, bool invert)
+        private static void DoMoveInside(int edge, bool invert)
         {
             // Определение, в какую сторону прокручивать внутренние блоки            
             int invertOne = (invert ? 0 : 2); // По часовой
@@ -819,32 +816,32 @@ namespace CubeAutoSolving
             for (int i = 0; i < 2; i++)
             {
                 cache = 
-                    cube[Face][i,0];
-                cube[Face][i,0] = 
-                    cube[Face]
+                    cube[edge][i,0];
+                cube[edge][i,0] = 
+                    cube[edge]
                 [
                     invertOne, 
                     Math.Abs(invertTwo - i)
                 ];
-                cube[Face]
+                cube[edge]
                 [
                     invertOne, 
                     Math.Abs(invertTwo - i)
-                ] = cube[Face]
+                ] = cube[edge]
                 [
                     2 - i,
                     2
                 ];
-                cube[Face]
+                cube[edge]
                 [
                     2 - i,
                     2
-                ] = cube[Face]
+                ] = cube[edge]
                 [
                     invertTwo,
                     Math.Abs(invertOne - i)
                 ];
-                cube[Face]
+                cube[edge]
                 [
                     invertTwo,
                     Math.Abs(invertOne - i)

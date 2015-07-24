@@ -1,6 +1,6 @@
 ﻿namespace CubeAutoSolving
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -727,6 +727,7 @@
             // ResetCube
             // 
             this.ResetCube.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ResetCube.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ResetCube.Location = new System.Drawing.Point(0, 0);
             this.ResetCube.Name = "ResetCube";
             this.ResetCube.Size = new System.Drawing.Size(849, 23);
@@ -737,6 +738,7 @@
             // 
             // buttonDi
             // 
+            this.buttonDi.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonDi.Location = new System.Drawing.Point(600, 306);
             this.buttonDi.Name = "buttonDi";
             this.buttonDi.Size = new System.Drawing.Size(75, 23);
@@ -747,6 +749,7 @@
             // 
             // buttonD
             // 
+            this.buttonD.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonD.Location = new System.Drawing.Point(519, 306);
             this.buttonD.Name = "buttonD";
             this.buttonD.Size = new System.Drawing.Size(75, 23);
@@ -757,6 +760,7 @@
             // 
             // buttonU
             // 
+            this.buttonU.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonU.Location = new System.Drawing.Point(519, 277);
             this.buttonU.Name = "buttonU";
             this.buttonU.Size = new System.Drawing.Size(75, 23);
@@ -767,6 +771,7 @@
             // 
             // buttonUi
             // 
+            this.buttonUi.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonUi.Location = new System.Drawing.Point(600, 277);
             this.buttonUi.Name = "buttonUi";
             this.buttonUi.Size = new System.Drawing.Size(75, 23);
@@ -777,6 +782,7 @@
             // 
             // buttonB
             // 
+            this.buttonB.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonB.Location = new System.Drawing.Point(519, 248);
             this.buttonB.Name = "buttonB";
             this.buttonB.Size = new System.Drawing.Size(75, 23);
@@ -787,6 +793,7 @@
             // 
             // buttonBi
             // 
+            this.buttonBi.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonBi.Location = new System.Drawing.Point(600, 248);
             this.buttonBi.Name = "buttonBi";
             this.buttonBi.Size = new System.Drawing.Size(75, 23);
@@ -797,6 +804,7 @@
             // 
             // buttonF
             // 
+            this.buttonF.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonF.Location = new System.Drawing.Point(519, 219);
             this.buttonF.Name = "buttonF";
             this.buttonF.Size = new System.Drawing.Size(75, 23);
@@ -807,6 +815,7 @@
             // 
             // buttonFi
             // 
+            this.buttonFi.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonFi.Location = new System.Drawing.Point(600, 219);
             this.buttonFi.Name = "buttonFi";
             this.buttonFi.Size = new System.Drawing.Size(75, 23);
@@ -817,6 +826,7 @@
             // 
             // buttonL
             // 
+            this.buttonL.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonL.Location = new System.Drawing.Point(519, 190);
             this.buttonL.Name = "buttonL";
             this.buttonL.Size = new System.Drawing.Size(75, 23);
@@ -827,6 +837,7 @@
             // 
             // buttonLi
             // 
+            this.buttonLi.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonLi.Location = new System.Drawing.Point(600, 190);
             this.buttonLi.Name = "buttonLi";
             this.buttonLi.Size = new System.Drawing.Size(75, 23);
@@ -837,6 +848,7 @@
             // 
             // buttonR
             // 
+            this.buttonR.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonR.Location = new System.Drawing.Point(519, 161);
             this.buttonR.Name = "buttonR";
             this.buttonR.Size = new System.Drawing.Size(75, 23);
@@ -847,6 +859,7 @@
             // 
             // buttonRi
             // 
+            this.buttonRi.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonRi.Location = new System.Drawing.Point(600, 161);
             this.buttonRi.Name = "buttonRi";
             this.buttonRi.Size = new System.Drawing.Size(75, 23);
@@ -857,7 +870,7 @@
             // 
             // StartSolve
             // 
-            this.StartSolve.Font = new System.Drawing.Font("Consolas", 14F);
+            this.StartSolve.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.StartSolve.Location = new System.Drawing.Point(519, 29);
             this.StartSolve.Name = "StartSolve";
             this.StartSolve.Size = new System.Drawing.Size(318, 126);
@@ -868,6 +881,7 @@
             // 
             // buttonM
             // 
+            this.buttonM.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonM.Location = new System.Drawing.Point(519, 335);
             this.buttonM.Name = "buttonM";
             this.buttonM.Size = new System.Drawing.Size(75, 23);
@@ -878,6 +892,7 @@
             // 
             // buttonMi
             // 
+            this.buttonMi.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonMi.Location = new System.Drawing.Point(600, 335);
             this.buttonMi.Name = "buttonMi";
             this.buttonMi.Size = new System.Drawing.Size(75, 23);
@@ -888,6 +903,7 @@
             // 
             // buttonS
             // 
+            this.buttonS.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonS.Location = new System.Drawing.Point(519, 364);
             this.buttonS.Name = "buttonS";
             this.buttonS.Size = new System.Drawing.Size(75, 23);
@@ -898,6 +914,7 @@
             // 
             // buttonSi
             // 
+            this.buttonSi.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonSi.Location = new System.Drawing.Point(600, 364);
             this.buttonSi.Name = "buttonSi";
             this.buttonSi.Size = new System.Drawing.Size(75, 23);
@@ -908,6 +925,7 @@
             // 
             // buttonEi
             // 
+            this.buttonEi.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonEi.Location = new System.Drawing.Point(600, 393);
             this.buttonEi.Name = "buttonEi";
             this.buttonEi.Size = new System.Drawing.Size(75, 23);
@@ -918,6 +936,7 @@
             // 
             // buttonE
             // 
+            this.buttonE.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonE.Location = new System.Drawing.Point(519, 393);
             this.buttonE.Name = "buttonE";
             this.buttonE.Size = new System.Drawing.Size(75, 23);
@@ -928,6 +947,7 @@
             // 
             // buttonRw
             // 
+            this.buttonRw.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonRw.Location = new System.Drawing.Point(681, 161);
             this.buttonRw.Name = "buttonRw";
             this.buttonRw.Size = new System.Drawing.Size(75, 23);
@@ -938,6 +958,7 @@
             // 
             // buttonRwi
             // 
+            this.buttonRwi.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonRwi.Location = new System.Drawing.Point(762, 161);
             this.buttonRwi.Name = "buttonRwi";
             this.buttonRwi.Size = new System.Drawing.Size(75, 23);
@@ -948,6 +969,7 @@
             // 
             // buttonFwi
             // 
+            this.buttonFwi.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonFwi.Location = new System.Drawing.Point(762, 219);
             this.buttonFwi.Name = "buttonFwi";
             this.buttonFwi.Size = new System.Drawing.Size(75, 23);
@@ -958,6 +980,7 @@
             // 
             // buttonLwi
             // 
+            this.buttonLwi.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonLwi.Location = new System.Drawing.Point(762, 190);
             this.buttonLwi.Name = "buttonLwi";
             this.buttonLwi.Size = new System.Drawing.Size(75, 23);
@@ -968,6 +991,7 @@
             // 
             // buttonFw
             // 
+            this.buttonFw.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonFw.Location = new System.Drawing.Point(681, 219);
             this.buttonFw.Name = "buttonFw";
             this.buttonFw.Size = new System.Drawing.Size(75, 23);
@@ -978,6 +1002,7 @@
             // 
             // buttonLw
             // 
+            this.buttonLw.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonLw.Location = new System.Drawing.Point(681, 190);
             this.buttonLw.Name = "buttonLw";
             this.buttonLw.Size = new System.Drawing.Size(75, 23);
@@ -988,6 +1013,7 @@
             // 
             // buttonDwi
             // 
+            this.buttonDwi.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonDwi.Location = new System.Drawing.Point(762, 306);
             this.buttonDwi.Name = "buttonDwi";
             this.buttonDwi.Size = new System.Drawing.Size(75, 23);
@@ -998,6 +1024,7 @@
             // 
             // buttonDw
             // 
+            this.buttonDw.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonDw.Location = new System.Drawing.Point(681, 306);
             this.buttonDw.Name = "buttonDw";
             this.buttonDw.Size = new System.Drawing.Size(75, 23);
@@ -1008,6 +1035,7 @@
             // 
             // buttonUwi
             // 
+            this.buttonUwi.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonUwi.Location = new System.Drawing.Point(762, 277);
             this.buttonUwi.Name = "buttonUwi";
             this.buttonUwi.Size = new System.Drawing.Size(75, 23);
@@ -1018,6 +1046,7 @@
             // 
             // buttonUw
             // 
+            this.buttonUw.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonUw.Location = new System.Drawing.Point(681, 277);
             this.buttonUw.Name = "buttonUw";
             this.buttonUw.Size = new System.Drawing.Size(75, 23);
@@ -1028,6 +1057,7 @@
             // 
             // buttonBwi
             // 
+            this.buttonBwi.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonBwi.Location = new System.Drawing.Point(762, 248);
             this.buttonBwi.Name = "buttonBwi";
             this.buttonBwi.Size = new System.Drawing.Size(75, 23);
@@ -1038,6 +1068,7 @@
             // 
             // buttonBw
             // 
+            this.buttonBw.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonBw.Location = new System.Drawing.Point(681, 248);
             this.buttonBw.Name = "buttonBw";
             this.buttonBw.Size = new System.Drawing.Size(75, 23);
@@ -1048,6 +1079,7 @@
             // 
             // buttonZi
             // 
+            this.buttonZi.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonZi.Location = new System.Drawing.Point(762, 393);
             this.buttonZi.Name = "buttonZi";
             this.buttonZi.Size = new System.Drawing.Size(75, 23);
@@ -1058,6 +1090,7 @@
             // 
             // buttonZ
             // 
+            this.buttonZ.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonZ.Location = new System.Drawing.Point(681, 393);
             this.buttonZ.Name = "buttonZ";
             this.buttonZ.Size = new System.Drawing.Size(75, 23);
@@ -1068,6 +1101,7 @@
             // 
             // buttonYi
             // 
+            this.buttonYi.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonYi.Location = new System.Drawing.Point(762, 364);
             this.buttonYi.Name = "buttonYi";
             this.buttonYi.Size = new System.Drawing.Size(75, 23);
@@ -1078,6 +1112,7 @@
             // 
             // buttonY
             // 
+            this.buttonY.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonY.Location = new System.Drawing.Point(681, 364);
             this.buttonY.Name = "buttonY";
             this.buttonY.Size = new System.Drawing.Size(75, 23);
@@ -1088,6 +1123,7 @@
             // 
             // button_Xi
             // 
+            this.button_Xi.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button_Xi.Location = new System.Drawing.Point(762, 335);
             this.button_Xi.Name = "button_Xi";
             this.button_Xi.Size = new System.Drawing.Size(75, 23);
@@ -1098,6 +1134,10 @@
             // 
             // buttonX
             // 
+            this.buttonX.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonX.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonX.Location = new System.Drawing.Point(681, 335);
             this.buttonX.Name = "buttonX";
             this.buttonX.Size = new System.Drawing.Size(75, 23);
@@ -1106,11 +1146,10 @@
             this.buttonX.UseVisualStyleBackColor = true;
             this.buttonX.Click += new System.EventHandler(this.moveButton_Click);
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(849, 428);
             this.Controls.Add(this.buttonZi);
@@ -1206,8 +1245,9 @@
             this.Controls.Add(this.b_w_o);
             this.Controls.Add(this.b_w);
             this.Controls.Add(this.b_r_w);
+            this.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "CubeAutoSolving";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.b_r_w)).EndInit();

@@ -1,48 +1,48 @@
-﻿using System.Windows.Forms;
+﻿using System;
 using System.Drawing;
-using System.Text;
+using System.Windows.Forms;
 
 namespace CubeAutoSolving
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
-        {
-            InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, System.EventArgs e)
-        {
-            Moves.ResetCube();
-
-            VizualizatingCube();
-        }
-
         // Инициализация цвета для блоков picture
-        Color[] systemColors = 
+        Color[] systemColors =
         {
             Color.Blue,
             Color.Red,
             Color.Yellow,
             Color.Orange,
             Color.White,
-            Color.Green                
+            Color.Green
         };
 
+        public MainForm()
+        {
+            InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            Moves.ResetCube();
+
+            VizualizatingCube();
+        }
+
         // Метод для начала автономной сборки куба
-        private void StartSolving(object sender, System.EventArgs e)
+        private void StartSolving(object sender, EventArgs e)
         {
 
         }
 
         // Методы кнопок для поворотов граней
-        private void InizializatingCube_Click(object sender, System.EventArgs e)
+        private void InizializatingCube_Click(object sender, EventArgs e)
         {
             Moves.ResetCube();
             VizualizatingCube();
         }
 
-        private void moveButton_Click(object sender, System.EventArgs e)
+        private void moveButton_Click(object sender, EventArgs e)
         {
             Button moveButton = (Button)sender;
             string moveName = moveButton.Text;

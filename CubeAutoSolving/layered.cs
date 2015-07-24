@@ -1,7 +1,7 @@
 ﻿
 namespace CubeAutoSolving
 {
-    class layered
+    class Layered
     {
         /*Moves moves = new Moves();
         bool[] emptySockets;
