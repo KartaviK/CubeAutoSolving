@@ -49,25 +49,19 @@ namespace CubeAutoSolving
         public void DoMovesByFormula(string formula)
         {
             string[] moves = formula.Split(' ');
-            foreach (string move in moves)
-                InvokeMethodByName(move);
+            //foreach (string move in moves)
+                //InvokeMethodByName(move);
         }
 
-        public static void InvokeMethodByName(string methodName)
+        public static void InvokeMethodByName(object sender, string methodName)
         {
-            Type classType = Type.GetType("Form1");
-            try
-            {
-                MethodInfo moveMethod = classType.GetMethod(methodName);
-                moveMethod.Invoke(null, null);
-            }
-            catch (NullReferenceException)
-            {
-
-            }
+            MethodInfo moveMethod = typeof(Moves).GetMethod(methodName);
+            moveMethod.Invoke(sender, null);
         }
-        
+
         //   Методы для движения граней
+        #region Повороты
+
         //  Стандартные движения
         // Поворот задней грани по часовой стрелки
         public void B()
@@ -625,7 +619,7 @@ namespace CubeAutoSolving
             );
         }
 
-        //  Поворот + буква 'w'
+        // Поворот + буква 'w'
         // Поворот правой стороны + среднего слоя по часовой стрелке
         public void Rw()
         {
@@ -681,7 +675,7 @@ namespace CubeAutoSolving
             );
         }
 
-        // Поворот правой стороны + среднего слоя ппротив часовой стрелки
+        // Поворот правой стороны + среднего слоя против часовой стрелки
         public void Rwi()
         {
             DoMoveInside(
@@ -1778,7 +1772,9 @@ namespace CubeAutoSolving
                 }
             );
         }
-        
+
+        #endregion
+
         // Универсальный метод для поворота блоков грани
         public void DoMoveOutside(
             int[] cubeFace,
