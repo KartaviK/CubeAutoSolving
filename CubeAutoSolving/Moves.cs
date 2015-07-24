@@ -6,8 +6,6 @@ namespace CubeAutoSolving
 {
     class Moves 
     {
-        // Второстепенные переменные
-        int i, j, k;
         // Переменная для свапа элементов char
         char cache;
         // Одномерный массив для ликвидация последовательности в формуле внутренних блоков
@@ -15,7 +13,7 @@ namespace CubeAutoSolving
 
         //  Инициализация
         // Инициализация массива
-        public char[][,] cube = new char[6][,]{
+        public static char[][,] cube = new char[6][,]{
             new char[3,3],
             new char[3,3],
             new char[3,3],
@@ -24,7 +22,7 @@ namespace CubeAutoSolving
             new char[3,3]
         };
 
-        public char[][,] ColorsSet()
+        public void ColorsSet()
         {
             Form1 form = new Form1();
 
@@ -40,37 +38,39 @@ namespace CubeAutoSolving
             };
 
             // Заполнения куба начальными данными
-            for (this.i = 0; this.i < 6; this.i++)
-                for (this.j = 0; this.j < 3; this.j++)
-                    for (this.k = 0; this.k < 3; this.k++)
-                        this.cube[this.i][this.j, this.k] = ColorsStart[this.i];
+            for (int k = 0; k < 6; k++)
+                for (int i = 0; i < 3; i++)
+                    for (int j = 0; j < 3; j++)
+                        cube[k][i, j] = ColorsStart[k];
 
-            return this.cube;
         }
-        /*
+        
         // Вызов методов по строковой формуле (рефлексия)
-        public void DoMovesByFormula(string className, string formula)
+        public void DoMovesByFormula(string formula)
         {
             string[] moves = formula.Split(' ');
-            Type classType = Type.GetType(className);
             foreach (string move in moves)
-            {
-                try
-                {
-                    MethodInfo moveMethod = classType.GetMethod(move);
-                    moveMethod.Invoke(null, null);
-                }
-                catch(System.NullReferenceException)
-                {
+                InvokeMethodByName(move);
+        }
 
-                }
+        public static void InvokeMethodByName(string methodName)
+        {
+            Type classType = Type.GetType("Form1");
+            try
+            {
+                MethodInfo moveMethod = classType.GetMethod(methodName);
+                moveMethod.Invoke(null, null);
+            }
+            catch (NullReferenceException)
+            {
+
             }
         }
-        */
+        
         //   Методы для движения граней
         //  Стандартные движения
         // Поворот задней грани по часовой стрелки
-        public char[][,] B()
+        public void B()
         {
             // Вызов мтетода для внутренних блоков
             DoMoveInside(
@@ -101,11 +101,10 @@ namespace CubeAutoSolving
                     false, true
                 } // Одномерный bool-массив для инициализации массива ликвидации последовательности
             );
-            return this.cube;
         }
 
         // Поворот задней грани против часовой стрелки
-        public char[][,] Bi()
+        public void Bi()
         {
             DoMoveInside(
                 0,
@@ -134,11 +133,10 @@ namespace CubeAutoSolving
                     false, true
                 }
             );
-            return this.cube;
         }
 
         // Поворот левой грани по часовой стрелке
-        public char[][,] L()
+        public void L()
         {
             DoMoveInside(
                 1,
@@ -167,11 +165,10 @@ namespace CubeAutoSolving
                     true, false
                 }
             );
-            return this.cube;
         }
 
         // Поворот левой грани против часовой стрелки
-        public char[][,] Li()
+        public void Li()
         {
             DoMoveInside(
                 1,
@@ -200,11 +197,10 @@ namespace CubeAutoSolving
                     true, false
                 }
             );
-            return this.cube;
         }
 
         // Поворот верхней грани по часовой стрелке
-        public char[][,] U()
+        public void U()
         {
             DoMoveInside(
                 2,
@@ -233,11 +229,10 @@ namespace CubeAutoSolving
                     true, false
                 }
             );
-            return this.cube;
         }
 
         // Поворот верхней грани против часовой стрелки 
-        public char[][,] Ui()
+        public void Ui()
         {
             DoMoveInside(
                 2,
@@ -266,11 +261,10 @@ namespace CubeAutoSolving
                     true, false
                 }
             );
-            return this.cube;
         }
 
         // Поворот правой грани по часовой стрелке        
-        public char[][,] R()
+        public void R()
         {
             DoMoveInside(
                 3,
@@ -299,11 +293,10 @@ namespace CubeAutoSolving
                     true, false
                 }
             );
-            return this.cube;
         }
 
         // Поворот правой грани против часовой стрелки
-        public char[][,] Ri()
+        public void Ri()
         {
             DoMoveInside(
                 3,
@@ -332,11 +325,10 @@ namespace CubeAutoSolving
                     true, false
                 }
             );
-            return this.cube;
         }
 
         // Поворот нижней грани по часовой стрелки
-        public char[][,] D()
+        public void D()
         {
             DoMoveInside(
                 4,
@@ -365,11 +357,10 @@ namespace CubeAutoSolving
                     true, false
                 }
             );
-            return this.cube;
         }
 
         // Поворот нижней грани против часовой стрелки
-        public char[][,] Di()
+        public void Di()
         {
             DoMoveInside(
                 4,
@@ -398,11 +389,10 @@ namespace CubeAutoSolving
                     true, false
                 }
             );
-            return this.cube;
         }
 
         // Поворот фронтовой грани по часовой стрелки
-        public char[][,] F()
+        public void F()
         {
             DoMoveInside(
                 5,
@@ -431,11 +421,10 @@ namespace CubeAutoSolving
                     false, true
                 }
             );
-            return this.cube;
         }
 
         // Поворот фронтовой грани против часовой стрелки
-        public char[][,] Fi()
+        public void Fi()
         {
             DoMoveInside(
                 5,
@@ -464,13 +453,12 @@ namespace CubeAutoSolving
                     false, true
                 }
             );
-            return this.cube;
         }
         
         //   Нестандартные движения
         //  Повороты центральных слоев
         // Движение центральной стороны относительно левой стороны по часовой стрелке
-        public char[][,] M()
+        public void M()
         {
             DoMoveOutside(
                 new int[]
@@ -495,11 +483,10 @@ namespace CubeAutoSolving
                     true, false
                 }
             );
-            return this.cube;
         }
 
         // Движение центральной стороны относительно левой стороны против часовой стрелки
-        public char[][,] Mi()
+        public void Mi()
         {
             DoMoveOutside(
                 new int[]
@@ -524,11 +511,10 @@ namespace CubeAutoSolving
                     true, false
                 }
             );
-            return this.cube;
         }
 
         // Движение центральной стороны относительно фронтальной стороны по часовой стрелке
-        public char[][,] S()
+        public void S()
         {
             DoMoveOutside(
                 new int[]
@@ -553,11 +539,10 @@ namespace CubeAutoSolving
                     false, true
                 }
             );
-            return this.cube;
         }
 
         // Движение центральной стороны относительно фронтальной стороны против часовой стрелки
-        public char[][,] Si()
+        public void Si()
         {
             DoMoveOutside(
                 new int[]
@@ -582,11 +567,10 @@ namespace CubeAutoSolving
                     false, true
                 }
             );
-            return this.cube;
         }
 
         // Движение центральной стороны относительно нижней стороны по часовой стрелке
-        public char[][,] E()
+        public void E()
         {
             DoMoveOutside(
                 new int[]
@@ -611,11 +595,10 @@ namespace CubeAutoSolving
                     true, false
                 }
             );
-            return this.cube;
         }
 
         // Движение центральной стороны относительно нижней стороны против часовой стрелки
-        public char[][,] Ei()
+        public void Ei()
         {
             DoMoveOutside(
                 new int[]
@@ -640,12 +623,11 @@ namespace CubeAutoSolving
                     true, false
                 }
             );
-            return this.cube;
         }
 
         //  Поворот + буква 'w'
         // Поворот правой стороны + среднего слоя по часовой стрелке
-        public char[][,] Rw()
+        public void Rw()
         {
             DoMoveInside(
                 3,
@@ -697,11 +679,10 @@ namespace CubeAutoSolving
                     true, false
                 }
             );
-            return this.cube;
         }
 
         // Поворот правой стороны + среднего слоя ппротив часовой стрелки
-        public char[][,] Rwi()
+        public void Rwi()
         {
             DoMoveInside(
                 3,
@@ -753,11 +734,10 @@ namespace CubeAutoSolving
                     true, false
                 }
             );
-            return this.cube;
         }
 
         // Поворот левой стороны + среднего слоя по часовой стрелке
-        public char[][,] Lw()
+        public void Lw()
         {
             DoMoveInside(
                 1,
@@ -809,11 +789,10 @@ namespace CubeAutoSolving
                     true, false
                 }
             );
-            return this.cube;
         }
 
         // Поворот левой стороны + среднего слоя против часовой стрелки
-        public char[][,] Lwi()
+        public void Lwi()
         {
             DoMoveInside(
                 1,
@@ -865,11 +844,10 @@ namespace CubeAutoSolving
                     true, false
                 }
             );
-            return this.cube;
         }
 
         // Поворот фронтовой стороны + среднего слоя по часовой стрелке
-        public char[][,] Fw()
+        public void Fw()
         {
             DoMoveInside(
                 5,
@@ -921,11 +899,10 @@ namespace CubeAutoSolving
                     false, true
                 }
             );
-            return this.cube;
         }
 
         // Поворот фронтовой стороны + среднего слоя против часовой стрелки
-        public char[][,] Fwi()
+        public void Fwi()
         {
             DoMoveInside(
                 5,
@@ -977,11 +954,10 @@ namespace CubeAutoSolving
                     false, true
                 }
             );
-            return this.cube;
         }
 
         // Поворот задней стороны + среднего слоя по часовой стрелке
-        public char[][,] Bw()
+        public void Bw()
         {
             DoMoveInside(
                 0, 
@@ -1033,11 +1009,10 @@ namespace CubeAutoSolving
                     false, true
                 }
             );
-            return this.cube;
         }
 
         // Поворот задней стороны + среднего слоя против часовой стрелки
-        public char[][,] Bwi()
+        public void Bwi()
         {
             DoMoveInside(
                 0,
@@ -1089,11 +1064,10 @@ namespace CubeAutoSolving
                     false, true
                 }
             );
-            return this.cube;
         }
 
         // Поворот верхней стороны + среднего слоя по часовой стрелке
-        public char[][,] Uw()
+        public void Uw()
         {
             DoMoveInside(
                 2,
@@ -1145,11 +1119,10 @@ namespace CubeAutoSolving
                     true, false
                 }
             );
-            return this.cube;
         }
 
         // Поворот верхней стороны + среднего слоя против часовой стрелки
-        public char[][,] Uwi()
+        public void Uwi()
         {
             DoMoveInside(
                 2,
@@ -1201,11 +1174,10 @@ namespace CubeAutoSolving
                     true, false
                 }
             );
-            return this.cube;
         }
 
         // Поворот нижней стороны + среднего слоя по часовой стрелке
-        public char[][,] Dw()
+        public void Dw()
         {
             DoMoveInside(
                 4,
@@ -1257,11 +1229,10 @@ namespace CubeAutoSolving
                     true, false
                 }
             );
-            return this.cube;
         }
 
         // Поворот нижней стороны + среднего слоя против часовой стрелки
-        public char[][,] Dwi()
+        public void Dwi()
         {
             DoMoveInside(
                 4,
@@ -1313,12 +1284,11 @@ namespace CubeAutoSolving
                     true, false
                 }
             );
-            return this.cube;
         }
 
         //  Повороты всего куба
         // Поворот куба относительно правой стороны по часовой стрелке
-        public char[][,] x()
+        public void x()
         {
             DoMoveInside(
                 3,
@@ -1397,11 +1367,10 @@ namespace CubeAutoSolving
                     true, false
                 }
             );
-            return this.cube;
         }
 
         // Поворот куба относительно правой стороны против часовой стрелки
-        public char[][,] xi()
+        public void xi()
         {
             DoMoveInside(
                 3,
@@ -1480,11 +1449,10 @@ namespace CubeAutoSolving
                     true, false
                 }
             );
-            return this.cube;
         }
 
         // Поворот куба относительно верхней стороны по часовой стрелке
-        public char[][,] y()
+        public void y()
         {
             DoMoveInside(
                 2,
@@ -1563,11 +1531,10 @@ namespace CubeAutoSolving
                     true, false
                 }
             );
-            return this.cube;
         }
 
         // Поворот куба относительно верхней стороны против часовой стрелки
-        public char[][,] yi()
+        public void yi()
         {
             DoMoveInside(
                 2,
@@ -1646,11 +1613,10 @@ namespace CubeAutoSolving
                     true, false
                 }
             );
-            return this.cube;
         }
 
         // Поворот куба относительно фронтальной стороны по часовой стрелке
-        public char[][,] z()
+        public void z()
         {
             DoMoveInside(
                 5,
@@ -1729,11 +1695,10 @@ namespace CubeAutoSolving
                     false, true
                 }
             );
-            return this.cube;
         }
 
         // Поворот куба относительно фронтальной стороны против часовой стрелки
-        public char[][,] zi()
+        public void zi()
         {
             DoMoveInside(
                 5,
@@ -1812,7 +1777,6 @@ namespace CubeAutoSolving
                     false, true
                 }
             );
-            return this.cube;
         }
         
         // Универсальный метод для поворота блоков грани
@@ -1823,54 +1787,54 @@ namespace CubeAutoSolving
         )
         {
             // Поворот внешних блоков
-            for (this.i = 0; this.i < 3; this.i++)
+            for (int k = 0; k < 3; k++)
             {
                 // Определение фиксирования
-                for (this.j = 0; this.j < 8; this.j++)
-                    denie_i[this.j] = (denie[this.j] ? this.i : 0);
+                for (int i = 0; i < 8; i++)
+                    denie_i[i] = (denie[i] ? k : 0);
 
                 // cache = cube[0]
-                this.cache =  this.cube[cubeFace[0]]
+                this.cache =  cube[cubeFace[0]]
                 [
-                    Math.Abs(fixedNumber[0] - this.i + denie_i[0]),
-                    Math.Abs(fixedNumber[1] - this.i + denie_i[1])
+                    Math.Abs(fixedNumber[0] - k + denie_i[0]),
+                    Math.Abs(fixedNumber[1] - k + denie_i[1])
                 ];
                 // cube[0] = cube[1]                        
-                this.cube[cubeFace[0]]
+                cube[cubeFace[0]]
                 [
-                    Math.Abs(fixedNumber[0] - this.i + denie_i[0]),                     
-                    Math.Abs(fixedNumber[1] - this.i + denie_i[1])
-                ] = this.cube[cubeFace[1]]
+                    Math.Abs(fixedNumber[0] - k + denie_i[0]),                     
+                    Math.Abs(fixedNumber[1] - k + denie_i[1])
+                ] = cube[cubeFace[1]]
                 [
-                    Math.Abs(fixedNumber[2] - this.i + denie_i[2]),
-                    Math.Abs(fixedNumber[3] - this.i + denie_i[3])
+                    Math.Abs(fixedNumber[2] - k + denie_i[2]),
+                    Math.Abs(fixedNumber[3] - k + denie_i[3])
                 ];
                 // cube[1] = cube[2]
-                this.cube[cubeFace[1]]
+                cube[cubeFace[1]]
                 [
-                    Math.Abs(fixedNumber[2] - this.i + denie_i[2]),
-                    Math.Abs(fixedNumber[3] - this.i + denie_i[3])
-                ] = this.cube[cubeFace[2]]
+                    Math.Abs(fixedNumber[2] - k + denie_i[2]),
+                    Math.Abs(fixedNumber[3] - k + denie_i[3])
+                ] = cube[cubeFace[2]]
                 [
-                    Math.Abs(fixedNumber[4] - this.i + denie_i[4]),
-                    Math.Abs(fixedNumber[5] - this.i + denie_i[5])
+                    Math.Abs(fixedNumber[4] - k + denie_i[4]),
+                    Math.Abs(fixedNumber[5] - k + denie_i[5])
                 ];
                 // cube[2] = cube[3]
-                this.cube[cubeFace[2]]
+                cube[cubeFace[2]]
                 [
-                    Math.Abs(fixedNumber[4] - this.i + denie_i[4]),
-                    Math.Abs(fixedNumber[5] - this.i + denie_i[5])
-                ] = this.cube[cubeFace[3]]
+                    Math.Abs(fixedNumber[4] - k + denie_i[4]),
+                    Math.Abs(fixedNumber[5] - k + denie_i[5])
+                ] = cube[cubeFace[3]]
                 [
-                    Math.Abs(fixedNumber[6] - this.i + denie_i[6]),
-                    Math.Abs(fixedNumber[7] - this.i + denie_i[7])
+                    Math.Abs(fixedNumber[6] - k + denie_i[6]),
+                    Math.Abs(fixedNumber[7] - k + denie_i[7])
                 ];
                 // cube[3] = cache
-                this.cube[cubeFace[3]]
+                cube[cubeFace[3]]
                 [
-                    Math.Abs(fixedNumber[6] - this.i + denie_i[6]),
-                    Math.Abs(fixedNumber[7] - this.i + denie_i[7])
-                ] = this.cache;
+                    Math.Abs(fixedNumber[6] - k + denie_i[6]),
+                    Math.Abs(fixedNumber[7] - k + denie_i[7])
+                ] = cache;
             }
         }
 
@@ -1881,33 +1845,35 @@ namespace CubeAutoSolving
             int invertTwo = (invert ? 2 : 0); // Против часовой
 
             // Поворот внутренних блоков
-            for (this.i = 0; this.i < 2; this.i++)
+            for (int i = 0; i < 2; i++)
             {
                 this.cache = 
-                    this.cube[Face][i,0];
-                this.cube[Face][i,0] = 
-                    this.cube[Face]
+                    cube[Face][i,0];
+                cube[Face][i,0] = 
+                    cube[Face]
                 [
                     invertOne, 
                     Math.Abs(invertTwo - i)
                 ];
-                this.cube[Face]
+                cube[Face]
                 [
                     invertOne, 
                     Math.Abs(invertTwo - i)
-                ] = this.cube[Face]
-                    [2 - i,
-                    2];
-                this.cube[Face]
+                ] = cube[Face]
                 [
                     2 - i,
                     2
-                ] = this.cube[Face]
+                ];
+                cube[Face]
+                [
+                    2 - i,
+                    2
+                ] = cube[Face]
                 [
                     invertTwo,
                     Math.Abs(invertOne - i)
                 ];
-                this.cube[Face]
+                cube[Face]
                 [
                     invertTwo,
                     Math.Abs(invertOne - i)
