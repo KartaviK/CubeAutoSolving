@@ -17,6 +17,7 @@ namespace CubeAutoSolving
             VizualizatingCube(secondCube);
         }
 
+
         Moves move = new Moves();
         int i, j, k;
         
