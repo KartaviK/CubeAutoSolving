@@ -15,12 +15,10 @@ namespace CubeAutoSolving
 
         private void Form1_Load(object sender, System.EventArgs e)
         {
-            move.ColorsSet();
+            Moves.ResetCube();
 
             VizualizatingCube();
         }
-
-        Moves move = new Moves();
         
         // Инициализация цвета для блоков picture
         Color[] systemColors = 
@@ -42,7 +40,7 @@ namespace CubeAutoSolving
         // Методы кнопок для поворотов граней
         private void InizializatingCube_Click(object sender, System.EventArgs e)
         {
-            move.ColorsSet();
+            Moves.ResetCube();
             VizualizatingCube();
         }
 
@@ -50,7 +48,7 @@ namespace CubeAutoSolving
         {
             Button moveButton = (Button)sender;
             string moveName = moveButton.Text;
-            Moves.InvokeMethodByName(move, moveName);
+            Moves.DoMovesByFormula(moveName);
             VizualizatingCube();
         }
 
