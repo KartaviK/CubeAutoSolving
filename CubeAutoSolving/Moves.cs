@@ -7,7 +7,7 @@ namespace CubeAutoSolving
     class Moves 
     {
         // Переменная для свапа элементов char
-        char cache;
+        private char cache;
         // Одномерный массив для ликвидация последовательности в формуле внутренних блоков
         int[] denie_i = new int[8];
 
@@ -24,8 +24,6 @@ namespace CubeAutoSolving
 
         public void ColorsSet()
         {
-            Form1 form = new Form1();
-
             // Одномерный массив чаров для инициализации массива куба
             char[] ColorsStart = new char[6]
             {
@@ -42,7 +40,6 @@ namespace CubeAutoSolving
                 for (int i = 0; i < 3; i++)
                     for (int j = 0; j < 3; j++)
                         cube[k][i, j] = ColorsStart[k];
-
         }
         
         // Вызов методов по строковой формуле (рефлексия)
@@ -57,7 +54,7 @@ namespace CubeAutoSolving
         {
             MethodInfo moveMethod = typeof(Moves).GetMethod(methodName);
             moveMethod.Invoke(sender, null);
-            }
+        }
 
         //   Методы для движения граней
         #region Повороты
@@ -225,7 +222,7 @@ namespace CubeAutoSolving
             );
         }
 
-        // Поворот верхней грани против часовой стрелки 
+        // Поворот верхней грани против часовой стрелки
         public void Ui()
         {
             DoMoveInside(
@@ -264,15 +261,15 @@ namespace CubeAutoSolving
                 3,
                 true
             );
-            DoMoveOutside(                
+            DoMoveOutside(
                 new int[]
-                {                   
+                {
                     5,
-                    4, 
-                    0, 
-                    2                 
-                }, 
-                new int[] 
+                    4,
+                    0,
+                    2
+                },
+                new int[]
                 {
                     2, 0,
                     0, 2,
@@ -756,9 +753,9 @@ namespace CubeAutoSolving
         #endregion
 
         // Универсальный метод для поворота блоков грани
-        public void DoMoveOutside(
+        private void DoMoveOutside(
             int[] cubeFace,
-            int[] fixedNumber, 
+            int[] fixedNumber,
             bool[] denie
         )
         {
@@ -775,10 +772,10 @@ namespace CubeAutoSolving
                     Math.Abs(fixedNumber[0] - k + denie_i[0]),
                     Math.Abs(fixedNumber[1] - k + denie_i[1])
                 ];
-                // cube[0] = cube[1]                        
+                // cube[0] = cube[1]
                 cube[cubeFace[0]]
                 [
-                    Math.Abs(fixedNumber[0] - k + denie_i[0]),                     
+                    Math.Abs(fixedNumber[0] - k + denie_i[0]),
                     Math.Abs(fixedNumber[1] - k + denie_i[1])
                 ] = cube[cubeFace[1]]
                 [
@@ -814,9 +811,9 @@ namespace CubeAutoSolving
             }
         }
 
-        public void DoMoveInside(int Face, bool invert)
+        private void DoMoveInside(int Face, bool invert)
         {
-            // Определение, в какую сторону прокручивать внутренние блоки            
+            // Определение, в какую сторону прокручивать внутренние блоки
             int invertOne = (invert ? 0 : 2); // По часовой
             int invertTwo = (invert ? 2 : 0); // Против часовой
 

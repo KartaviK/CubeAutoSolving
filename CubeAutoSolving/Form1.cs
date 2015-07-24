@@ -1,8 +1,6 @@
 ﻿using System.Windows.Forms;
 using System.Drawing;
 using System.Text;
-using System;
-using System.Reflection;
 
 namespace CubeAutoSolving
 {
@@ -50,7 +48,7 @@ namespace CubeAutoSolving
         {
             Button moveButton = (Button)sender;
             string moveName = moveButton.Text;
-            Moves.InvokeMethodByName(move, moveName);
+            Moves.InvokeMethodByName(moveName);
             VizualizatingCube();
         }
 
