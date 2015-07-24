@@ -1,8 +1,6 @@
 ﻿using System.Windows.Forms;
 using System.Drawing;
 using System.Text;
-using System;
-using System.Reflection;
 
 namespace CubeAutoSolving
 {
@@ -19,7 +17,7 @@ namespace CubeAutoSolving
 
             VizualizatingCube();
         }
-        
+
         // Инициализация цвета для блоков picture
         Color[] systemColors = 
         {

@@ -35,7 +35,6 @@ namespace CubeAutoSolving
                 for (int i = 0; i < 3; i++)
                     for (int j = 0; j < 3; j++)
                         cube[k][i, j] = ColorsStart[k];
-
         }
         
         // Вызов методов по строковой формуле (рефлексия)
@@ -43,7 +42,7 @@ namespace CubeAutoSolving
         {
             string[] moves = formula.Split(' ');
             foreach (string move in moves)
-            {
+        {
                 move.Replace('\'', 'i');
                 MethodInfo moveMethod = typeof(Moves).GetMethod(move);
                 moveMethod.Invoke(null, null);
