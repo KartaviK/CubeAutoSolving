@@ -49,25 +49,19 @@ namespace CubeAutoSolving
         public void DoMovesByFormula(string formula)
         {
             string[] moves = formula.Split(' ');
-            foreach (string move in moves)
-                InvokeMethodByName(move);
+            //foreach (string move in moves)
+                //InvokeMethodByName(move);
         }
 
-        public static void InvokeMethodByName(string methodName)
+        public static void InvokeMethodByName(object sender, string methodName)
         {
-            Type classType = Type.GetType("Form1");
-            try
-            {
-                MethodInfo moveMethod = classType.GetMethod(methodName);
-                moveMethod.Invoke(null, null);
+            MethodInfo moveMethod = typeof(Moves).GetMethod(methodName);
+            moveMethod.Invoke(sender, null);
             }
-            catch (NullReferenceException)
-            {
 
-            }
-        }
-        
         //   Методы для движения граней
+        #region Повороты
+
         //  Стандартные движения
         // Поворот задней грани по часовой стрелки
         public void B()
@@ -625,41 +619,41 @@ namespace CubeAutoSolving
             );
         }
 
-        //  Поворот + буква 'w'
+        // Поворот + буква 'w'
         // Поворот правой стороны + среднего слоя по часовой стрелке
         public void Rw()
         {
             R();
             Mi();
-        }
+                }
 
-        // Поворот правой стороны + среднего слоя ппротив часовой стрелки
+        // Поворот правой стороны + среднего слоя против часовой стрелки
         public void Rwi()
         {
             Ri();
             M();
-        }
+                }
 
         // Поворот левой стороны + среднего слоя по часовой стрелке
         public void Lw()
         {
             L();
             M();
-        }
+                }
 
         // Поворот левой стороны + среднего слоя против часовой стрелки
         public void Lwi()
         {
             Li();
             Mi();
-        }
+                }
 
         // Поворот фронтовой стороны + среднего слоя по часовой стрелке
         public void Fw()
         {
             F();
             S();
-        }
+                }
 
         // Поворот фронтовой стороны + среднего слоя против часовой стрелки
         public void Fwi()
@@ -701,14 +695,14 @@ namespace CubeAutoSolving
         {
             D();
             E();
-        }
+                }
 
         // Поворот нижней стороны + среднего слоя против часовой стрелки
         public void Dwi()
         {
             Di();
             Ei();
-        }
+                }
 
         //  Повороты всего куба
         // Поворот куба относительно правой стороны по часовой стрелке
@@ -717,7 +711,7 @@ namespace CubeAutoSolving
             R();
             Mi();
             Li();
-        }
+                }
 
         // Поворот куба относительно правой стороны против часовой стрелки
         public void xi()
@@ -725,7 +719,7 @@ namespace CubeAutoSolving
             Ri();
             M();
             L();
-        }
+                }
 
         // Поворот куба относительно верхней стороны по часовой стрелке
         public void y()
@@ -733,7 +727,7 @@ namespace CubeAutoSolving
             U();
             Ei();
             Di();
-        }
+                }
 
         // Поворот куба относительно верхней стороны против часовой стрелки
         public void yi()
@@ -741,7 +735,7 @@ namespace CubeAutoSolving
             Ui();
             E();
             D();
-        }
+                }
 
         // Поворот куба относительно фронтальной стороны по часовой стрелке
         public void z()
@@ -759,6 +753,8 @@ namespace CubeAutoSolving
             B();
         }
         
+        #endregion
+
         // Универсальный метод для поворота блоков грани
         public void DoMoveOutside(
             int[] cubeFace,
