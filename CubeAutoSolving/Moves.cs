@@ -38,10 +38,11 @@ namespace CubeAutoSolving
         // Вызов методов по строковой формуле (рефлексия)
         public static void DoMovesByFormula(string formula)
         {
+			formula = formula.Replace('\'', 'i').Replace("", "");
             string[] moves = formula.Split(' ');
             foreach (string move in moves)
             {
-                MethodInfo moveMethod = typeof(Moves).GetMethod(move.Replace('\'', 'i'));
+                MethodInfo moveMethod = typeof(Moves).GetMethod(move);
                 moveMethod.Invoke(null, null);
             }
         }

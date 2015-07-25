@@ -14,28 +14,28 @@ namespace CubeAutoSolving
 				case 'b':
 					// Смежные
 					if (Moves.cube[3][2, 1] == 'o')
-						Moves.DoMovesByFormula("L Di Li D L");
+						Moves.DoMovesByFormula("L D' L' D L");
 					// Противоположные
 					else if (Moves.cube[3][2, 1] == 'r')
-						Moves.DoMovesByFormula("L Di Di Li D D L");
+						Moves.DoMovesByFormula("L D2 L' D2 L");
 					break;
 				case 'o':
 					if (Moves.cube[3][2, 1] == 'g')
-						Moves.DoMovesByFormula("L Di Li D L");
+						Moves.DoMovesByFormula("L D' L' D L");
 					else if (Moves.cube[3][2, 1] == 'b')
-						Moves.DoMovesByFormula("L Di Di Li D D L Di");
+						Moves.DoMovesByFormula("L D2 Li D2 L D'");
 					break;
 				case 'g':
 					if (Moves.cube[3][2, 1] == 'r')
-						Moves.DoMovesByFormula("L Di Li D L");
+						Moves.DoMovesByFormula("L D' L' D L");
 					else if (Moves.cube[3][2, 1] == 'o')
-						Moves.DoMovesByFormula("L Di Di Li D D L D D");
+						Moves.DoMovesByFormula("L D2 L' D2 L D2");
 					break;
 				case 'r':
 					if (Moves.cube[3][2, 1] == 'b')
-						Moves.DoMovesByFormula("L Di Li D L");
+						Moves.DoMovesByFormula("L D' L' D L");
 					else if (Moves.cube[3][2, 1] == 'g')
-						Moves.DoMovesByFormula("L Di Di Li D D L D");
+						Moves.DoMovesByFormula("L D2 L' D2 L D");
 					break;
 			}
 		}
@@ -43,6 +43,7 @@ namespace CubeAutoSolving
 		public void SolveCross()
 		{
 			bool[] emptySockets;
+			string formula = "";
 
 			// Проверка креста
 			if (Moves.cube[4][1, 0] == 'w' &&
@@ -74,53 +75,88 @@ namespace CubeAutoSolving
 						//[i][1,0] ()
 						if (Moves.cube[i][1, 0] == 'w')
 						{
-							if (i == 0)
-								Moves.DoMovesByFormula("B Di R D");
-							if (i == 1)
-								Moves.DoMovesByFormula("B");
-							if (i == 2)
-								Moves.DoMovesByFormula("B B");
-							if (i == 3)
-								Moves.DoMovesByFormula("Bi");
-							if (i == 5)
-								Moves.DoMovesByFormula("U Li B L");
+							switch (i)
+							{
+								case 0:
+									formula = "B D' R D";
+                                    break;
+								case 1:
+									formula = "B";
+									break;
+								case 2:
+									formula = "B2";
+									break;
+								case 3:
+									formula = "B'";
+									break;
+								case 5:
+									formula = "U L' B L";
+									break;
+							}
+
+							Moves.DoMovesByFormula(formula);
 						}
 						//[i][0,1] (i!=1)
 						if (Moves.cube[i][0, 1] == 'w' && i != 1)
 						{
-							if (i == 0)
-								Moves.DoMovesByFormula("D Li Di");
-							if (i == 2)
-								Moves.DoMovesByFormula("D L L Di");
-							if (i == 3)
-								Moves.DoMovesByFormula("R Bi Ri");
-							if (i == 5)
-								Moves.DoMovesByFormula("Di L D");
+							switch (i)
+							{
+								case 0:
+									formula = "D L' D'";
+									break;
+								case 2:
+									formula = "D L2 D'";
+									break;
+								case 3:
+									formula = "R B' R'";
+									break;
+								case 5:
+									formula = "D' L D";
+									break;
+							}
+
+							Moves.DoMovesByFormula(formula);
 						}
 						//[i][2,1] (i!=3)
 						if (Moves.cube[i][2, 1] == 'w' && i != 3)
 						{
-							if (i == 0)
-								Moves.DoMovesByFormula("Di R D");
-							if (i == 1)
-								Moves.DoMovesByFormula("Li B L");
-							if (i == 2)
-								Moves.DoMovesByFormula("Di R R D");
-							if (i == 5)
-								Moves.DoMovesByFormula("Di R D");
+							switch (i)
+							{
+								case 0:
+									formula = "D' R D";
+									break;
+								case 1:
+									formula = "L' B L";
+									break;
+								case 2:
+									formula = "D' R2 D";
+									break;
+								case 5:
+									formula = "D' R D";
+									break;
+							}
+
+							Moves.DoMovesByFormula(formula);
 						}
 
 						//[i][1,2] (i!=5)
 						if (Moves.cube[i][1, 2] == 'w' && i != 5)
 						{
-							if (i == 0)
-								Moves.DoMovesByFormula("B D Li Di");
-							if (i == 1)
-								Moves.DoMovesByFormula("D D Fi D D");
-							if (i == 2)
-								Moves.DoMovesByFormula("D D F F D D");
-							if (i == 3)
-								Moves.DoMovesByFormula("D D F D D");
+							switch (i)
+							{
+								case 0:
+									formula = "B D L' D'";
+									break;
+								case 1:
+								case 2:
+									formula = "D2 F' D2";
+									break;
+								case 3:
+									formula = "D2 F D2";
+									break;
+							}
+
+							Moves.DoMovesByFormula(formula);
 						}
 					}
 
@@ -129,7 +165,7 @@ namespace CubeAutoSolving
 						//[i][0,1] (i!=0)
 						if (Moves.cube[i][0, 1] == 'w')
 						{
-							if (i == 1)
+							/*if (i == 1)
 								Moves.DoMovesByFormula("D B Di");
 							if (i == 2)
 								Moves.B();
@@ -138,7 +174,27 @@ namespace CubeAutoSolving
 							if (i == 3)
 								Moves.Bi();
 							if (i == 5)
-								Moves.DoMovesByFormula("U L' B L");
+								Moves.DoMovesByFormula("U L' B L");*/
+							switch (i)
+							{
+								case 1:
+									formula = "D B D'";
+									break;
+								/*case 2:
+									formula = "B";
+									break;
+								case 3:
+									formula = "B";
+									break;
+								case 3:
+									formula = "B'";
+									break;*/
+								case 5:
+									formula = "U L' B L";
+                                    break;
+							}
+
+							Moves.DoMovesByFormula(formula);
 						}
 
 						//[i][0,1] (i!=1)
