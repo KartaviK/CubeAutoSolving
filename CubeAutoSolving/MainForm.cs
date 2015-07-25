@@ -22,7 +22,7 @@ namespace CubeAutoSolving
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
             Moves.ResetCube();
 
@@ -30,20 +30,20 @@ namespace CubeAutoSolving
         }
 
         // Метод для начала автономной сборки куба
-        private void buttonStart_Click(object sender, EventArgs e)
+        private void startButton_Click(object sender, EventArgs e)
         {
 			LayerByLayer lbl = new LayerByLayer();
 			lbl.SolveCube();
         }
 
         // Методы кнопок для поворотов граней
-        private void buttonReset_Click(object sender, EventArgs e)
+        private void resetButton_Click(object sender, EventArgs e)
         {
             Moves.ResetCube();
             VizualizatingCube();
         }
 
-        private void buttonMove_Click(object sender, EventArgs e)
+        private void moveButton_Click(object sender, EventArgs e)
         {
             Button moveButton = (Button)sender;
             string moveName = moveButton.Text;
