@@ -7,43 +7,56 @@ namespace CubeAutoSolving
 		public abstract void SolveCube();
 
 		//Универсальный метод проверки ориентации
-		public void CheckOrientation()
+		private void CheckOrientation()
 		{
-			switch (Moves.cube[0][1, 0])
+            string formula = "";
+            char firstElement = Moves.cube[0][1, 0];
+            char secondElement = Moves.cube[3][2, 1];
+
+			switch (firstElement)
 			{
 				case 'b':
-					// Смежные
-					if (Moves.cube[3][2, 1] == 'o')
-						Moves.DoMovesByFormula("L D' L' D L");
-					// Противоположные
-					else if (Moves.cube[3][2, 1] == 'r')
-						Moves.DoMovesByFormula("L D2 L' D2 L");
+					if (secondElement == 'o')
+						formula = "L D' L' D L";
+					else if (secondElement == 'r')
+						formula = "L D2 L' D2 L";
+					else
+						formula = "R' B R B' R'";
 					break;
 				case 'o':
-					if (Moves.cube[3][2, 1] == 'g')
-						Moves.DoMovesByFormula("L D' L' D L");
-					else if (Moves.cube[3][2, 1] == 'b')
-						Moves.DoMovesByFormula("L D2 Li D2 L D'");
+					if (secondElement == 'g')
+						formula = "L D' L' D L";
+					else if (secondElement == 'b')
+						formula = "L D2 Li D2 L D'";
+					else
+						formula = "R' B R B' R'";
 					break;
 				case 'g':
-					if (Moves.cube[3][2, 1] == 'r')
-						Moves.DoMovesByFormula("L D' L' D L");
-					else if (Moves.cube[3][2, 1] == 'o')
-						Moves.DoMovesByFormula("L D2 L' D2 L D2");
+					if (secondElement == 'r')
+						formula = "L D' L' D L";
+					else if (secondElement == 'o')
+						formula = "L D2 L' D2 L D2";
+					else
+						formula = "R' B R B' R'";
 					break;
 				case 'r':
-					if (Moves.cube[3][2, 1] == 'b')
-						Moves.DoMovesByFormula("L D' L' D L");
-					else if (Moves.cube[3][2, 1] == 'g')
-						Moves.DoMovesByFormula("L D2 L' D2 L D");
+					if (secondElement == 'b')
+						formula = "L D' L' D L";
+					else if (secondElement == 'g')
+						formula = "L D2 L' D2 L D";
+					else
+						formula = "R' B R B' R'";
 					break;
 			}
+
+            Moves.DoMovesByFormula(formula);
 		}
 
 		public void SolveCross()
 		{
 			bool[] emptySockets;
-			string formula = "";
+			// string formula = "";
+			int number = 0;
 
 			// Проверка креста
 			if (Moves.cube[4][1, 0] == 'w' &&
@@ -56,7 +69,7 @@ namespace CubeAutoSolving
 					Moves.cube[3][2, 1] != 'o' ||
 					Moves.cube[5][1, 2] != 'g' ||
 					Moves.cube[1][0, 1] != 'r')
-						CheckOrientation();
+					CheckOrientation();
 			}
 			else
 			{
@@ -67,6 +80,21 @@ namespace CubeAutoSolving
 					Moves.cube[4][2, 1] != 'w',
 					Moves.cube[4][1, 2] != 'w'
 				};
+
+				for (int i = 0; i < 4; i++)
+					if (emptySockets[i] == true)
+						number++;
+
+				if (number == 1)
+				{
+
+				}
+
+
+			}
+		}
+			/*}
+			
 
 				for (int i = 0; i < 6 && i != 4; i++)
 				{
@@ -262,7 +290,6 @@ namespace CubeAutoSolving
 
 					}
 				}
-			}
-		}
+			}*/
 	}
 }

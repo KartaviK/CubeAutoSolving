@@ -502,9 +502,9 @@ namespace CubeAutoSolving
                 new int[]
                 {
                     4,
-                    1,
+                    3,
                     2,
-                    3
+                    1
                 },
                 new int[]
                 {
@@ -530,9 +530,9 @@ namespace CubeAutoSolving
                 new int[]
                 {
                     4,
-                    3,
+                    1,
                     2,
-                    1
+                    3
                 },
                 new int[]
                 {
