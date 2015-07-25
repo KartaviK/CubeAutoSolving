@@ -32,7 +32,8 @@ namespace CubeAutoSolving
         // Метод для начала автономной сборки куба
         private void buttonStart_Click(object sender, EventArgs e)
         {
-
+			LayerByLayer lbl = new LayerByLayer();
+			lbl.SolveCube();
         }
 
         // Методы кнопок для поворотов граней
