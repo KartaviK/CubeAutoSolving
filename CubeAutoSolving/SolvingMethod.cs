@@ -54,10 +54,12 @@ namespace CubeAutoSolving
 
 		public void SolveCross()
 		{
+			bool[] emptySockets;
 			// string formula = "";
+			int number = 0;
 
 			// Проверка креста
-			/*if (Moves.cube[4][1, 0] == 'w' &&
+			if (Moves.cube[4][1, 0] == 'w' &&
 				Moves.cube[4][0, 1] == 'w' &&
 				Moves.cube[4][2, 1] == 'w' &&
 				Moves.cube[4][1, 2] == 'w')
@@ -70,37 +72,36 @@ namespace CubeAutoSolving
 					CheckOrientation();
 			}
 			else
-			{*/
-			int number = 0;
-
-			bool[] emptySockets = 
 			{
-				Moves.cube[4][1, 0] != 'w',
-				Moves.cube[4][0, 1] != 'w',
-				Moves.cube[4][2, 1] != 'w',
-				Moves.cube[4][1, 2] != 'w'
-			};
+				emptySockets = new bool[]
+				{
+					Moves.cube[4][1, 0] != 'w',
+					Moves.cube[4][0, 1] != 'w',
+					Moves.cube[4][2, 1] != 'w',
+					Moves.cube[4][1, 2] != 'w'
+				};
 
-			for (int i = 0; i < 4; i++)
-				if (emptySockets[i] == true)
-					number++;
+				for (int i = 0; i < 4; i++)
+					if (emptySockets[i] == true)
+						number++;
 
-			if (number == 0)
-			{
-				if (Moves.cube[0][1, 0] != 'b' ||
-					Moves.cube[3][2, 1] != 'o' ||
-					Moves.cube[5][1, 2] != 'g' ||
-					Moves.cube[1][0, 1] != 'r')
-					CheckOrientation();
-			}
-			else if (number == 1)
-				FirstMethod();
-			else if (number == 2){}
+				if (number == 0)
+				{
+					if (Moves.cube[0][1, 0] != 'b' ||
+						Moves.cube[3][2, 1] != 'o' ||
+						Moves.cube[5][1, 2] != 'g' ||
+						Moves.cube[1][0, 1] != 'r')
+						CheckOrientation();
+				}
+				else if (number == 1)
+					FirstMethod();
+				else if (number == 2) { }
 				//SecondMethod();
-			else if (number == 3){}
+				else if (number == 3) { }
 				//ThirdMethod();
-			else if (number == 4){}
+				else if (number == 4) { }
 				//FourthMethod();
+			}
 		}
 
 		private void FirstMethod()
@@ -267,38 +268,11 @@ namespace CubeAutoSolving
 						//[i][1,2] (i!=5)
 						if (Moves.cube[i][1, 2] == 'w' && i != 5)
 						{
-							switch (i)
-							{
-								case 0:
-									formula = "B D L' D'";
-									break;
-								case 1:
-									formula = "D2 F' D2";
-									break;
-								case 2:
-									formula = "D2 F2 D2";
-									break;
-								case 3:
-									formula = "D2 F D2";
-									break;
-							}
-
-							Moves.DoMovesByFormula(formula);
-						}
-					}
-
-					if (emptySockets[2] == true)
-					{
 
 					}
 
-					if (emptySockets[3] == true)
-					{
 
 					}
-				}
-			}
-			
 		}
 			/*}
 			

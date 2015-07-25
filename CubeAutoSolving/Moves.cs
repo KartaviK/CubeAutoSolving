@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 
 namespace CubeAutoSolving
@@ -35,21 +37,62 @@ namespace CubeAutoSolving
 						cube[k][i, j] = colors[k];
 		}
 
-		public static void ScrambleCube()
+		public static string ScrambleCube()
 		{
 			Random random = new Random();
-			string[] moves = { "R", "Ri", "U", "Ui", "F", "Fi", "L", "Li", "D", "Di", "B", "Bi" };
-			string formula = "";
-			for (int i = 0; i < 25; i++)
-				formula += moves[random.Next(0, 12)] + " ";
-            DoMovesByFormula(formula);
+			string[][] moves = 
+			{
+				new string[] { "R", "R'", "R2" },
+				new string[] { "U", "U'", "U2" },
+				new string[] { "F", "F'", "F2" },
+				new string[] { "L", "L'", "L2" },
+				new string[] { "D", "D'", "D2" },
+				new string[] { "B", "B'", "B2" }
+			};
+			string scramble = "";
+			int cache, group = 6;
+
+			for (int i = 0; i < 20; i++)
+			{
+				do
+					cache = random.Next(0, 6);
+				while (cache == group);
+                group = cache;
+				scramble += moves[cache][random.Next(0, 3)] + " ";
+			}
+			scramble = scramble.Trim();
+			DoMovesByFormula(scramble);
+
+			return scramble;
+		}
+
+		private static string[] FormulaToMoves(string formula)
+		{
+			List<string> moves = new List<string>();
+			string move = "";
+			string[] array = formula.Split(' ');
+            foreach (string element in array)
+			{
+				if (element.EndsWith("2"))
+				{
+					move = element.Replace("2", "");
+					moves.Add(move);
+				}
+				else if (element.EndsWith("'"))
+					move = element.Replace("'", "i");
+				else
+					move = element;
+
+				moves.Add(move);
+			}
+
+			return moves.ToArray();
 		}
 		
 		// Вызов методов по строковой формуле (рефлексия)
 		public static void DoMovesByFormula(string formula)
 		{
-			formula = formula.Replace('\'', 'i').TrimEnd();
-			string[] moves = formula.Split(' ');
+			string[] moves = FormulaToMoves(formula);
 			foreach (string move in moves)
 			{
 				MethodInfo moveMethod = typeof(Moves).GetMethod(move);
@@ -754,10 +797,7 @@ namespace CubeAutoSolving
 		#endregion
 
 		// Универсальный метод для поворота блоков грани
-		private static void DoMoveOutside(
-			int[] cubeFace,
-			int[] fixedNumber, 
-			bool[] isFixed)
+		private static void DoMoveOutside(int[] cubeFace, int[] fixedNumber, bool[] isFixed)
 		{
 			// Одномерный массив для ликвидация последовательности в формуле внутренних блоков
 			int[] delta = new int[8];
