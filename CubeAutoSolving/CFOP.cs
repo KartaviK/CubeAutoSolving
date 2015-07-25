@@ -12,11 +12,6 @@ namespace CubeAutoSolving
 			PermutateLastLayer();
 		}
 
-		private void SolveCross()
-		{
-
-		}
-
 		private void SolveF2L()
 		{
 

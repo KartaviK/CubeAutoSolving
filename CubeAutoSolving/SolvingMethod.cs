@@ -6,6 +6,7 @@ namespace CubeAutoSolving
 	{
 		public abstract void SolveCube();
 
+		//Универсальный метод проверки ориентации
 		public void CheckOrientation()
 		{
 			switch (Moves.cube[0][1, 0])

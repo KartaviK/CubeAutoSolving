@@ -14,10 +14,7 @@ namespace CubeAutoSolving
 			OrientateLastLayerCorners();
 			PermutateLastLayerCorners();
 		}
-		
-		//Универсальный метод проверки ориентации
         
-
         private void SolveFirstLayer()
         {
 
