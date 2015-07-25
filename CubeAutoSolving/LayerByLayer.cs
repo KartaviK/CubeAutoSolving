@@ -2,9 +2,9 @@
 
 namespace CubeAutoSolving
 {
-    class LayerByLayer : SolvingMethod
-    {
-        public override void SolveCube()
+	class LayerByLayer : SolvingMethod
+	{
+		public override void SolveCube()
 		{
 			SolveCross();
 			SolveFirstLayer();
@@ -14,35 +14,35 @@ namespace CubeAutoSolving
 			OrientateLastLayerCorners();
 			PermutateLastLayerCorners();
 		}
-        
-        private void SolveFirstLayer()
-        {
+		
+		private void SolveFirstLayer()
+		{
 
-        }
+		}
 
-        private void SolveSecondLayer()
-        {
+		private void SolveSecondLayer()
+		{
 
-        }
+		}
 
-        private void OrientateLastLayerCross()
-        {
+		private void OrientateLastLayerCross()
+		{
 
-        }
+		}
 
-        private void PermutateLastLayerEdges()
-        {
+		private void PermutateLastLayerEdges()
+		{
 
-        }
+		}
 
-        private void OrientateLastLayerCorners()
-        {
+		private void OrientateLastLayerCorners()
+		{
 
-        }
+		}
 
-        private void PermutateLastLayerCorners()
-        {
+		private void PermutateLastLayerCorners()
+		{
 
-        }
-    }
+		}
+	}
 }

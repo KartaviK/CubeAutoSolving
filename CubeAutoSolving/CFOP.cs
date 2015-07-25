@@ -2,8 +2,8 @@
 
 namespace CubeAutoSolving
 {
-    class CFOP : SolvingMethod
-    {
+	class CFOP : SolvingMethod
+	{
 		public override void SolveCube()
 		{
 			SolveCross();
@@ -26,5 +26,5 @@ namespace CubeAutoSolving
 		{
 
 		}
-    }
+	}
 }

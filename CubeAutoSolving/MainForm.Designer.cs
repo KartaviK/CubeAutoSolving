@@ -1,33 +1,33 @@
 ﻿namespace CubeAutoSolving
 {
-    partial class MainForm
-    {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
+	partial class MainForm
+	{
+		/// <summary>
+		/// Required designer variable.
+		/// </summary>
+		private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+		/// <summary>
+		/// Clean up any resources being used.
+		/// </summary>
+		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		protected override void Dispose(bool disposing)
+		{
+			if (disposing && (components != null))
+			{
+				components.Dispose();
+			}
+			base.Dispose(disposing);
+		}
 
-        #region Windows Form Designer generated code
+		#region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
-        {
+		/// <summary>
+		/// Required method for Designer support - do not modify
+		/// the contents of this method with the code editor.
+		/// </summary>
+		private void InitializeComponent()
+		{
 			this.b_r_w = new System.Windows.Forms.PictureBox();
 			this.b_w = new System.Windows.Forms.PictureBox();
 			this.b_r = new System.Windows.Forms.PictureBox();
@@ -1184,6 +1184,7 @@
 			this.scrambleButton.TabIndex = 95;
 			this.scrambleButton.Text = "Scramble";
 			this.scrambleButton.UseVisualStyleBackColor = true;
+			this.scrambleButton.Click += new System.EventHandler(this.scrambleButton_Click);
 			// 
 			// scrambleBox
 			// 
@@ -1356,101 +1357,101 @@
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
-        }
+		}
 
-        #endregion
+		#endregion
 
-        private System.Windows.Forms.PictureBox b_r_w;
-        private System.Windows.Forms.PictureBox b_w;
-        private System.Windows.Forms.PictureBox b_r;
-        private System.Windows.Forms.PictureBox b;
-        private System.Windows.Forms.PictureBox b_o;
-        private System.Windows.Forms.PictureBox b_y_r;
-        private System.Windows.Forms.PictureBox b_y;
-        private System.Windows.Forms.PictureBox b_o_y;
-        private System.Windows.Forms.PictureBox r_w_b;
-        private System.Windows.Forms.PictureBox r_b;
-        private System.Windows.Forms.PictureBox r_b_y;
-        private System.Windows.Forms.PictureBox r_w;
-        private System.Windows.Forms.PictureBox r;
-        private System.Windows.Forms.PictureBox r_y;
-        private System.Windows.Forms.PictureBox r_g_w;
-        private System.Windows.Forms.PictureBox r_g;
-        private System.Windows.Forms.PictureBox r_y_g;
-        private System.Windows.Forms.PictureBox y_r_b;
-        private System.Windows.Forms.PictureBox y_b;
-        private System.Windows.Forms.PictureBox y_b_o;
-        private System.Windows.Forms.PictureBox y_r;
-        private System.Windows.Forms.PictureBox y;
-        private System.Windows.Forms.PictureBox y_o;
-        private System.Windows.Forms.PictureBox y_g_r;
-        private System.Windows.Forms.PictureBox y_g;
-        private System.Windows.Forms.PictureBox y_o_g;
-        private System.Windows.Forms.PictureBox o_y_b;
-        private System.Windows.Forms.PictureBox o_b;
-        private System.Windows.Forms.PictureBox o_b_w;
-        private System.Windows.Forms.PictureBox o_y;
-        private System.Windows.Forms.PictureBox o;
-        private System.Windows.Forms.PictureBox o_w;
-        private System.Windows.Forms.PictureBox o_g_y;
-        private System.Windows.Forms.PictureBox o_g;
-        private System.Windows.Forms.PictureBox o_w_g;
-        private System.Windows.Forms.PictureBox w_o_b;
-        private System.Windows.Forms.PictureBox w_b;
-        private System.Windows.Forms.PictureBox w_b_r;
-        private System.Windows.Forms.PictureBox w_o;
-        private System.Windows.Forms.PictureBox w;
-        private System.Windows.Forms.PictureBox w_r;
-        private System.Windows.Forms.PictureBox w_g_o;
-        private System.Windows.Forms.PictureBox w_g;
-        private System.Windows.Forms.PictureBox w_r_g;
-        private System.Windows.Forms.PictureBox g_r_y;
-        private System.Windows.Forms.PictureBox g_y;
-        private System.Windows.Forms.PictureBox g_y_o;
-        private System.Windows.Forms.PictureBox g_r;
-        private System.Windows.Forms.PictureBox g;
-        private System.Windows.Forms.PictureBox g_o;
-        private System.Windows.Forms.PictureBox g_w_r;
-        private System.Windows.Forms.PictureBox g_w;
-        private System.Windows.Forms.PictureBox g_o_w;
-        private System.Windows.Forms.Button resetButton;
-        private System.Windows.Forms.Button buttonDi;
-        private System.Windows.Forms.Button buttonD;
-        private System.Windows.Forms.Button buttonU;
-        private System.Windows.Forms.Button buttonUi;
-        private System.Windows.Forms.Button buttonB;
-        private System.Windows.Forms.Button buttonBi;
-        private System.Windows.Forms.Button buttonF;
-        private System.Windows.Forms.Button buttonFi;
-        private System.Windows.Forms.Button buttonL;
-        private System.Windows.Forms.Button buttonLi;
-        private System.Windows.Forms.Button buttonR;
-        private System.Windows.Forms.Button buttonRi;
-        private System.Windows.Forms.Button startButton;
-        private System.Windows.Forms.Button buttonM;
-        private System.Windows.Forms.Button buttonMi;
-        private System.Windows.Forms.Button buttonS;
-        private System.Windows.Forms.Button buttonSi;
-        private System.Windows.Forms.Button buttonEi;
-        private System.Windows.Forms.Button buttonE;
-        private System.Windows.Forms.Button buttonRw;
-        private System.Windows.Forms.Button buttonRwi;
-        private System.Windows.Forms.Button buttonFwi;
-        private System.Windows.Forms.Button buttonLwi;
-        private System.Windows.Forms.Button buttonFw;
-        private System.Windows.Forms.Button buttonLw;
-        private System.Windows.Forms.Button buttonDwi;
-        private System.Windows.Forms.Button buttonDw;
-        private System.Windows.Forms.Button buttonUwi;
-        private System.Windows.Forms.Button buttonUw;
-        private System.Windows.Forms.Button buttonBwi;
-        private System.Windows.Forms.Button buttonBw;
-        private System.Windows.Forms.Button buttonZi;
-        private System.Windows.Forms.Button buttonZ;
-        private System.Windows.Forms.Button buttonYi;
-        private System.Windows.Forms.Button buttonY;
-        private System.Windows.Forms.Button button_Xi;
-        private System.Windows.Forms.Button buttonX;
+		private System.Windows.Forms.PictureBox b_r_w;
+		private System.Windows.Forms.PictureBox b_w;
+		private System.Windows.Forms.PictureBox b_r;
+		private System.Windows.Forms.PictureBox b;
+		private System.Windows.Forms.PictureBox b_o;
+		private System.Windows.Forms.PictureBox b_y_r;
+		private System.Windows.Forms.PictureBox b_y;
+		private System.Windows.Forms.PictureBox b_o_y;
+		private System.Windows.Forms.PictureBox r_w_b;
+		private System.Windows.Forms.PictureBox r_b;
+		private System.Windows.Forms.PictureBox r_b_y;
+		private System.Windows.Forms.PictureBox r_w;
+		private System.Windows.Forms.PictureBox r;
+		private System.Windows.Forms.PictureBox r_y;
+		private System.Windows.Forms.PictureBox r_g_w;
+		private System.Windows.Forms.PictureBox r_g;
+		private System.Windows.Forms.PictureBox r_y_g;
+		private System.Windows.Forms.PictureBox y_r_b;
+		private System.Windows.Forms.PictureBox y_b;
+		private System.Windows.Forms.PictureBox y_b_o;
+		private System.Windows.Forms.PictureBox y_r;
+		private System.Windows.Forms.PictureBox y;
+		private System.Windows.Forms.PictureBox y_o;
+		private System.Windows.Forms.PictureBox y_g_r;
+		private System.Windows.Forms.PictureBox y_g;
+		private System.Windows.Forms.PictureBox y_o_g;
+		private System.Windows.Forms.PictureBox o_y_b;
+		private System.Windows.Forms.PictureBox o_b;
+		private System.Windows.Forms.PictureBox o_b_w;
+		private System.Windows.Forms.PictureBox o_y;
+		private System.Windows.Forms.PictureBox o;
+		private System.Windows.Forms.PictureBox o_w;
+		private System.Windows.Forms.PictureBox o_g_y;
+		private System.Windows.Forms.PictureBox o_g;
+		private System.Windows.Forms.PictureBox o_w_g;
+		private System.Windows.Forms.PictureBox w_o_b;
+		private System.Windows.Forms.PictureBox w_b;
+		private System.Windows.Forms.PictureBox w_b_r;
+		private System.Windows.Forms.PictureBox w_o;
+		private System.Windows.Forms.PictureBox w;
+		private System.Windows.Forms.PictureBox w_r;
+		private System.Windows.Forms.PictureBox w_g_o;
+		private System.Windows.Forms.PictureBox w_g;
+		private System.Windows.Forms.PictureBox w_r_g;
+		private System.Windows.Forms.PictureBox g_r_y;
+		private System.Windows.Forms.PictureBox g_y;
+		private System.Windows.Forms.PictureBox g_y_o;
+		private System.Windows.Forms.PictureBox g_r;
+		private System.Windows.Forms.PictureBox g;
+		private System.Windows.Forms.PictureBox g_o;
+		private System.Windows.Forms.PictureBox g_w_r;
+		private System.Windows.Forms.PictureBox g_w;
+		private System.Windows.Forms.PictureBox g_o_w;
+		private System.Windows.Forms.Button resetButton;
+		private System.Windows.Forms.Button buttonDi;
+		private System.Windows.Forms.Button buttonD;
+		private System.Windows.Forms.Button buttonU;
+		private System.Windows.Forms.Button buttonUi;
+		private System.Windows.Forms.Button buttonB;
+		private System.Windows.Forms.Button buttonBi;
+		private System.Windows.Forms.Button buttonF;
+		private System.Windows.Forms.Button buttonFi;
+		private System.Windows.Forms.Button buttonL;
+		private System.Windows.Forms.Button buttonLi;
+		private System.Windows.Forms.Button buttonR;
+		private System.Windows.Forms.Button buttonRi;
+		private System.Windows.Forms.Button startButton;
+		private System.Windows.Forms.Button buttonM;
+		private System.Windows.Forms.Button buttonMi;
+		private System.Windows.Forms.Button buttonS;
+		private System.Windows.Forms.Button buttonSi;
+		private System.Windows.Forms.Button buttonEi;
+		private System.Windows.Forms.Button buttonE;
+		private System.Windows.Forms.Button buttonRw;
+		private System.Windows.Forms.Button buttonRwi;
+		private System.Windows.Forms.Button buttonFwi;
+		private System.Windows.Forms.Button buttonLwi;
+		private System.Windows.Forms.Button buttonFw;
+		private System.Windows.Forms.Button buttonLw;
+		private System.Windows.Forms.Button buttonDwi;
+		private System.Windows.Forms.Button buttonDw;
+		private System.Windows.Forms.Button buttonUwi;
+		private System.Windows.Forms.Button buttonUw;
+		private System.Windows.Forms.Button buttonBwi;
+		private System.Windows.Forms.Button buttonBw;
+		private System.Windows.Forms.Button buttonZi;
+		private System.Windows.Forms.Button buttonZ;
+		private System.Windows.Forms.Button buttonYi;
+		private System.Windows.Forms.Button buttonY;
+		private System.Windows.Forms.Button button_Xi;
+		private System.Windows.Forms.Button buttonX;
 		private System.Windows.Forms.PictureBox b_w_o;
 		private System.Windows.Forms.Button scrambleButton;
 		private System.Windows.Forms.TextBox scrambleBox;

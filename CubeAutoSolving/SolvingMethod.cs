@@ -9,9 +9,9 @@ namespace CubeAutoSolving
 		//Универсальный метод проверки ориентации
 		private void CheckOrientation()
 		{
-            string formula = "";
-            char firstElement = Moves.cube[0][1, 0];
-            char secondElement = Moves.cube[3][2, 1];
+			string formula = "";
+			char firstElement = Moves.cube[0][1, 0];
+			char secondElement = Moves.cube[3][2, 1];
 
 			switch (firstElement)
 			{
@@ -49,7 +49,7 @@ namespace CubeAutoSolving
 					break;
 			}
 
-            Moves.DoMovesByFormula(formula);
+			Moves.DoMovesByFormula(formula);
 		}
 
 		public void SolveCross()
@@ -107,7 +107,7 @@ namespace CubeAutoSolving
 							{
 								case 0:
 									formula = "B D' R D";
-                                    break;
+									break;
 								case 1:
 									formula = "B";
 									break;
@@ -207,7 +207,7 @@ namespace CubeAutoSolving
 									break;
 								case 5:
 									formula = "U L' B L";
-                                    break;
+									break;
 							}
 
 							Moves.DoMovesByFormula(formula);
