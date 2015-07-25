@@ -1189,9 +1189,9 @@
 			// scrambleBox
 			// 
 			this.scrambleBox.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.scrambleBox.Location = new System.Drawing.Point(504, 50);
+			this.scrambleBox.Location = new System.Drawing.Point(252, 50);
 			this.scrambleBox.Name = "scrambleBox";
-			this.scrambleBox.Size = new System.Drawing.Size(234, 26);
+			this.scrambleBox.Size = new System.Drawing.Size(486, 26);
 			this.scrambleBox.TabIndex = 96;
 			// 
 			// MainForm

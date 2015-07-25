@@ -46,9 +46,10 @@ namespace CubeAutoSolving
 		private void scrambleButton_Click(object sender, EventArgs e)
 		{
 			if (string.IsNullOrWhiteSpace(scrambleBox.Text))
-				Moves.ScrambleCube();
+				scrambleBox.Text = Moves.ScrambleCube();
 			else
-				Moves.DoMovesByFormula(scrambleBox.Text);
+				Moves.DoMovesByFormula(scrambleBox.Text.Trim());
+
 			RefreshCube();
 		}
 
