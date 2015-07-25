@@ -182,7 +182,7 @@
 			// 
 			this.b_r_w.BackColor = System.Drawing.Color.Blue;
 			this.b_r_w.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.b_r_w.Location = new System.Drawing.Point(132, 12);
+			this.b_r_w.Location = new System.Drawing.Point(372, 132);
 			this.b_r_w.Name = "b_r_w";
 			this.b_r_w.Size = new System.Drawing.Size(32, 32);
 			this.b_r_w.TabIndex = 0;
@@ -192,7 +192,7 @@
 			// 
 			this.b_w.BackColor = System.Drawing.Color.Blue;
 			this.b_w.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.b_w.Location = new System.Drawing.Point(170, 12);
+			this.b_w.Location = new System.Drawing.Point(410, 132);
 			this.b_w.Name = "b_w";
 			this.b_w.Size = new System.Drawing.Size(32, 32);
 			this.b_w.TabIndex = 1;
@@ -202,7 +202,7 @@
 			// 
 			this.b_r.BackColor = System.Drawing.Color.Blue;
 			this.b_r.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.b_r.Location = new System.Drawing.Point(132, 50);
+			this.b_r.Location = new System.Drawing.Point(372, 170);
 			this.b_r.Name = "b_r";
 			this.b_r.Size = new System.Drawing.Size(32, 32);
 			this.b_r.TabIndex = 5;
@@ -212,7 +212,7 @@
 			// 
 			this.b.BackColor = System.Drawing.Color.Blue;
 			this.b.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.b.Location = new System.Drawing.Point(170, 50);
+			this.b.Location = new System.Drawing.Point(410, 170);
 			this.b.Name = "b";
 			this.b.Size = new System.Drawing.Size(32, 32);
 			this.b.TabIndex = 4;
@@ -222,7 +222,7 @@
 			// 
 			this.b_o.BackColor = System.Drawing.Color.Blue;
 			this.b_o.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.b_o.Location = new System.Drawing.Point(208, 50);
+			this.b_o.Location = new System.Drawing.Point(448, 170);
 			this.b_o.Name = "b_o";
 			this.b_o.Size = new System.Drawing.Size(32, 32);
 			this.b_o.TabIndex = 3;
@@ -232,7 +232,7 @@
 			// 
 			this.b_y_r.BackColor = System.Drawing.Color.Blue;
 			this.b_y_r.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.b_y_r.Location = new System.Drawing.Point(132, 88);
+			this.b_y_r.Location = new System.Drawing.Point(372, 208);
 			this.b_y_r.Name = "b_y_r";
 			this.b_y_r.Size = new System.Drawing.Size(32, 32);
 			this.b_y_r.TabIndex = 8;
@@ -242,7 +242,7 @@
 			// 
 			this.b_y.BackColor = System.Drawing.Color.Blue;
 			this.b_y.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.b_y.Location = new System.Drawing.Point(170, 88);
+			this.b_y.Location = new System.Drawing.Point(410, 208);
 			this.b_y.Name = "b_y";
 			this.b_y.Size = new System.Drawing.Size(32, 32);
 			this.b_y.TabIndex = 7;
@@ -252,7 +252,7 @@
 			// 
 			this.b_o_y.BackColor = System.Drawing.Color.Blue;
 			this.b_o_y.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.b_o_y.Location = new System.Drawing.Point(208, 88);
+			this.b_o_y.Location = new System.Drawing.Point(448, 208);
 			this.b_o_y.Name = "b_o_y";
 			this.b_o_y.Size = new System.Drawing.Size(32, 32);
 			this.b_o_y.TabIndex = 6;
@@ -352,7 +352,7 @@
 			// 
 			this.y_r_b.BackColor = System.Drawing.Color.Yellow;
 			this.y_r_b.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.y_r_b.Location = new System.Drawing.Point(132, 132);
+			this.y_r_b.Location = new System.Drawing.Point(132, 12);
 			this.y_r_b.Name = "y_r_b";
 			this.y_r_b.Size = new System.Drawing.Size(32, 32);
 			this.y_r_b.TabIndex = 18;
@@ -362,7 +362,7 @@
 			// 
 			this.y_b.BackColor = System.Drawing.Color.Yellow;
 			this.y_b.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.y_b.Location = new System.Drawing.Point(170, 132);
+			this.y_b.Location = new System.Drawing.Point(170, 12);
 			this.y_b.Name = "y_b";
 			this.y_b.Size = new System.Drawing.Size(32, 32);
 			this.y_b.TabIndex = 19;
@@ -372,7 +372,7 @@
 			// 
 			this.y_b_o.BackColor = System.Drawing.Color.Yellow;
 			this.y_b_o.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.y_b_o.Location = new System.Drawing.Point(208, 132);
+			this.y_b_o.Location = new System.Drawing.Point(208, 12);
 			this.y_b_o.Name = "y_b_o";
 			this.y_b_o.Size = new System.Drawing.Size(32, 32);
 			this.y_b_o.TabIndex = 20;
@@ -382,7 +382,7 @@
 			// 
 			this.y_r.BackColor = System.Drawing.Color.Yellow;
 			this.y_r.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.y_r.Location = new System.Drawing.Point(132, 170);
+			this.y_r.Location = new System.Drawing.Point(132, 50);
 			this.y_r.Name = "y_r";
 			this.y_r.Size = new System.Drawing.Size(32, 32);
 			this.y_r.TabIndex = 21;
@@ -392,7 +392,7 @@
 			// 
 			this.y.BackColor = System.Drawing.Color.Yellow;
 			this.y.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.y.Location = new System.Drawing.Point(170, 170);
+			this.y.Location = new System.Drawing.Point(170, 50);
 			this.y.Name = "y";
 			this.y.Size = new System.Drawing.Size(32, 32);
 			this.y.TabIndex = 22;
@@ -402,7 +402,7 @@
 			// 
 			this.y_o.BackColor = System.Drawing.Color.Yellow;
 			this.y_o.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.y_o.Location = new System.Drawing.Point(208, 170);
+			this.y_o.Location = new System.Drawing.Point(208, 50);
 			this.y_o.Name = "y_o";
 			this.y_o.Size = new System.Drawing.Size(32, 32);
 			this.y_o.TabIndex = 23;
@@ -412,7 +412,7 @@
 			// 
 			this.y_g_r.BackColor = System.Drawing.Color.Yellow;
 			this.y_g_r.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.y_g_r.Location = new System.Drawing.Point(132, 208);
+			this.y_g_r.Location = new System.Drawing.Point(132, 88);
 			this.y_g_r.Name = "y_g_r";
 			this.y_g_r.Size = new System.Drawing.Size(32, 32);
 			this.y_g_r.TabIndex = 24;
@@ -422,7 +422,7 @@
 			// 
 			this.y_g.BackColor = System.Drawing.Color.Yellow;
 			this.y_g.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.y_g.Location = new System.Drawing.Point(170, 208);
+			this.y_g.Location = new System.Drawing.Point(170, 88);
 			this.y_g.Name = "y_g";
 			this.y_g.Size = new System.Drawing.Size(32, 32);
 			this.y_g.TabIndex = 25;
@@ -432,7 +432,7 @@
 			// 
 			this.y_o_g.BackColor = System.Drawing.Color.Yellow;
 			this.y_o_g.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.y_o_g.Location = new System.Drawing.Point(208, 208);
+			this.y_o_g.Location = new System.Drawing.Point(208, 88);
 			this.y_o_g.Name = "y_o_g";
 			this.y_o_g.Size = new System.Drawing.Size(32, 32);
 			this.y_o_g.TabIndex = 26;
@@ -532,7 +532,7 @@
 			// 
 			this.w_o_b.BackColor = System.Drawing.Color.White;
 			this.w_o_b.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.w_o_b.Location = new System.Drawing.Point(372, 132);
+			this.w_o_b.Location = new System.Drawing.Point(132, 252);
 			this.w_o_b.Name = "w_o_b";
 			this.w_o_b.Size = new System.Drawing.Size(32, 32);
 			this.w_o_b.TabIndex = 36;
@@ -542,7 +542,7 @@
 			// 
 			this.w_b.BackColor = System.Drawing.Color.White;
 			this.w_b.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.w_b.Location = new System.Drawing.Point(410, 132);
+			this.w_b.Location = new System.Drawing.Point(170, 252);
 			this.w_b.Name = "w_b";
 			this.w_b.Size = new System.Drawing.Size(32, 32);
 			this.w_b.TabIndex = 37;
@@ -552,7 +552,7 @@
 			// 
 			this.w_b_r.BackColor = System.Drawing.Color.White;
 			this.w_b_r.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.w_b_r.Location = new System.Drawing.Point(448, 132);
+			this.w_b_r.Location = new System.Drawing.Point(208, 252);
 			this.w_b_r.Name = "w_b_r";
 			this.w_b_r.Size = new System.Drawing.Size(32, 32);
 			this.w_b_r.TabIndex = 38;
@@ -562,7 +562,7 @@
 			// 
 			this.w_o.BackColor = System.Drawing.Color.White;
 			this.w_o.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.w_o.Location = new System.Drawing.Point(372, 170);
+			this.w_o.Location = new System.Drawing.Point(132, 290);
 			this.w_o.Name = "w_o";
 			this.w_o.Size = new System.Drawing.Size(32, 32);
 			this.w_o.TabIndex = 39;
@@ -572,7 +572,7 @@
 			// 
 			this.w.BackColor = System.Drawing.Color.White;
 			this.w.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.w.Location = new System.Drawing.Point(410, 170);
+			this.w.Location = new System.Drawing.Point(170, 290);
 			this.w.Name = "w";
 			this.w.Size = new System.Drawing.Size(32, 32);
 			this.w.TabIndex = 40;
@@ -582,7 +582,7 @@
 			// 
 			this.w_r.BackColor = System.Drawing.Color.White;
 			this.w_r.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.w_r.Location = new System.Drawing.Point(448, 170);
+			this.w_r.Location = new System.Drawing.Point(208, 290);
 			this.w_r.Name = "w_r";
 			this.w_r.Size = new System.Drawing.Size(32, 32);
 			this.w_r.TabIndex = 41;
@@ -592,7 +592,7 @@
 			// 
 			this.w_g_o.BackColor = System.Drawing.Color.White;
 			this.w_g_o.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.w_g_o.Location = new System.Drawing.Point(372, 208);
+			this.w_g_o.Location = new System.Drawing.Point(132, 328);
 			this.w_g_o.Name = "w_g_o";
 			this.w_g_o.Size = new System.Drawing.Size(32, 32);
 			this.w_g_o.TabIndex = 42;
@@ -602,7 +602,7 @@
 			// 
 			this.w_g.BackColor = System.Drawing.Color.White;
 			this.w_g.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.w_g.Location = new System.Drawing.Point(410, 208);
+			this.w_g.Location = new System.Drawing.Point(170, 328);
 			this.w_g.Name = "w_g";
 			this.w_g.Size = new System.Drawing.Size(32, 32);
 			this.w_g.TabIndex = 43;
@@ -612,7 +612,7 @@
 			// 
 			this.w_r_g.BackColor = System.Drawing.Color.White;
 			this.w_r_g.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.w_r_g.Location = new System.Drawing.Point(448, 208);
+			this.w_r_g.Location = new System.Drawing.Point(208, 328);
 			this.w_r_g.Name = "w_r_g";
 			this.w_r_g.Size = new System.Drawing.Size(32, 32);
 			this.w_r_g.TabIndex = 44;
@@ -622,7 +622,7 @@
 			// 
 			this.g_r_y.BackColor = System.Drawing.Color.Green;
 			this.g_r_y.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.g_r_y.Location = new System.Drawing.Point(132, 252);
+			this.g_r_y.Location = new System.Drawing.Point(132, 132);
 			this.g_r_y.Name = "g_r_y";
 			this.g_r_y.Size = new System.Drawing.Size(32, 32);
 			this.g_r_y.TabIndex = 45;
@@ -632,7 +632,7 @@
 			// 
 			this.g_y.BackColor = System.Drawing.Color.Green;
 			this.g_y.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.g_y.Location = new System.Drawing.Point(170, 252);
+			this.g_y.Location = new System.Drawing.Point(170, 132);
 			this.g_y.Name = "g_y";
 			this.g_y.Size = new System.Drawing.Size(32, 32);
 			this.g_y.TabIndex = 46;
@@ -642,7 +642,7 @@
 			// 
 			this.g_y_o.BackColor = System.Drawing.Color.Green;
 			this.g_y_o.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.g_y_o.Location = new System.Drawing.Point(208, 252);
+			this.g_y_o.Location = new System.Drawing.Point(208, 132);
 			this.g_y_o.Name = "g_y_o";
 			this.g_y_o.Size = new System.Drawing.Size(32, 32);
 			this.g_y_o.TabIndex = 47;
@@ -652,7 +652,7 @@
 			// 
 			this.g_r.BackColor = System.Drawing.Color.Green;
 			this.g_r.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.g_r.Location = new System.Drawing.Point(132, 290);
+			this.g_r.Location = new System.Drawing.Point(132, 170);
 			this.g_r.Name = "g_r";
 			this.g_r.Size = new System.Drawing.Size(32, 32);
 			this.g_r.TabIndex = 48;
@@ -662,7 +662,7 @@
 			// 
 			this.g.BackColor = System.Drawing.Color.Green;
 			this.g.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.g.Location = new System.Drawing.Point(170, 290);
+			this.g.Location = new System.Drawing.Point(170, 170);
 			this.g.Name = "g";
 			this.g.Size = new System.Drawing.Size(32, 32);
 			this.g.TabIndex = 49;
@@ -672,7 +672,7 @@
 			// 
 			this.g_o.BackColor = System.Drawing.Color.Green;
 			this.g_o.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.g_o.Location = new System.Drawing.Point(208, 290);
+			this.g_o.Location = new System.Drawing.Point(208, 170);
 			this.g_o.Name = "g_o";
 			this.g_o.Size = new System.Drawing.Size(32, 32);
 			this.g_o.TabIndex = 50;
@@ -682,7 +682,7 @@
 			// 
 			this.g_w_r.BackColor = System.Drawing.Color.Green;
 			this.g_w_r.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.g_w_r.Location = new System.Drawing.Point(132, 328);
+			this.g_w_r.Location = new System.Drawing.Point(132, 208);
 			this.g_w_r.Name = "g_w_r";
 			this.g_w_r.Size = new System.Drawing.Size(32, 32);
 			this.g_w_r.TabIndex = 51;
@@ -692,7 +692,7 @@
 			// 
 			this.g_w.BackColor = System.Drawing.Color.Green;
 			this.g_w.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.g_w.Location = new System.Drawing.Point(170, 328);
+			this.g_w.Location = new System.Drawing.Point(170, 208);
 			this.g_w.Name = "g_w";
 			this.g_w.Size = new System.Drawing.Size(32, 32);
 			this.g_w.TabIndex = 52;
@@ -702,7 +702,7 @@
 			// 
 			this.g_o_w.BackColor = System.Drawing.Color.Green;
 			this.g_o_w.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.g_o_w.Location = new System.Drawing.Point(208, 328);
+			this.g_o_w.Location = new System.Drawing.Point(208, 208);
 			this.g_o_w.Name = "g_o_w";
 			this.g_o_w.Size = new System.Drawing.Size(32, 32);
 			this.g_o_w.TabIndex = 53;
@@ -712,9 +712,9 @@
 			// 
 			this.resetButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
 			this.resetButton.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.resetButton.Location = new System.Drawing.Point(252, 12);
+			this.resetButton.Location = new System.Drawing.Point(504, 82);
 			this.resetButton.Name = "resetButton";
-			this.resetButton.Size = new System.Drawing.Size(228, 32);
+			this.resetButton.Size = new System.Drawing.Size(234, 32);
 			this.resetButton.TabIndex = 56;
 			this.resetButton.Text = "Reset";
 			this.resetButton.UseVisualStyleBackColor = true;
@@ -1168,7 +1168,7 @@
 			// 
 			this.b_w_o.BackColor = System.Drawing.Color.Blue;
 			this.b_w_o.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.b_w_o.Location = new System.Drawing.Point(208, 12);
+			this.b_w_o.Location = new System.Drawing.Point(448, 132);
 			this.b_w_o.Name = "b_w_o";
 			this.b_w_o.Size = new System.Drawing.Size(32, 32);
 			this.b_w_o.TabIndex = 2;
@@ -1178,7 +1178,7 @@
 			// 
 			this.scrambleButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
 			this.scrambleButton.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.scrambleButton.Location = new System.Drawing.Point(504, 82);
+			this.scrambleButton.Location = new System.Drawing.Point(252, 12);
 			this.scrambleButton.Name = "scrambleButton";
 			this.scrambleButton.Size = new System.Drawing.Size(234, 32);
 			this.scrambleButton.TabIndex = 95;
