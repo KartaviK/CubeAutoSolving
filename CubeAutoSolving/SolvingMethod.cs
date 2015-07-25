@@ -85,39 +85,13 @@ namespace CubeAutoSolving
 					if (emptySockets[i] == true)
 						number++;
 
-				if (number == 0)
+				if (number == 1)
 				{
-					if (Moves.cube[0][1, 0] != 'b' ||
-					Moves.cube[3][2, 1] != 'o' ||
-					Moves.cube[5][1, 2] != 'g' ||
-					Moves.cube[1][0, 1] != 'r')
-						CheckOrientation();
-					// else -> отправка на первый слой
+
 				}
 
 
 			}
-		}
-
-		private void FirstMethod()
-		{
-
-		}
-		private void SecondMethod()
-		{
-
-		}
-		private void ThirdMethod()
-		{
-
-		}
-		private void FourthMethod()
-		{
-
-		}
-		private void FifthMethod()
-		{
-
 		}
 			/*}
 			
