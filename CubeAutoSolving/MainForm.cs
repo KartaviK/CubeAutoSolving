@@ -30,19 +30,19 @@ namespace CubeAutoSolving
         }
 
         // Метод для начала автономной сборки куба
-        private void StartSolving(object sender, EventArgs e)
+        private void buttonStart_Click(object sender, EventArgs e)
         {
 
         }
 
         // Методы кнопок для поворотов граней
-        private void InizializatingCube_Click(object sender, EventArgs e)
+        private void buttonReset_Click(object sender, EventArgs e)
         {
             Moves.ResetCube();
             VizualizatingCube();
         }
 
-        private void moveButton_Click(object sender, EventArgs e)
+        private void buttonMove_Click(object sender, EventArgs e)
         {
             Button moveButton = (Button)sender;
             string moveName = moveButton.Text;
@@ -239,13 +239,14 @@ namespace CubeAutoSolving
                         }
                     }
         }
-    }
+	}
 
     public static class Extentions
     {
         public static Color ToColor(this char character)
         {
             Color color = new Color();
+
             switch (character)
             {
                 case 'b':
