@@ -194,7 +194,10 @@ namespace CubeAutoSolving
 							Moves.DoMovesByFormula(formula);
 						}
 					}
-
+		}
+	}
+}
+/*
 					if (Moves.cube[4][0, 1] != 'w')
 					{
 						//[i][0,1] (i!=0)
@@ -495,5 +498,3 @@ namespace CubeAutoSolving
 					}
 				}
 			}*/
-	}
-}
