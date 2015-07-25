@@ -26,7 +26,7 @@ namespace CubeAutoSolving
 		{
 			Moves.ResetCube();
 
-			VizualizatingCube();
+			RefreshCube();
 		}
 
 		// Метод для начала автономной сборки куба
@@ -40,12 +40,16 @@ namespace CubeAutoSolving
 		private void resetButton_Click(object sender, EventArgs e)
 		{
 			Moves.ResetCube();
-			VizualizatingCube();
+			RefreshCube();
 		}
 
 		private void scrambleButton_Click(object sender, EventArgs e)
 		{
-			Moves.DoMovesByFormula(scrambleBox.Text);
+			if (string.IsNullOrWhiteSpace(scrambleBox.Text))
+				Moves.ScrambleCube();
+			else
+				Moves.DoMovesByFormula(scrambleBox.Text);
+			RefreshCube();
 		}
 
 		private void moveButton_Click(object sender, EventArgs e)
@@ -53,11 +57,11 @@ namespace CubeAutoSolving
 			Button moveButton = (Button)sender;
 			string moveName = moveButton.Text;
 			Moves.DoMovesByFormula(moveName);
-			VizualizatingCube();
+			RefreshCube();
 		}
 
 		// Метод для обработки массива и последующей его визуализации
-		public void VizualizatingCube()
+		public void RefreshCube()
 		{
 			for (int k = 0; k < 6; k++)
 				for (int i = 0; i < 3; i++)

@@ -34,11 +34,21 @@ namespace CubeAutoSolving
 					for (int j = 0; j < 3; j++)
 						cube[k][i, j] = colors[k];
 		}
+
+		public static void ScrambleCube()
+		{
+			Random random = new Random();
+			string[] moves = { "R", "Ri", "U", "Ui", "F", "Fi", "L", "Li", "D", "Di", "B", "Bi" };
+			string formula = "";
+			for (int i = 0; i < 25; i++)
+				formula += moves[random.Next(0, 12)] + " ";
+            DoMovesByFormula(formula);
+		}
 		
 		// Вызов методов по строковой формуле (рефлексия)
 		public static void DoMovesByFormula(string formula)
 		{
-			formula = formula.Replace('\'', 'i');
+			formula = formula.Replace('\'', 'i').TrimEnd();
 			string[] moves = formula.Split(' ');
 			foreach (string move in moves)
 			{
