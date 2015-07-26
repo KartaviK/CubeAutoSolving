@@ -48,7 +48,7 @@ namespace CubeAutoSolving
 			if (string.IsNullOrWhiteSpace(scrambleBox.Text))
 				scrambleBox.Text = Moves.ScrambleCube();
 			else
-				Moves.DoMovesByFormula(scrambleBox.Text.Trim());
+				Moves.DoMovesByFormula(Moves.ConvertScramble(scrambleBox.Text));
 
 			RefreshCube();
 		}

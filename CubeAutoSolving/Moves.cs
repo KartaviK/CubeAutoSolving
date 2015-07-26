@@ -50,7 +50,7 @@ namespace CubeAutoSolving
 				new string[] { "B", "B'", "B2" }
 			};
 			string formula = "", scramble = "";
-			int newRandom = 0, group = 0, move = 0, reverseGroup = 0, reverseMove = 0;
+			int newRandom = 0, group = 0, move = 0, reverse = 0;
 
 			for (int i = 0; i < 20; i++)
 			{
@@ -61,27 +61,17 @@ namespace CubeAutoSolving
                 group = newRandom;
 				move = random.Next(0, 3);
                 formula += moves[group][move] + " ";
-
-				if (group == 2 || group == 5)
-				{
-					reverseGroup = group;
-					reverseMove = move;
-				}
-				else
-				{
-					if (group == 0 || group == 1)
-						reverseGroup = group + 3;
-					else
-						reverseGroup = group - 3;
-					reverseMove = move < 2 ? 1 - move : move;
-				}
-                scramble += moves[reverseGroup][reverseMove] + " ";
 			}
 			formula = formula.Trim();
 			DoMovesByFormula(formula);
 
-			return scramble;
+			return ConvertScramble(formula);
 		}
+
+		public static string ConvertScramble(string scramble)
+		{
+			return scramble.Replace('R', 'L').Replace('U', 'D').Replace('L', 'R').Replace('D', 'U');
+        }
 
 		private static string[] FormulaToMoves(string formula)
 		{
