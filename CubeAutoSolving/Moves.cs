@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 
 namespace CubeAutoSolving
@@ -8,7 +7,8 @@ namespace CubeAutoSolving
 	static class Moves 
 	{
 		// Инициализация массива
-		public static char[][,] cube = new char[6][,]{
+		public static char[][,] cube = new char[6][,]
+		{
 			new char[3,3],
 			new char[3,3],
 			new char[3,3],
@@ -16,7 +16,7 @@ namespace CubeAutoSolving
 			new char[3,3],
 			new char[3,3]
 		};
-
+		
 		public static void ResetCube()
 		{
 			// Одномерный массив чаров для инициализации массива куба
@@ -49,19 +49,36 @@ namespace CubeAutoSolving
 				new string[] { "D", "D'", "D2" },
 				new string[] { "B", "B'", "B2" }
 			};
-			string scramble = "";
-			int cache, group = 6;
+			string formula = "", scramble = "";
+			int newRandom = 0, group = 0, move = 0, reverseGroup = 0, reverseMove = 0;
 
 			for (int i = 0; i < 20; i++)
 			{
 				do
-					cache = random.Next(0, 6);
-				while (cache == group);
-                group = cache;
-				scramble += moves[cache][random.Next(0, 3)] + " ";
+					newRandom = random.Next(0, 6);
+				while (newRandom == group);
+
+                group = newRandom;
+				move = random.Next(0, 3);
+                formula += moves[group][move] + " ";
+
+				if (group == 2 || group == 5)
+				{
+					reverseGroup = group;
+					reverseMove = move;
+				}
+				else
+				{
+					if (group == 0 || group == 1)
+						reverseGroup = group + 3;
+					else
+						reverseGroup = group - 3;
+					reverseMove = move < 2 ? 1 - move : move;
+				}
+                scramble += moves[reverseGroup][reverseMove] + " ";
 			}
-			scramble = scramble.Trim();
-			DoMovesByFormula(scramble);
+			formula = formula.Trim();
+			DoMovesByFormula(formula);
 
 			return scramble;
 		}
