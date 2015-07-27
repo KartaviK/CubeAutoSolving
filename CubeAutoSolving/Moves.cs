@@ -112,7 +112,7 @@ namespace CubeAutoSolving
 
 		//  Стандартные движения
 		// Поворот задней грани по часовой стрелки
-		public static void B()
+		public static void U()
 		{
 			// Вызов мтетода для внутренних блоков
 			DoMoveInside(
@@ -146,7 +146,7 @@ namespace CubeAutoSolving
 		}
 
 		// Поворот задней грани против часовой стрелки
-		public static void Bi()
+		public static void Ui()
 		{
 			DoMoveInside(
 				0,
@@ -242,7 +242,7 @@ namespace CubeAutoSolving
 		}
 
 		// Поворот верхней грани по часовой стрелке
-		public static void U()
+		public static void F()
 		{
 			DoMoveInside(
 				2,
@@ -274,7 +274,7 @@ namespace CubeAutoSolving
 		}
 
 		// Поворот верхней грани против часовой стрелки 
-		public static void Ui()
+		public static void Fi()
 		{
 			DoMoveInside(
 				2,
@@ -370,7 +370,7 @@ namespace CubeAutoSolving
 		}
 
 		// Поворот нижней грани по часовой стрелки
-		public static void D()
+		public static void B()
 		{
 			DoMoveInside(
 				4,
@@ -402,7 +402,7 @@ namespace CubeAutoSolving
 		}
 
 		// Поворот нижней грани против часовой стрелки
-		public static void Di()
+		public static void Bi()
 		{
 			DoMoveInside(
 				4,
@@ -434,7 +434,7 @@ namespace CubeAutoSolving
 		}
 
 		// Поворот фронтовой грани по часовой стрелки
-		public static void F()
+		public static void D()
 		{
 			DoMoveInside(
 				5,
@@ -466,7 +466,7 @@ namespace CubeAutoSolving
 		}
 
 		// Поворот фронтовой грани против часовой стрелки
-		public static void Fi()
+		public static void Di()
 		{
 			DoMoveInside(
 				5,
@@ -556,7 +556,7 @@ namespace CubeAutoSolving
 		}
 
 		// Движение центральной стороны относительно фронтальной стороны по часовой стрелке
-		public static void S()
+		public static void E()
 		{
 			DoMoveOutside(
 				new int[]
@@ -584,7 +584,7 @@ namespace CubeAutoSolving
 		}
 
 		// Движение центральной стороны относительно фронтальной стороны против часовой стрелки
-		public static void Si()
+		public static void Ei()
 		{
 			DoMoveOutside(
 				new int[]
@@ -612,7 +612,7 @@ namespace CubeAutoSolving
 		}
 
 		// Движение центральной стороны относительно нижней стороны по часовой стрелке
-		public static void E()
+		public static void S()
 		{
 			DoMoveOutside(
 				new int[]
@@ -640,7 +640,7 @@ namespace CubeAutoSolving
 		}
 
 		// Движение центральной стороны относительно нижней стороны против часовой стрелки
-		public static void Ei()
+		public static void Si()
 		{
 			DoMoveOutside(
 				new int[]
