@@ -97,7 +97,7 @@ namespace CubeAutoSolving
 		}
 		
 		// Вызов методов по строковой формуле (рефлексия)
-		public static void DoMovesByFormula(string formula)
+		public static void DoMovesByFormula(string formula) 
 		{
 			string[] moves = FormulaToMoves(formula);
 			foreach (string move in moves)
