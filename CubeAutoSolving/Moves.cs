@@ -49,8 +49,9 @@ namespace CubeAutoSolving
 				new string[] { "D", "D'", "D2" },
 				new string[] { "B", "B'", "B2" }
 			};
-			string formula = "", scramble = "";
-			int newRandom = 0, group = 0, move = 0, reverse = 0;
+			string[] scramble = new string[20];
+            string formula;
+			int newRandom = 0, group = 0, move = 0;
 
 			for (int i = 0; i < 20; i++)
 			{
@@ -60,9 +61,9 @@ namespace CubeAutoSolving
 
                 group = newRandom;
 				move = random.Next(0, 3);
-                formula += moves[group][move] + " ";
-				}
-			formula = formula.Trim();
+                scramble[i] = moves[group][move] + " ";
+			}
+			formula = string.Join(" ", scramble);
 			DoMovesByFormula(formula);
 
 			return ConvertScramble(formula);
@@ -70,7 +71,24 @@ namespace CubeAutoSolving
 
 		public static string ConvertScramble(string scramble)
 		{
-			return scramble.Replace('R', 'L').Replace('U', 'D').Replace('L', 'R').Replace('D', 'U');
+			string[] moves = scramble.Split(' ');
+			for (int i = 0; i < moves.Length; i++)
+				switch (moves[i][0])
+				{
+					case 'R':
+						moves[i].Replace('R', 'L');
+						break;
+					case 'U':
+						moves[i].Replace('U', 'B');
+						break;
+					case 'L':
+						moves[i].Replace('L', 'R');
+						break;
+					case 'B':
+						moves[i].Replace('B', 'U');
+						break;
+				}
+			return string.Join(" ", moves);
 		}
 
 		private static string[] FormulaToMoves(string formula)
