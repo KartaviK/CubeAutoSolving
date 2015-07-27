@@ -73,73 +73,13 @@ namespace CubeAutoSolving
 							if (i == 0) // Первый столбец первой грани
 							{
 								if (j == 0) // Первый элемент
-									b_r_w.BackColor = Moves.cube[k][i, j].ToColor();
-								else if (j == 1) // Второй элемент
-									b_r.BackColor = Moves.cube[k][i, j].ToColor();
-								else if (j == 2) // Третий Элемент
-									b_y_r.BackColor = Moves.cube[k][i, j].ToColor();
-							}
-							else if (i == 1) // Второй столбец первой грани
-							{
-								if (j == 0) // Первый элемент
-									b_w.BackColor = Moves.cube[k][i, j].ToColor();
-								else if (j == 1) // Второй элемент
-									b.BackColor = Moves.cube[k][i, j].ToColor();
-								else if (j == 2) // Третий Элемент
-									b_y.BackColor = Moves.cube[k][i, j].ToColor();
-							}
-							else if (i == 2) // Третий столбец первой грани
-							{
-								if (j == 0) // Первый элемент
-									b_w_o.BackColor = Moves.cube[k][i, j].ToColor();
-								else if (j == 1) // Второй элемент
-									b_o.BackColor = Moves.cube[k][i, j].ToColor();
-								else if (j == 2) // Третий Элемент
-									b_o_y.BackColor = Moves.cube[k][i, j].ToColor();
-							}
-						}
-						else if (k == 1) // Вторая грань / 1 / L
-						{
-							if (i == 0) // Первый столбец третьей грани
-							{
-								if (j == 0) // Первый элемент
-									r_w_b.BackColor = Moves.cube[k][i, j].ToColor();
-								else if (j == 1) // Второй элемент
-									r_w.BackColor = Moves.cube[k][i, j].ToColor();
-								else if (j == 2) // Третий Элемент
-									r_g_w.BackColor = Moves.cube[k][i, j].ToColor();
-							}
-							else if (i == 1) // Второй столбец третьей грани
-							{
-								if (j == 0) // Первый элемент
-									r_b.BackColor = Moves.cube[k][i, j].ToColor();
-								else if (j == 1) // Второй элемент
-									r.BackColor = Moves.cube[k][i, j].ToColor();
-								else if (j == 2) // Третий Элемент
-									r_g.BackColor = Moves.cube[k][i, j].ToColor();
-							}
-							else if (i == 2) // Третий столбец третьей грани
-							{
-								if (j == 0) // Первый элемент
-									r_b_y.BackColor = Moves.cube[k][i, j].ToColor();
-								else if (j == 1) // Второй элемент
-									r_y.BackColor = Moves.cube[k][i, j].ToColor();
-								else if (j == 2) // Третий Элемент
-									r_y_g.BackColor = Moves.cube[k][i, j].ToColor();
-							}
-						}
-						else if (k == 2) // Третья грань / 2 / U
-						{
-							if (i == 0) // Первый столбец третьей грани
-							{
-								if (j == 0) // Первый элемент
 									y_r_b.BackColor = Moves.cube[k][i, j].ToColor();
 								else if (j == 1) // Второй элемент
 									y_r.BackColor = Moves.cube[k][i, j].ToColor();
 								else if (j == 2) // Третий Элемент
 									y_g_r.BackColor = Moves.cube[k][i, j].ToColor();
 							}
-							else if (i == 1) // Второй столбец третьей грани
+							else if (i == 1) // Второй столбец первой грани
 							{
 								if (j == 0) // Первый элемент
 									y_b.BackColor = Moves.cube[k][i, j].ToColor();
@@ -148,7 +88,7 @@ namespace CubeAutoSolving
 								else if (j == 2) // Третий Элемент
 									y_g.BackColor = Moves.cube[k][i, j].ToColor();
 							}
-							else if (i == 2) // Третий столбец третьей грани
+							else if (i == 2) // Третий столбец первой грани
 							{
 								if (j == 0) // Первый элемент
 									y_b_o.BackColor = Moves.cube[k][i, j].ToColor();
@@ -158,69 +98,39 @@ namespace CubeAutoSolving
 									y_o_g.BackColor = Moves.cube[k][i, j].ToColor();
 							}
 						}
-						else if (k == 3) // Четвертая грань / 3 / R
+						else if (k == 1) // Вторая грань / 1 / L
 						{
-							if (i == 0) // Первый столбец четвертой грани
+							if (i == 0) // Первый столбец третьей грани
 							{
 								if (j == 0) // Первый элемент
-									o_y_b.BackColor = Moves.cube[k][i, j].ToColor();
+									r_b_y.BackColor = Moves.cube[k][i, j].ToColor();
 								else if (j == 1) // Второй элемент
-									o_y.BackColor = Moves.cube[k][i, j].ToColor();
+									r_b.BackColor = Moves.cube[k][i, j].ToColor();
 								else if (j == 2) // Третий Элемент
-									o_g_y.BackColor = Moves.cube[k][i, j].ToColor();
+									r_w_b.BackColor = Moves.cube[k][i, j].ToColor();
 							}
-							else if (i == 1) // Второй столбец четвертой грани
+							else if (i == 1) // Второй столбец третьей грани
 							{
 								if (j == 0) // Первый элемент
-									o_b.BackColor = Moves.cube[k][i, j].ToColor();
+									r_y.BackColor = Moves.cube[k][i, j].ToColor();
 								else if (j == 1) // Второй элемент
-									o.BackColor = Moves.cube[k][i, j].ToColor();
+									r.BackColor = Moves.cube[k][i, j].ToColor();
 								else if (j == 2) // Третий Элемент
-									o_g.BackColor = Moves.cube[k][i, j].ToColor();
+									r_w.BackColor = Moves.cube[k][i, j].ToColor();
 							}
-							else if (i == 2) // Третий столбец четвертой грани
+							else if (i == 2) // Третий столбец третьей грани
 							{
 								if (j == 0) // Первый элемент
-									o_b_w.BackColor = Moves.cube[k][i, j].ToColor();
+									r_y_g.BackColor = Moves.cube[k][i, j].ToColor();
 								else if (j == 1) // Второй элемент
-									o_w.BackColor = Moves.cube[k][i, j].ToColor();
+									r_g.BackColor = Moves.cube[k][i, j].ToColor();
 								else if (j == 2) // Третий Элемент
-									o_w_g.BackColor = Moves.cube[k][i, j].ToColor();
+									r_g_w.BackColor = Moves.cube[k][i, j].ToColor();
 							}
 						}
-						else if (k == 4) // Пятая грань / 4 / D
+						else if (k == 2) // Третья грань / 2 / U
 						{
-							if (i == 0) // Первый столбец пятой грани
-							{
-								if (j == 0) // Первый элемент
-									w_o_b.BackColor = Moves.cube[k][i, j].ToColor();
-								else if (j == 1) // Второй элемент
-									w_o.BackColor = Moves.cube[k][i, j].ToColor();
-								else if (j == 2) // Третий Элемент
-									w_g_o.BackColor = Moves.cube[k][i, j].ToColor();
-							}
-							else if (i == 1) // Второй столбец пятой грани
-							{
-								if (j == 0) // Первый элемент
-									w_b.BackColor = Moves.cube[k][i, j].ToColor();
-								else if (j == 1) // Второй элемент
-									w.BackColor = Moves.cube[k][i, j].ToColor();
-								else if (j == 2) // Третий Элемент
-									w_g.BackColor = Moves.cube[k][i, j].ToColor();
-							}
-							else if (i == 2) // Третий столбец пятой грани
-							{
-								if (j == 0) // Первый элемент
-									w_b_r.BackColor = Moves.cube[k][i, j].ToColor();
-								else if (j == 1) // Второй элемент
-									w_r.BackColor = Moves.cube[k][i, j].ToColor();
-								else if (j == 2) // Третий Элемент
-									w_r_g.BackColor = Moves.cube[k][i, j].ToColor();
-							}
-						}
-						else if (k == 5) // Шестая грань / 5 / F
-						{
-							if (i == 0) // Первый столбец шестой грани
+							if (i == 0) // Первый столбец третьей грани
 							{
 								if (j == 0) // Первый элемент
 									g_r_y.BackColor = Moves.cube[k][i, j].ToColor();
@@ -229,7 +139,7 @@ namespace CubeAutoSolving
 								else if (j == 2) // Третий Элемент
 									g_w_r.BackColor = Moves.cube[k][i, j].ToColor();
 							}
-							else if (i == 1) // Второй столбец шестой грани
+							else if (i == 1) // Второй столбец третьей грани
 							{
 								if (j == 0) // Первый элемент
 									g_y.BackColor = Moves.cube[k][i, j].ToColor();
@@ -238,7 +148,7 @@ namespace CubeAutoSolving
 								else if (j == 2) // Третий Элемент
 									g_w.BackColor = Moves.cube[k][i, j].ToColor();
 							}
-							else if (i == 2) // Третий столбец шестой грани
+							else if (i == 2) // Третий столбец третьей грани
 							{
 								if (j == 0) // Первый элемент
 									g_y_o.BackColor = Moves.cube[k][i, j].ToColor();
@@ -246,6 +156,96 @@ namespace CubeAutoSolving
 									g_o.BackColor = Moves.cube[k][i, j].ToColor();
 								else if (j == 2) // Третий Элемент
 									g_o_w.BackColor = Moves.cube[k][i, j].ToColor();
+							}
+						}
+						else if (k == 3) // Четвертая грань / 3 / R
+						{
+							if (i == 0) // Первый столбец четвертой грани
+							{
+								if (j == 0) // Первый элемент
+									o_g_y.BackColor = Moves.cube[k][i, j].ToColor();
+								else if (j == 1) // Второй элемент
+									o_g.BackColor = Moves.cube[k][i, j].ToColor();
+								else if (j == 2) // Третий Элемент
+									o_w_g.BackColor = Moves.cube[k][i, j].ToColor();
+							}
+							else if (i == 1) // Второй столбец четвертой грани
+							{
+								if (j == 0) // Первый элемент
+									o_y.BackColor = Moves.cube[k][i, j].ToColor();
+								else if (j == 1) // Второй элемент
+									o.BackColor = Moves.cube[k][i, j].ToColor();
+								else if (j == 2) // Третий Элемент
+									o_w.BackColor = Moves.cube[k][i, j].ToColor();
+							}
+							else if (i == 2) // Третий столбец четвертой грани
+							{
+								if (j == 0) // Первый элемент
+									o_y_b.BackColor = Moves.cube[k][i, j].ToColor();
+								else if (j == 1) // Второй элемент
+									o_b.BackColor = Moves.cube[k][i, j].ToColor();
+								else if (j == 2) // Третий Элемент
+									o_b_w.BackColor = Moves.cube[k][i, j].ToColor();
+							}
+						}
+						else if (k == 4) // Пятая грань / 4 / D
+						{
+							if (i == 0) // Первый столбец пятой грани
+							{
+								if (j == 0) // Первый элемент
+									b_o_y.BackColor = Moves.cube[k][i, j].ToColor();
+								else if (j == 1) // Второй элемент
+									b_o.BackColor = Moves.cube[k][i, j].ToColor();
+								else if (j == 2) // Третий Элемент
+									b_w_o.BackColor = Moves.cube[k][i, j].ToColor();
+							}
+							else if (i == 1) // Второй столбец пятой грани
+							{
+								if (j == 0) // Первый элемент
+									b_y.BackColor = Moves.cube[k][i, j].ToColor();
+								else if (j == 1) // Второй элемент
+									b.BackColor = Moves.cube[k][i, j].ToColor();
+								else if (j == 2) // Третий Элемент
+									b_w.BackColor = Moves.cube[k][i, j].ToColor();
+							}
+							else if (i == 2) // Третий столбец пятой грани
+							{
+								if (j == 0) // Первый элемент
+									b_y_r.BackColor = Moves.cube[k][i, j].ToColor();
+								else if (j == 1) // Второй элемент
+									b_r.BackColor = Moves.cube[k][i, j].ToColor();
+								else if (j == 2) // Третий Элемент
+									b_r_w.BackColor = Moves.cube[k][i, j].ToColor();
+							}
+						}
+						else if (k == 5) // Шестая грань / 5 / F
+						{
+							if (i == 0) // Первый столбец шестой грани
+							{
+								if (j == 0) // Первый элемент
+									w_r_g.BackColor = Moves.cube[k][i, j].ToColor();
+								else if (j == 1) // Второй элемент
+									w_r.BackColor = Moves.cube[k][i, j].ToColor();
+								else if (j == 2) // Третий Элемент
+									w_b_r.BackColor = Moves.cube[k][i, j].ToColor();
+							}
+							else if (i == 1) // Второй столбец шестой грани
+							{
+								if (j == 0) // Первый элемент
+									w_g.BackColor = Moves.cube[k][i, j].ToColor();
+								else if (j == 1) // Второй элемент
+									w.BackColor = Moves.cube[k][i, j].ToColor();
+								else if (j == 2) // Третий Элемент
+									w_b.BackColor = Moves.cube[k][i, j].ToColor();
+							}
+							else if (i == 2) // Третий столбец шестой грани
+							{
+								if (j == 0) // Первый элемент
+									w_g_o.BackColor = Moves.cube[k][i, j].ToColor();
+								else if (j == 1) // Второй элемент
+									w_o.BackColor = Moves.cube[k][i, j].ToColor();
+								else if (j == 2) // Третий Элемент
+									w_o_b.BackColor = Moves.cube[k][i, j].ToColor();
 							}
 						}
 					}
@@ -260,23 +260,23 @@ namespace CubeAutoSolving
 
 			switch (character)
 			{
-				case 'b':
-					color = Color.Blue;
+				case 'y':
+					color = Color.Yellow;
 					break;
 				case 'r':
 					color = Color.Red;
 					break;
-				case 'y':
-					color = Color.Yellow;
+				case 'g':
+					color = Color.Green;
 					break;
 				case 'o':
 					color = Color.Orange;
 					break;
+				case 'b':
+					color = Color.Blue;
+					break;
 				case 'w':
 					color = Color.White;
-					break;
-				case 'g':
-					color = Color.Green;
 					break;
 			}
 
