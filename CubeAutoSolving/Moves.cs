@@ -16,30 +16,47 @@ namespace CubeAutoSolving
 			new char[3,3],
 			new char[3,3]
 		};
-		
+
+		public static char[][,] cacheCube = new char[6][,]
+		{
+			new char[3,3],
+			new char[3,3],
+			new char[3,3],
+			new char[3,3],
+			new char[3,3],
+			new char[3,3]
+		};
+
 		public static void ResetCube()
 		{
-			// Одномерный массив чаров для инициализации массива куба
 			char[] colors = new char[6]
 			{
 				'y',
-				'r', 
+				'r',
 				'g',
-				'o', 
-				'b', 
-				'w' 
+				'o',
+				'b',
+				'w'
 			};
 
-			// Заполнения куба начальными данными
 			for (int k = 0; k < 6; k++)
+			{
 				for (int i = 0; i < 3; i++)
+				{
 					for (int j = 0; j < 3; j++)
+					{
 						cube[k][i, j] = colors[k];
+						cacheCube[k][i, j] = colors[k];
+					}
+				}
+			}
 		}
 
+		// Метод генерирует рандомный скрамбл
 		public static string ScrambleCube()
 		{
 			Random random = new Random();
+
 			string[][] moves = 
 			{
 				new string[] { "R", "R'", "R2" },
@@ -56,13 +73,16 @@ namespace CubeAutoSolving
 			for (int i = 0; i < 20; i++)
 			{
 				do
+				{
 					newRandom = random.Next(0, 6);
+				}
 				while (newRandom == group);
 
                 group = newRandom;
 				move = random.Next(0, 3);
-                scramble[i] = moves[group][move] + " ";
+                scramble[i] = moves[group][move];
 			}
+
 			formula = string.Join(" ", scramble);
 			DoMovesByFormula(formula);
 
@@ -72,7 +92,9 @@ namespace CubeAutoSolving
 		public static string ConvertScramble(string scramble)
 		{
 			string[] moves = scramble.Split(' ');
-			for (int i = 0; i < moves.Length; i++)
+
+			for (int i = 0; i < moves.Length; i += 2)
+			{
 				switch (moves[i][0])
 				{
 					case 'R':
@@ -88,6 +110,8 @@ namespace CubeAutoSolving
 						moves[i].Replace('B', 'U');
 						break;
 				}
+			}
+
 			return string.Join(" ", moves);
 		}
 
@@ -95,7 +119,8 @@ namespace CubeAutoSolving
 		{
 			List<string> moves = new List<string>();
 			string move = "";
-			string[] array = formula.Split(' ');
+			string[] array = formula.Split(new char[]{' '}, StringSplitOptions.RemoveEmptyEntries);
+
             foreach (string element in array)
 			{
 				if (element.EndsWith("2"))
@@ -104,9 +129,13 @@ namespace CubeAutoSolving
 					moves.Add(move);
 				}
 				else if (element.EndsWith("'"))
+				{
 					move = element.Replace("'", "i");
+				}
 				else
+				{
 					move = element;
+				}
 
 				moves.Add(move);
 			}
@@ -118,6 +147,7 @@ namespace CubeAutoSolving
 		public static void DoMovesByFormula(string formula) 
 		{
 			string[] moves = FormulaToMoves(formula);
+
 			foreach (string move in moves)
 			{
 				MethodInfo moveMethod = typeof(Moves).GetMethod(move);
@@ -125,10 +155,10 @@ namespace CubeAutoSolving
 			}
 		}
 
-		//   Методы для движения граней
+		// Методы для движения граней
 		#region Повороты
 
-		//  Стандартные движения
+		// Стандартные движения
 		// Поворот задней грани по часовой стрелки
 		public static void U()
 		{
@@ -833,7 +863,9 @@ namespace CubeAutoSolving
 			{
 				// Определение фиксирования
 				for (int i = 0; i < 8; i++)
+				{
 					delta[i] = (isFixed[i] ? k : 0);
+				}
 
 				// cache = cube[0]
 				cache =  cube[cubeFace[0]]
@@ -841,36 +873,20 @@ namespace CubeAutoSolving
 					Math.Abs(fixedNumber[0] - k + delta[0]),
 					Math.Abs(fixedNumber[1] - k + delta[1])
 				];
-				// cube[0] = cube[1]						
-				cube[cubeFace[0]]
-				[
-					Math.Abs(fixedNumber[0] - k + delta[0]),					 
-					Math.Abs(fixedNumber[1] - k + delta[1])
-				] = cube[cubeFace[1]]
-				[
-					Math.Abs(fixedNumber[2] - k + delta[2]),
-					Math.Abs(fixedNumber[3] - k + delta[3])
-				];
-				// cube[1] = cube[2]
-				cube[cubeFace[1]]
-				[
-					Math.Abs(fixedNumber[2] - k + delta[2]),
-					Math.Abs(fixedNumber[3] - k + delta[3])
-				] = cube[cubeFace[2]]
-				[
-					Math.Abs(fixedNumber[4] - k + delta[4]),
-					Math.Abs(fixedNumber[5] - k + delta[5])
-				];
-				// cube[2] = cube[3]
-				cube[cubeFace[2]]
-				[
-					Math.Abs(fixedNumber[4] - k + delta[4]),
-					Math.Abs(fixedNumber[5] - k + delta[5])
-				] = cube[cubeFace[3]]
-				[
-					Math.Abs(fixedNumber[6] - k + delta[6]),
-					Math.Abs(fixedNumber[7] - k + delta[7])
-				];
+
+				for (int i = 0, j = -2; i < 3; i++, j += 2)
+				{
+					cube[cubeFace[i]]
+					[
+						Math.Abs(fixedNumber[j + 2] - k + delta[j + 2]),
+						Math.Abs(fixedNumber[j + 3] - k + delta[j + 3])
+					] = cube[cubeFace[i + 1]]
+					[
+						Math.Abs(fixedNumber[j + 4] - k + delta[j + 4]),
+						Math.Abs(fixedNumber[j + 5] - k + delta[j + 5])
+					];
+				}
+
 				// cube[3] = cache
 				cube[cubeFace[3]]
 				[
@@ -885,16 +901,14 @@ namespace CubeAutoSolving
 			// Определение, в какую сторону прокручивать внутренние блоки			
 			int invertOne = (invert ? 0 : 2); // По часовой
 			int invertTwo = (invert ? 2 : 0); // Против часовой
-			 // Переменная для свапа элементов char
+			// Переменная для свапа
 			char cache;
 
 			// Поворот внутренних блоков
 			for (int i = 0; i < 2; i++)
 			{
-				cache = 
-					cube[edge][i,0];
-				cube[edge][i,0] = 
-					cube[edge]
+				cache = cube[edge][i,0];
+				cube[edge][i,0] = cube[edge]
 				[
 					invertOne, 
 					Math.Abs(invertTwo - i)
@@ -922,6 +936,18 @@ namespace CubeAutoSolving
 					invertTwo,
 					Math.Abs(invertOne - i)
 				] = cache;
+			}
+		}
+
+		public static bool CheckCube(char[][,] cache)
+		{
+			if (cache != cube)
+			{
+				return false;
+			}
+			else
+			{
+				return true;
 			}
 		}
 	}

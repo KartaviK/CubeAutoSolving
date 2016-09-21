@@ -868,11 +868,11 @@
 			// 
 			this.startButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
 			this.startButton.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.startButton.Location = new System.Drawing.Point(504, 12);
+			this.startButton.Location = new System.Drawing.Point(252, 12);
 			this.startButton.Name = "startButton";
 			this.startButton.Size = new System.Drawing.Size(234, 32);
 			this.startButton.TabIndex = 70;
-			this.startButton.Text = "Solve it!";
+			this.startButton.Text = "Auto solve!";
 			this.startButton.UseVisualStyleBackColor = true;
 			this.startButton.Click += new System.EventHandler(this.startButton_Click);
 			// 
@@ -1178,7 +1178,7 @@
 			// 
 			this.scrambleButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
 			this.scrambleButton.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.scrambleButton.Location = new System.Drawing.Point(252, 12);
+			this.scrambleButton.Location = new System.Drawing.Point(252, 82);
 			this.scrambleButton.Name = "scrambleButton";
 			this.scrambleButton.Size = new System.Drawing.Size(234, 32);
 			this.scrambleButton.TabIndex = 95;

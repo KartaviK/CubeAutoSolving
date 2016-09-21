@@ -96,24 +96,27 @@ namespace CubeAutoSolving
 				if (Moves.cube[4][1, 0] != Moves.cube[4][1, 1])
 				{
 					if (Moves.cube[i][1, 0] == Moves.cube[4][1, 1])
-					switch (i)
 					{
-						case 0:
-							formula = "B D' R D";
-							break;
-						case 1:
-							formula = "B";
-							break;
-						case 2:
-							formula = "B2";
-							break;
-						case 3:
-							formula = "B'";
-							break;
-						case 5:
-							formula = "U L' B L";
-							break;
+						switch (i)
+						{
+							case 0:
+								formula = "B D' R D";
+								break;
+							case 1:
+								formula = "B";
+								break;
+							case 2:
+								formula = "B2";
+								break;
+							case 3:
+								formula = "B'";
+								break;
+							case 5:
+								formula = "U L' B L";
+								break;
+						}
 					}
+
 					Moves.DoMovesByFormula(formula);
 				}
 				//[i][0,1] (i!=1)
