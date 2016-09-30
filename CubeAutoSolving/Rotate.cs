@@ -4,10 +4,14 @@ using System.Reflection;
 
 namespace CubeAutoSolving
 {
-	static class Moves 
+	static class Rotate 
 	{
+        private const int _MovesCount = 24;
+        private const int _EdgesCount = 6;
+        public static MoveData[] data = new MoveData[_MovesCount];
+
 		// Инициализация массива
-		public static char[][,] cube = new char[6][,]
+		public static char[][,] cube = new char[_EdgesCount][,]
 		{
 			new char[3,3],
 			new char[3,3],
@@ -17,19 +21,14 @@ namespace CubeAutoSolving
 			new char[3,3]
 		};
 
-		public static char[][,] cacheCube = new char[6][,]
-		{
-			new char[3,3],
-			new char[3,3],
-			new char[3,3],
-			new char[3,3],
-			new char[3,3],
-			new char[3,3]
-		};
+        public static void InitializeComponent()
+        {
+            // TODO: Сделать считывания данных про повороты из xml файла
+        }
 
 		public static void ResetCube()
 		{
-			char[] colors = new char[6]
+			char[] colors = new char[_EdgesCount]
 			{
 				'y',
 				'r',
@@ -39,14 +38,13 @@ namespace CubeAutoSolving
 				'w'
 			};
 
-			for (int k = 0; k < 6; k++)
+			for (int k = 0; k < _EdgesCount; k++)
 			{
 				for (int i = 0; i < 3; i++)
 				{
 					for (int j = 0; j < 3; j++)
 					{
 						cube[k][i, j] = colors[k];
-						cacheCube[k][i, j] = colors[k];
 					}
 				}
 			}
@@ -150,7 +148,7 @@ namespace CubeAutoSolving
 
 			foreach (string move in moves)
 			{
-				MethodInfo moveMethod = typeof(Moves).GetMethod(move);
+				MethodInfo moveMethod = typeof(Rotate).GetMethod(move);
 				moveMethod.Invoke(null, null);
 			}
 		}
@@ -196,6 +194,13 @@ namespace CubeAutoSolving
 		// Поворот задней грани против часовой стрелки
 		public static void Ui()
 		{
+            MoveData data = new MoveData();
+            data.Inner.Side = 0;
+            data.Inner.Clockwise = false;
+            data.Outer.Face = new Face(new int[4] { 2, 1, 4, 3 });
+            data.Outer.FixedNumber = new FixedNumber(new int[8] { 0, 0, 0, 0, 0, 0, 0, 0 });
+            data.Outer.IsFixed = new IsFixed(new bool[8] { false, true, false, true, false, true,  false, true });
+
 			DoMoveInside(
 				0,
 				false

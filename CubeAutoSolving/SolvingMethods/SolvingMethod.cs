@@ -10,8 +10,8 @@ namespace CubeAutoSolving
 		private void CheckOrientation()
 		{
             string formula = "";
-            char firstElement = Moves.cube[0][1, 0];
-            char secondElement = Moves.cube[3][2, 1];
+            char firstElement = Rotate.cube[0][1, 0];
+            char secondElement = Rotate.cube[3][2, 1];
 
 			switch (firstElement)
 			{
@@ -49,7 +49,7 @@ namespace CubeAutoSolving
 					break;
 			}
 
-            Moves.DoMovesByFormula(formula);
+            Rotate.DoMovesByFormula(formula);
 		}
 
 		public void SolveCross()
@@ -59,10 +59,10 @@ namespace CubeAutoSolving
 
 			bool[] emptySockets = 
 				{
-					Moves.cube[4][1, 0] != 'w',
-					Moves.cube[4][0, 1] != 'w',
-					Moves.cube[4][2, 1] != 'w',
-					Moves.cube[4][1, 2] != 'w'
+					Rotate.cube[4][1, 0] != 'w',
+					Rotate.cube[4][0, 1] != 'w',
+					Rotate.cube[4][2, 1] != 'w',
+					Rotate.cube[4][1, 2] != 'w'
 				};
 
 			for (int i = 0; i < 4; i++)
@@ -71,10 +71,10 @@ namespace CubeAutoSolving
 
 			if (number == 0)
 			{
-				if (Moves.cube[0][1, 0] != 'b' ||
-					Moves.cube[3][2, 1] != 'o' ||
-					Moves.cube[5][1, 2] != 'g' ||
-					Moves.cube[1][0, 1] != 'r')
+				if (Rotate.cube[0][1, 0] != 'b' ||
+					Rotate.cube[3][2, 1] != 'o' ||
+					Rotate.cube[5][1, 2] != 'g' ||
+					Rotate.cube[1][0, 1] != 'r')
 					CheckOrientation();
 			}
 			else if (number == 1)
@@ -93,9 +93,9 @@ namespace CubeAutoSolving
 
 			for (int i = 0; i < 6 && i != 4; i++)
 			{
-				if (Moves.cube[4][1, 0] != Moves.cube[4][1, 1])
+				if (Rotate.cube[4][1, 0] != Rotate.cube[4][1, 1])
 				{
-					if (Moves.cube[i][1, 0] == Moves.cube[4][1, 1])
+					if (Rotate.cube[i][1, 0] == Rotate.cube[4][1, 1])
 					{
 						switch (i)
 						{
@@ -117,10 +117,10 @@ namespace CubeAutoSolving
 						}
 					}
 
-					Moves.DoMovesByFormula(formula);
+					Rotate.DoMovesByFormula(formula);
 				}
 				//[i][0,1] (i!=1)
-				if (Moves.cube[i][0, 1] == 'w' && i != 1)
+				if (Rotate.cube[i][0, 1] == 'w' && i != 1)
 				{
 					switch (i)
 					{
@@ -137,11 +137,11 @@ namespace CubeAutoSolving
 							formula = "D' L D";
 							break;
 					}
-					Moves.DoMovesByFormula(formula);
+					Rotate.DoMovesByFormula(formula);
 				}
 
 				//[i][2,1] (i!=3)
-				if (Moves.cube[i][2, 1] == 'w' && i != 3)
+				if (Rotate.cube[i][2, 1] == 'w' && i != 3)
 				{
 					switch (i)
 					{
@@ -158,11 +158,11 @@ namespace CubeAutoSolving
 							formula = "D' R D";
 							break;
 					}
-					Moves.DoMovesByFormula(formula);
+					Rotate.DoMovesByFormula(formula);
 				}
 
 				//[i][1,2] (i!=5)
-				if (Moves.cube[i][1, 2] == 'w' && i != 5)
+				if (Rotate.cube[i][1, 2] == 'w' && i != 5)
 				{
 					switch (i)
 					{
@@ -177,7 +177,7 @@ namespace CubeAutoSolving
 							formula = "D2 F D2";
 							break;
 					}
-					Moves.DoMovesByFormula(formula);
+					Rotate.DoMovesByFormula(formula);
 				}
 			}
 		}

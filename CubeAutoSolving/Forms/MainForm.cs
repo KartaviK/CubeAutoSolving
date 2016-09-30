@@ -138,7 +138,7 @@ namespace CubeAutoSolving
 
 		private void MainForm_Load(object sender, EventArgs e)
 		{
-			Moves.ResetCube();
+			Rotate.ResetCube();
 
 			RefreshCube();
 		}
@@ -146,8 +146,11 @@ namespace CubeAutoSolving
 		// Метод для начала автономной сборки куба
 		private void startButton_Click(object sender, EventArgs e)
 		{
+            SolveForm dataForm = new SolveForm();
+            dataForm.ShowDialog();
 			LayerByLayer lbl = new LayerByLayer();
-			lbl.SolveCube();
+            dataForm.Close();
+			//lbl.SolveCube();
 			RefreshCube();
 		}
 
@@ -155,7 +158,7 @@ namespace CubeAutoSolving
 		private void resetButton_Click(object sender, EventArgs e)
 		{
 			scrambleBox.Text = "";
-			Moves.ResetCube();
+			Rotate.ResetCube();
 			RefreshCube();
 		}
 
@@ -163,11 +166,11 @@ namespace CubeAutoSolving
 		{
 			if (String.IsNullOrWhiteSpace(scrambleBox.Text))
 			{
-				scrambleBox.Text = Moves.ScrambleCube();
+				scrambleBox.Text = Rotate.ScrambleCube();
 			}
 			else
 			{
-				Moves.DoMovesByFormula(Moves.ConvertScramble(scrambleBox.Text));
+				Rotate.DoMovesByFormula(Rotate.ConvertScramble(scrambleBox.Text));
 			}	
 
 			RefreshCube();
@@ -177,7 +180,7 @@ namespace CubeAutoSolving
 		{
 			Button moveButton = (Button)sender;
 			string moveName = moveButton.Text;
-			Moves.DoMovesByFormula(moveName);
+			Rotate.DoMovesByFormula(moveName);
 			RefreshCube();
 		}
 
@@ -190,7 +193,7 @@ namespace CubeAutoSolving
 				{ 
 					for (int j = 0; j < 3; j++)
 					{
-						pictureElements[k][i, j].BackColor = Moves.cube[k][i, j].ToColor();
+						pictureElements[k][i, j].BackColor = Rotate.cube[k][i, j].ToColor();
 					}
 				}
 			}

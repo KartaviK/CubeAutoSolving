@@ -44,28 +44,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataForm.cs">
+    <Compile Include="Forms\SolveForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DataForm.Designer.cs">
-      <DependentUpon>DataForm.cs</DependentUpon>
+    <Compile Include="Forms\SolveForm.Designer.cs">
+      <DependentUpon>SolveForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
+    <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CFOP.cs" />
-    <Compile Include="LayerByLayer.cs" />
-    <Compile Include="Moves.cs" />
+    <Compile Include="Moves\Move.cs" />
+    <Compile Include="SolvingMethods\CFOP.cs" />
+    <Compile Include="SolvingMethods\Experimental.cs" />
+    <Compile Include="SolvingMethods\LayerByLayer.cs" />
+    <Compile Include="Rotate.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SolvingMethod.cs" />
-    <EmbeddedResource Include="DataForm.resx">
-      <DependentUpon>DataForm.cs</DependentUpon>
+    <Compile Include="SolvingMethods\SolvingMethod.cs" />
+    <EmbeddedResource Include="Forms\SolveForm.resx">
+      <DependentUpon>SolveForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -91,6 +93,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Configuration\AppMoveData.xml">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

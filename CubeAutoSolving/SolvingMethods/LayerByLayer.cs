@@ -26,9 +26,7 @@ namespace CubeAutoSolving
 
 		public LayerByLayer()
 		{
-			Task console = Task.Factory.StartNew(MyConsole);
-
-			Form diagnosticForm = new Form();
+			//Task console = Task.Factory.StartNew(MyConsole);
 		}
 
 		public override void SolveCube()
@@ -48,35 +46,25 @@ namespace CubeAutoSolving
 			position = 0;
 		}
 
-		private static Stopwatch watch = null;
+		private static Stopwatch time = null;
 
 		public void MyConsole()
 		{
 			if (AllocConsole())
 			{
-				string[] moves =
-				{
-					"R", "R'", "R2",
-					"U", "U'", "U2",
-					"F", "F'", "F2",
-					"L", "L'", "L2",
-					"D", "D'", "D2",
-					"B", "B'", "B2",
-				};
-
 				for (int k = 0; k < 6; k++)
 				{
 					for (int i = 0; i < 3; i++)
 					{
 						for (int j = 0; j < 3; j++)
 						{
-							duplicateCube[k][i, j] = Moves.cube[k][i, j];
+							duplicateCube[k][i, j] = Rotate.cube[k][i, j];
 						}
 					}
 				}
 
-				watch = new Stopwatch();
-				watch.Start();
+				time = new Stopwatch();
+				time.Start();
 
 				for (position = 0; position < 20; position++)
 				{
@@ -84,13 +72,14 @@ namespace CubeAutoSolving
 					{
 						Generate(0, "");
 
-						if (watch.ElapsedMilliseconds >= 600000)
+						if (time.ElapsedMilliseconds >= 2000)
 						{
 							break;
 						}
 					}
 				}
 
+                Console.WriteLine("Enter eny key");
 				Console.ReadKey();
 				FreeConsole();
 			}
@@ -111,54 +100,40 @@ namespace CubeAutoSolving
 		// Метод рекурсивной генерации формулы для кубика
 		private void Generate(int position, string pattern)
 		{
-			if (watch.ElapsedMilliseconds >= 600000)
-			{
-				return;
-			}
+            if (time.ElapsedMilliseconds >= 2000) // 10 минут работы алгоритма (Во время рефакторинга добавить точку выхода во время выполнения)
+                return;
 
 			int last = position - 1;
 			int penultimate = position - 2;
 			string[] elements = pattern.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 			string formula = "";
-
-			// Цикл по типу поворота
+            
 			for (int turn = 0; turn < moves.Length; turn++)
 			{
-				// Для формулы больше одного движения
 				if (elements.Length >= 1)
 				{
-					// Сверка последнего элемента формулы со следующим предпологаемым типом поворота
 					if (Array.IndexOf(moves[turn], elements[last]) != -1)
 					{
 						if (turn != moves.Length - 1)
-						{
 							turn++;
-						}
 						else
-						{
 							continue;
-						}
 					}
-					// Для формулы больше двух движений
+
 					if (elements.Length >= 2)
 					{
-						// Сверка предпоследнего элемента формулы со следующим предпологаемым типом поворота
 						if (Array.IndexOf(moves[turn], elements[penultimate]) != -1)
 						{
 							if (turn != moves.Length - 1)
 							{
 								turn++;
-								// Сверка последнего элемента формулы со следующим предпологаемым типом поворота
+								
 								if (Array.IndexOf(moves[turn], elements[last]) != -1)
 								{
 									if (turn != moves.Length - 1)
-									{
 										turn++;
-									}
 									else
-									{
 										continue;
-									}
 								}
 							}
 							else
@@ -168,26 +143,16 @@ namespace CubeAutoSolving
 						}
 					}
 				}
-
-				// Цикл по варианту поворота
+				
 				for (int variant = 0; variant < moves[turn].Length; variant++)
-				{
-					// Вывод результата
-					Console.WriteLine(
-						"Formula count: {0}; time: {1}; attempts: {2}; formula: {3}",
-						formulaCount < position ? position + 1 : formulaCount, 
-						watch.Elapsed, 
-						++numberAttempts,
-						pattern + moves[turn][variant]
-						);
+                {
+                    // Вывод (Во время рефакторинга убрать)
+					Console.WriteLine("Formula count: {0}; time: {1}; attempts: {2}; formula: {3}", formulaCount < position ? position + 1 : formulaCount, time.Elapsed, ++numberAttempts,pattern + moves[turn][variant]);
 					formula = pattern + moves[turn][variant];
-					Moves.DoMovesByFormula(formula); // Выполнение формулы
-
-					// Создания новой ветки рекурсии
+					Rotate.DoMovesByFormula(formula);
+					
 					if (position < this.position && !stopAlg)
-					{
 						Generate(position + 1, pattern + moves[turn][variant] + " ");
-					}
 				}
 			}
 		}
