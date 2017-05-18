@@ -1,6 +1,4 @@
-﻿
-
-namespace CubeAutoSolving
+﻿namespace RubiksAutoSolve
 {
 	class CFOP : SolvingMethod
 	{

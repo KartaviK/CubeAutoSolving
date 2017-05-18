@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace CubeAutoSolving
+namespace RubiksAutoSolve
 {
 	static class Program
 	{

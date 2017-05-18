@@ -56,7 +56,6 @@
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Moves\Move.cs" />
     <Compile Include="SolvingMethods\CFOP.cs" />
     <Compile Include="SolvingMethods\Experimental.cs" />
     <Compile Include="SolvingMethods\LayerByLayer.cs" />
@@ -93,11 +92,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Configuration\AppMoveData.xml">
-      <SubType>Designer</SubType>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

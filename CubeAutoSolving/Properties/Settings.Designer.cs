@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CubeAutoSolving.Properties {
+namespace RubiksAutoSolve.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

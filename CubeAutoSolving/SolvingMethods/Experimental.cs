@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 
-namespace CubeAutoSolving.SolvingMethods
+namespace RubiksAutoSolve.SolvingMethods
 {
     public static class Experimental
     {
@@ -47,10 +47,7 @@ namespace CubeAutoSolving.SolvingMethods
 
             int last = position - 1;
             int penultimate = position - 2;
-            string[] elements = pattern.Split(
-                new char[] { ' ' },
-                StringSplitOptions.RemoveEmptyEntries
-                );
+            string[] elements = pattern.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
             string formula = "";
 
             for (int turn = 0; turn < moves.Length; turn++)

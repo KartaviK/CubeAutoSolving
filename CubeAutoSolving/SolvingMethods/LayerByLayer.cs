@@ -7,22 +7,12 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace CubeAutoSolving
+namespace RubiksAutoSolve
 {
 	class LayerByLayer : SolvingMethod
 	{
 		private int position = 0;
 		private bool stopAlg = false;
-
-		public char[][,] duplicateCube = new char[6][,]
-		{
-			new char[3,3],
-			new char[3,3],
-			new char[3,3],
-			new char[3,3],
-			new char[3,3],
-			new char[3,3]
-		};
 
 		public LayerByLayer()
 		{
@@ -50,38 +40,31 @@ namespace CubeAutoSolving
 
 		public void MyConsole()
 		{
-			if (AllocConsole())
+			for (int k = 0; k < 6; k++)
 			{
-				for (int k = 0; k < 6; k++)
+				for (int i = 0; i < 3; i++)
 				{
-					for (int i = 0; i < 3; i++)
+					for (int j = 0; j < 3; j++)
 					{
-						for (int j = 0; j < 3; j++)
-						{
-							duplicateCube[k][i, j] = Rotate.cube[k][i, j];
-						}
+						//duplicateCube[k][i, j] = Rotate.cube[k][i, j];
 					}
 				}
+			}
 
-				time = new Stopwatch();
-				time.Start();
+			time = new Stopwatch();
+			time.Start();
 
-				for (position = 0; position < 20; position++)
+			for (position = 0; position < 20; position++)
+			{
+				if (!stopAlg)
 				{
-					if (!stopAlg)
-					{
-						Generate(0, "");
+					Generate(0, "");
 
-						if (time.ElapsedMilliseconds >= 2000)
-						{
-							break;
-						}
+					if (time.ElapsedMilliseconds >= 2000)
+					{
+						break;
 					}
 				}
-
-                Console.WriteLine("Enter eny key");
-				Console.ReadKey();
-				FreeConsole();
 			}
 		}
 		
@@ -146,9 +129,7 @@ namespace CubeAutoSolving
 				
 				for (int variant = 0; variant < moves[turn].Length; variant++)
                 {
-                    // Вывод (Во время рефакторинга убрать)
-					Console.WriteLine("Formula count: {0}; time: {1}; attempts: {2}; formula: {3}", formulaCount < position ? position + 1 : formulaCount, time.Elapsed, ++numberAttempts,pattern + moves[turn][variant]);
-					formula = pattern + moves[turn][variant];
+                    formula = pattern + moves[turn][variant];
 					Rotate.DoMovesByFormula(formula);
 					
 					if (position < this.position && !stopAlg)
@@ -181,13 +162,5 @@ namespace CubeAutoSolving
 		{
 
 		}
-
-		[DllImport("kernel32.dll", SetLastError = true)]
-		[return: MarshalAs(UnmanagedType.Bool)]
-		private static extern bool AllocConsole();
-
-		[DllImport("kernel32.dll", SetLastError = true)]
-		[return: MarshalAs(UnmanagedType.Bool)]
-		private static extern bool FreeConsole();
 	}
 }

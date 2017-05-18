@@ -1,4 +1,4 @@
-﻿namespace CubeAutoSolving
+﻿namespace RubiksAutoSolve
 {
 	partial class SolveForm
 	{

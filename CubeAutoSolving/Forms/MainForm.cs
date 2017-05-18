@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace CubeAutoSolving
+namespace RubiksAutoSolve
 {
 	public partial class MainForm : Form
 	{

@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace CubeAutoSolving
+namespace RubiksAutoSolve
 {
 	static class Rotate 
 	{
         private const int _MovesCount = 24;
         private const int _EdgesCount = 6;
-        public static MoveData[] data = new MoveData[_MovesCount];
 
 		// Инициализация массива
 		public static char[][,] cube = new char[_EdgesCount][,]
@@ -20,11 +19,6 @@ namespace CubeAutoSolving
 			new char[3,3],
 			new char[3,3]
 		};
-
-        public static void InitializeComponent()
-        {
-            // TODO: Сделать считывания данных про повороты из xml файла
-        }
 
 		public static void ResetCube()
 		{
@@ -194,13 +188,6 @@ namespace CubeAutoSolving
 		// Поворот задней грани против часовой стрелки
 		public static void Ui()
 		{
-            MoveData data = new MoveData();
-            data.Inner.Side = 0;
-            data.Inner.Clockwise = false;
-            data.Outer.Face = new Face(new int[4] { 2, 1, 4, 3 });
-            data.Outer.FixedNumber = new FixedNumber(new int[8] { 0, 0, 0, 0, 0, 0, 0, 0 });
-            data.Outer.IsFixed = new IsFixed(new bool[8] { false, true, false, true, false, true,  false, true });
-
 			DoMoveInside(
 				0,
 				false
@@ -861,7 +848,7 @@ namespace CubeAutoSolving
 		{
 			// Одномерный массив для ликвидация последовательности в формуле внутренних блоков
 			int[] delta = new int[8];
-			// Переменная для свапа элементов char
+			// Переменная для свапа элементов
 			char cache;
 			// Поворот внешних блоков
 			for (int k = 0; k < 3; k++)

@@ -1,6 +1,6 @@
 ﻿
 
-namespace CubeAutoSolving
+namespace RubiksAutoSolve
 {
 	abstract class SolvingMethod
 	{

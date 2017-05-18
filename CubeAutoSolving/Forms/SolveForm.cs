@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 
-namespace CubeAutoSolving
+namespace RubiksAutoSolve
 {
 	public partial class SolveForm : Form
 	{
