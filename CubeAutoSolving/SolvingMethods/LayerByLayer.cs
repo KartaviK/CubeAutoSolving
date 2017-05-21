@@ -1,23 +1,11 @@
 ﻿using System;
-using System.Runtime.InteropServices;
-using System.Threading.Tasks;
-using System.IO;
-using System.Text;
-using System.Diagnostics;
-using System.Drawing;
-using System.Windows.Forms;
 
 namespace RubiksAutoSolve
 {
 	class LayerByLayer : SolvingMethod
 	{
 		private int position = 0;
-		private bool stopAlg = false;
-
-		public LayerByLayer()
-		{
-			//Task console = Task.Factory.StartNew(MyConsole);
-		}
+		public bool stopAlg = false;
 
 		public override void SolveCube()
 		{
@@ -33,40 +21,15 @@ namespace RubiksAutoSolve
 		private void SolveFirstLayer()
 		{
 			stopAlg = false;
-			position = 0;
-		}
 
-		private static Stopwatch time = null;
-
-		public void MyConsole()
-		{
-			for (int k = 0; k < 6; k++)
-			{
-				for (int i = 0; i < 3; i++)
-				{
-					for (int j = 0; j < 3; j++)
-					{
-						//duplicateCube[k][i, j] = Rotate.cube[k][i, j];
-					}
-				}
-			}
-
-			time = new Stopwatch();
-			time.Start();
-
-			for (position = 0; position < 20; position++)
-			{
-				if (!stopAlg)
-				{
-					Generate(0, "");
-
-					if (time.ElapsedMilliseconds >= 2000)
-					{
-						break;
-					}
-				}
-			}
-		}
+            for (position = 0; position < 20; position++)
+            {
+                if (!stopAlg)
+                {
+                    Generate(0, "");
+                }
+            }
+        }
 		
 		private static int numberAttempts = 0;
 		private static int formulaCount = 1;
@@ -83,9 +46,6 @@ namespace RubiksAutoSolve
 		// Метод рекурсивной генерации формулы для кубика
 		private void Generate(int position, string pattern)
 		{
-            if (time.ElapsedMilliseconds >= 2000) // 10 минут работы алгоритма (Во время рефакторинга добавить точку выхода во время выполнения)
-                return;
-
 			int last = position - 1;
 			int penultimate = position - 2;
 			string[] elements = pattern.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
@@ -130,8 +90,10 @@ namespace RubiksAutoSolve
 				for (int variant = 0; variant < moves[turn].Length; variant++)
                 {
                     formula = pattern + moves[turn][variant];
-					Rotate.DoMovesByFormula(formula);
+					//Rotate.DoMovesByFormula(formula);
 					
+                    
+
 					if (position < this.position && !stopAlg)
 						Generate(position + 1, pattern + moves[turn][variant] + " ");
 				}

@@ -6,11 +6,11 @@ namespace RubiksAutoSolve
 {
 	static class Rotate 
 	{
-        private const int _MovesCount = 24;
-        private const int _EdgesCount = 6;
+        private const int movesCount = 24;
+        private const int edgesCount = 6;
 
 		// Инициализация массива
-		public static char[][,] cube = new char[_EdgesCount][,]
+		public static char[][,] cube = new char[edgesCount][,]
 		{
 			new char[3,3],
 			new char[3,3],
@@ -20,9 +20,12 @@ namespace RubiksAutoSolve
 			new char[3,3]
 		};
 
+        /// <summary>
+        /// Возвращает куб в собранное положение
+        /// </summary>
 		public static void ResetCube()
 		{
-			char[] colors = new char[_EdgesCount]
+			char[] colors = new char[edgesCount]
 			{
 				'y',
 				'r',
@@ -32,7 +35,7 @@ namespace RubiksAutoSolve
 				'w'
 			};
 
-			for (int k = 0; k < _EdgesCount; k++)
+			for (int k = 0; k < edgesCount; k++)
 			{
 				for (int i = 0; i < 3; i++)
 				{
@@ -44,11 +47,13 @@ namespace RubiksAutoSolve
 			}
 		}
 
-		// Метод генерирует рандомный скрамбл
-		public static string ScrambleCube()
+        /// <summary>
+        /// Генерирует рандомный скрамбл и сразу же выполняет его
+        /// </summary>
+        /// <returns>Строку с сгенерированной формулой</returns>
+        public static string ScrambleCube()
 		{
 			Random random = new Random();
-
 			string[][] moves = 
 			{
 				new string[] { "R", "R'", "R2" },
@@ -60,7 +65,9 @@ namespace RubiksAutoSolve
 			};
 			string[] scramble = new string[20];
             string formula;
-			int newRandom = 0, group = 0, move = 0;
+            int newRandom = 0;
+            int group = 0;
+            int move = 0;
 
 			for (int i = 0; i < 20; i++)
 			{
@@ -81,6 +88,11 @@ namespace RubiksAutoSolve
 			return ConvertScramble(formula);
 		}
 
+        /// <summary>
+        /// Отзеркаливает скрамбл
+        /// </summary>
+        /// <param name="scramble">Строка с сгенерированным скрамблом</param>
+        /// <returns>Отзеркаленый скрамбл</returns>
 		public static string ConvertScramble(string scramble)
 		{
 			string[] moves = scramble.Split(' ');
@@ -107,6 +119,11 @@ namespace RubiksAutoSolve
 			return string.Join(" ", moves);
 		}
 
+        /// <summary>
+        /// Переводит формулу в массив вращений
+        /// </summary>
+        /// <param name="formula">Строка с формулой</param>
+        /// <returns>Массив вращений</returns>
 		private static string[] FormulaToMoves(string formula)
 		{
 			List<string> moves = new List<string>();
@@ -134,9 +151,12 @@ namespace RubiksAutoSolve
 
 			return moves.ToArray();
 		}
-		
-		// Вызов методов по строковой формуле (рефлексия)
-		public static void DoMovesByFormula(string formula) 
+
+        /// <summary>
+        /// Вызывает функции вращения граней по их названию
+        /// </summary>
+        /// <param name="formula">Строка с формулой</param>
+        public static void DoMovesByFormula(string formula) 
 		{
 			string[] moves = FormulaToMoves(formula);
 
@@ -148,6 +168,7 @@ namespace RubiksAutoSolve
 		}
 
 		// Методы для движения граней
+        // Все значения просчитаны заранее, изменения приведут к нарушению работы
 		#region Повороты
 
 		// Стандартные движения
@@ -843,7 +864,7 @@ namespace RubiksAutoSolve
 		
 		#endregion
 
-		// Универсальный метод для поворота блоков грани
+		// Универсальный метод для поворота внешних блоков грани
 		private static void DoMoveOutside(int[] cubeFace, int[] fixedNumber, bool[] isFixed)
 		{
 			// Одномерный массив для ликвидация последовательности в формуле внутренних блоков
@@ -888,7 +909,8 @@ namespace RubiksAutoSolve
 			}
 		}
 
-		private static void DoMoveInside(int edge, bool invert)
+        // Универсальный метод для поворота внутренних блоков грани
+        private static void DoMoveInside(int edge, bool invert)
 		{
 			// Определение, в какую сторону прокручивать внутренние блоки			
 			int invertOne = (invert ? 0 : 2); // По часовой
@@ -928,18 +950,6 @@ namespace RubiksAutoSolve
 					invertTwo,
 					Math.Abs(invertOne - i)
 				] = cache;
-			}
-		}
-
-		public static bool CheckCube(char[][,] cache)
-		{
-			if (cache != cube)
-			{
-				return false;
-			}
-			else
-			{
-				return true;
 			}
 		}
 	}

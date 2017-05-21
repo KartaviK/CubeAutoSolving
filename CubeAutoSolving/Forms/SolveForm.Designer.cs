@@ -29,10 +29,9 @@
 		private void InitializeComponent()
 		{
             this.solveButton = new System.Windows.Forms.Button();
-            this.dataLabel = new System.Windows.Forms.Label();
-            this.dataPanel = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dataPanel.SuspendLayout();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // solveButton
@@ -46,55 +45,42 @@
             this.solveButton.UseVisualStyleBackColor = true;
             this.solveButton.Click += new System.EventHandler(this.solveButton_Click);
             // 
-            // dataLabel
+            // richTextBox1
             // 
-            this.dataLabel.AutoSize = true;
-            this.dataLabel.Font = new System.Drawing.Font("Consolas", 11.25F);
-            this.dataLabel.Location = new System.Drawing.Point(9, 59);
-            this.dataLabel.Name = "dataLabel";
-            this.dataLabel.Size = new System.Drawing.Size(40, 18);
-            this.dataLabel.TabIndex = 1;
-            this.dataLabel.Text = "Data";
+            this.richTextBox1.Location = new System.Drawing.Point(12, 62);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(203, 353);
+            this.richTextBox1.TabIndex = 1;
+            this.richTextBox1.Text = "";
             // 
-            // dataPanel
+            // pictureBox1
             // 
-            this.dataPanel.Controls.Add(this.label1);
-            this.dataPanel.Location = new System.Drawing.Point(12, 80);
-            this.dataPanel.Name = "dataPanel";
-            this.dataPanel.Size = new System.Drawing.Size(203, 100);
-            this.dataPanel.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "label1";
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.Location = new System.Drawing.Point(221, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(44, 44);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // SolveForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(667, 427);
-            this.Controls.Add(this.dataPanel);
-            this.Controls.Add(this.dataLabel);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.solveButton);
             this.Name = "SolveForm";
             this.Text = "DataForm";
-            this.dataPanel.ResumeLayout(false);
-            this.dataPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
 		}
 
 		#endregion
 
 		private System.Windows.Forms.Button solveButton;
-		private System.Windows.Forms.Label dataLabel;
-		private System.Windows.Forms.Panel dataPanel;
-		private System.Windows.Forms.Label label1;
-	}
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+    }
 }
