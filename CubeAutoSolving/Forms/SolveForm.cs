@@ -2,6 +2,8 @@
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Diagnostics;
+using System.Collections.Generic;
 
 namespace RubiksAutoSolve
 {
@@ -59,7 +61,7 @@ namespace RubiksAutoSolve
                             {
                                 turn++;
 
-                                if (Array.IndexOf(moves[turn], elements[last]) != -1)
+                                if (Array.IndexOf(moves[turn], elements[last]) != -1 && (turn + 1) % 2 == 0)
                                 {
                                     if (turn != moves.Length - 1)
                                         turn++;
@@ -88,22 +90,43 @@ namespace RubiksAutoSolve
                 }
             }
         }
-        
-        private static string[] firstMoves =
+
+        private static List<List<string>> formulsCache = new List<List<string>>();
+        private static string[][] firstMoves =
         {
-            "U", "D", "R", "L", "F", "B",
+            new string[] { "U", "U'" },
+            new string[] { "D", "D'" },
+            new string[] { "R", "R'" },
+            new string[] { "L", "L'" },
+            new string[] { "F", "F'" },
+            new string[] { "B", "B'" }
         };
 
-        private static string[] secondMoves =
+        private static string[][] secondMoves =
         {
-            "U", "D", "R2", "L2", "F2", "B2",
+            new string[] { "U", "U'" },
+            new string[] { "D", "D'" },
+            new string[] { "R2" },
+            new string[] { "L2" },
+            new string[] { "F2" },
+            new string[] { "B2" }
         };
 
-        private string[][] cacheCube;
+        private static Stopwatch time = new Stopwatch();
+        private char[][,] cacheCube = new char[6][,]
+        {
+            new char[3,3],
+            new char[3,3],
+            new char[3,3],
+            new char[3,3],
+            new char[3,3],
+            new char[3,3]
+        };
         private string formula;
 
         private void Phase(int position, string pattern)
         {
+            bool paralel = false;
             int last = position - 1;
             int penultimate = position - 2;
             string[] elements = pattern.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
@@ -113,48 +136,103 @@ namespace RubiksAutoSolve
             {
                 if (elements.Length >= 1)
                 {
-                    if (elements[last] == firstMoves[turn])
+                    if (Array.IndexOf(firstMoves[turn], elements[last]) != -1)
                     {
                         if (turn != firstMoves.Length - 1)
+                        {
+                            if ((turn + 1) % 2 != 0)
+                            {
+                                paralel = true;
+                            }
+
                             turn++;
+                        }
                         else
+                        {
                             continue;
+                        }
                     }
                 }
 
                 if (elements.Length >= 2)
                 {
-                    if (elements[penultimate] == firstMoves[turn])
+                    if (Array.IndexOf(firstMoves[turn], elements[penultimate]) != -1)
                     {
-
+                        if (turn != firstMoves.Length - 1)
+                        {
+                            if (paralel)
+                            {
+                                turn++;
+                            }
+                        }
+                        else
+                        {
+                            continue;
+                        }
                     }
                 }
 
-                for (int variant = 0; variant < moves[turn].Length; variant++)
+                for (int variant = 0; variant < firstMoves[turn].Length; variant++)
                 {
-                    formula = pattern + moves[turn][variant];
-                    Rotate.DoMovesByFormula(formula);
+                    formula = pattern + firstMoves[turn][variant];
+                    //Rotate.DoMovesByFormula(formula);
 
-                    richTextBox1.AppendText(formula + Environment.NewLine);
+                   // if (formulsCache[position])
+                   
+                    
+                    if (!formulsCache[position].Contains(formula))
+                    {
+                        formulsCache[position].Add(formula);
+                    }
+                    else
+                    {
+                        
+                    }
+                    
                     numberAttempts++;
+                    
+                    richTextBox1.AppendText(formula + Environment.NewLine);
 
                     if (position < this.position)
-                        Generate(position + 1, pattern + moves[turn][variant] + " ");
+                        Phase(position + 1, formula + " ");
                 }
             }
         }
 
         private void solveButton_Click(object sender, EventArgs e)
         {
+            for (int i = 0; i < 12; i++)
+            {
+                formulsCache.Add(new List<string>());
+            }
+            
+            Array.Copy(Rotate.cube, this.cacheCube, Rotate.cube.Length);
+
+            for (int k = 0; k < 6; k++)
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    for (int j = 0; j < 3; j++)
+                    {
+                        
+                    }
+                }
+            }
+
+            time.Start();
             numberAttempts = 0;
             //LayerByLayer lbl = new LayerByLayer();
             pictureBox1.BackColor = Color.Red;
             this.Refresh();
 
-            for (position = 0; position < 20; position++)
+            for (position = 0; position <= 5; position++)
             {
-                Generate(0, "");
+                Phase(0, "");
             }
+            
+            time.Stop();
+
+            richTextBox1.AppendText(time.Elapsed.TotalSeconds.ToString() + Environment.NewLine + numberAttempts);
 
             pictureBox1.BackColor = Color.Green;
         }
