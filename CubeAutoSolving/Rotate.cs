@@ -162,18 +162,33 @@ namespace RubiksAutoSolve
 
 			foreach (string move in moves)
 			{
-				MethodInfo moveMethod = typeof(Rotate).GetMethod(move);
+				MethodInfo moveMethod = typeof(Rotate).GetMethod(move, new Type[] { });
 				moveMethod.Invoke(null, null);
 			}
 		}
 
-		// Методы для движения граней
-        // Все значения просчитаны заранее, изменения приведут к нарушению работы
-		#region Повороты
+        /// <summary>
+        /// Вызывает функции вращения граней по их названию
+        /// </summary>
+        /// <param name="formula">Строка с формулой</param>
+        public static void DoMovesByFormula(string formula, ref char[][,] cube)
+        {
+            string[] moves = FormulaToMoves(formula);
 
-		// Стандартные движения
-		// Поворот задней грани по часовой стрелки
-		public static void U()
+            foreach (string move in moves)
+            {
+                MethodInfo moveMethod = typeof(Rotate).GetMethod(move, new Type[] { typeof(char[][,]).MakeByRefType() });
+                moveMethod.Invoke(null, new object[] { cube });
+            }
+        }
+
+        // Методы для движения граней
+        // Все значения просчитаны заранее, изменения приведут к нарушению работы
+        #region Повороты
+
+        // Стандартные движения
+        // Поворот задней грани по часовой стрелки
+        public static void U()
 		{
 			// Вызов мтетода для внутренних блоков
 			DoMoveInside(
@@ -206,8 +221,41 @@ namespace RubiksAutoSolve
 			);
 		}
 
-		// Поворот задней грани против часовой стрелки
-		public static void Ui()
+        public static void U(ref char[][,] cube)
+        {
+            DoMoveInside(
+                0,
+                true,
+                ref cube
+            );
+            DoMoveOutside(
+                new int[]
+                {
+                    2,
+					3,
+					4,
+					1
+				},
+                new int[]
+				{
+                    0, 0,
+                    0, 0,
+                    0, 0,
+                    0, 0
+                },
+                new bool[]
+				{
+                    false, true,
+                    false, true,
+                    false, true,
+                    false, true
+                },
+                ref cube
+            );
+        }
+
+        // Поворот задней грани против часовой стрелки
+        public static void Ui()
 		{
 			DoMoveInside(
 				0,
@@ -238,8 +286,41 @@ namespace RubiksAutoSolve
 			);
 		}
 
-		// Поворот левой грани по часовой стрелке
-		public static void L()
+        public static void Ui(ref char[][,] cube)
+        {
+            DoMoveInside(
+                0,
+                false,
+                ref cube
+            );
+            DoMoveOutside(
+                new int[]
+                {
+                    2,
+                    1,
+                    4,
+                    3
+                },
+                new int[]
+                {
+                    0, 0,
+                    0, 0,
+                    0, 0,
+                    0, 0
+                },
+                new bool[]
+                {
+                    false, true,
+                    false, true,
+                    false, true,
+                    false, true
+                },
+                ref cube
+            );
+        }
+
+        // Поворот левой грани по часовой стрелке
+        public static void L()
 		{
 			DoMoveInside(
 				1,
@@ -270,8 +351,41 @@ namespace RubiksAutoSolve
 			);
 		}
 
-		// Поворот левой грани против часовой стрелки
-		public static void Li()
+        public static void L(ref char[][,] cube)
+        {
+            DoMoveInside(
+                1,
+                true,
+                ref cube
+            );
+            DoMoveOutside(
+                new int[]
+                {
+                    5,
+                    2,
+                    0,
+                    4
+                },
+                new int[]
+                {
+                    0, 2,
+                    0, 2,
+                    0, 2,
+                    2, 0
+                },
+                new bool[]
+                {
+                    true, false,
+                    true, false,
+                    true, false,
+                    true, false
+                },
+                ref cube
+            );
+        }
+
+        // Поворот левой грани против часовой стрелки
+        public static void Li()
 		{
 			DoMoveInside(
 				1,
@@ -302,8 +416,41 @@ namespace RubiksAutoSolve
 			);
 		}
 
-		// Поворот верхней грани по часовой стрелке
-		public static void F()
+        public static void Li(ref char[][,] cube)
+        {
+            DoMoveInside(
+                1,
+                false,
+                ref cube
+            );
+            DoMoveOutside(
+                new int[]
+                {
+                    5,
+                    4,
+                    0,
+                    2
+                },
+                new int[]
+                {
+                    0, 2,
+                    2, 0,
+                    0, 2,
+                    0, 2
+                },
+                new bool[]
+                {
+                    true, false,
+                    true, false,
+                    true, false,
+                    true, false
+                },
+                ref cube
+            );
+        }
+
+        // Поворот верхней грани по часовой стрелке
+        public static void F()
 		{
 			DoMoveInside(
 				2,
@@ -334,8 +481,41 @@ namespace RubiksAutoSolve
 			);
 		}
 
-		// Поворот верхней грани против часовой стрелки 
-		public static void Fi()
+        public static void F(ref char[][,] cube)
+        {
+            DoMoveInside(
+                2,
+                true,
+                ref cube
+            );
+            DoMoveOutside(
+                new int[]
+                {
+                    5,
+                    3,
+                    0,
+                    1
+                },
+                new int[]
+                {
+                    0, 0,
+                    0, 2,
+                    2, 2,
+                    2, 0
+                },
+                new bool[]
+                {
+                    false, true,
+                    true, false,
+                    false, true,
+                    true, false
+                },
+                ref cube
+            );
+        }
+
+        // Поворот верхней грани против часовой стрелки 
+        public static void Fi()
 		{
 			DoMoveInside(
 				2,
@@ -366,8 +546,41 @@ namespace RubiksAutoSolve
 			);
 		}
 
-		// Поворот правой грани по часовой стрелке		
-		public static void R()
+        public static void Fi(ref char[][,] cube)
+        {
+            DoMoveInside(
+                2,
+                false,
+                ref cube
+            );
+            DoMoveOutside(
+                new int[]
+                {
+                    5,
+                    1,
+                    0,
+                    3
+                },
+                new int[]
+                {
+                    0, 0,
+                    2, 0,
+                    2, 2,
+                    0, 2
+                },
+                new bool[]
+                {
+                    false, true,
+                    true, false,
+                    false, true,
+                    true, false
+                },
+                ref cube
+            );
+        }
+
+        // Поворот правой грани по часовой стрелке		
+        public static void R()
 		{
 			DoMoveInside(
 				3,
@@ -398,8 +611,41 @@ namespace RubiksAutoSolve
 			);
 		}
 
-		// Поворот правой грани против часовой стрелки
-		public static void Ri()
+        public static void R(ref char[][,] cube)
+        {
+            DoMoveInside(
+                3,
+                true,
+                ref cube
+            );
+            DoMoveOutside(
+                new int[]
+                {
+                    5,
+                    4,
+                    0,
+                    2
+                },
+                new int[]
+                {
+                    2, 0,
+                    0, 2,
+                    2, 0,
+                    2, 0
+                },
+                new bool[]
+                {
+                    true, false,
+                    true, false,
+                    true, false,
+                    true, false
+                },
+                ref cube
+            );
+        }
+
+        // Поворот правой грани против часовой стрелки
+        public static void Ri()
 		{
 			DoMoveInside(
 				3,
@@ -430,8 +676,41 @@ namespace RubiksAutoSolve
 			);
 		}
 
-		// Поворот нижней грани по часовой стрелки
-		public static void B()
+        public static void Ri(ref char[][,] cube)
+        {
+            DoMoveInside(
+                3,
+                false,
+                ref cube
+            );
+            DoMoveOutside(
+                new int[]
+                {
+                    5,
+                    2,
+                    0,
+                    4
+                },
+                new int[]
+                {
+                    2, 0,
+                    2, 0,
+                    2, 0,
+                    0, 2
+                },
+                new bool[]
+                {
+                    true, false,
+                    true, false,
+                    true, false,
+                    true, false
+                },
+                ref cube
+            );
+        }
+
+        // Поворот нижней грани по часовой стрелки
+        public static void B()
 		{
 			DoMoveInside(
 				4,
@@ -462,8 +741,41 @@ namespace RubiksAutoSolve
 			);
 		}
 
-		// Поворот нижней грани против часовой стрелки
-		public static void Bi()
+        public static void B(ref char[][,] cube)
+        {
+            DoMoveInside(
+                4,
+                true,
+                ref cube
+            );
+            DoMoveOutside(
+                new int[]
+                {
+                    5,
+                    1,
+                    0,
+                    3
+                },
+                new int[]
+                {
+                    2, 2,
+                    0, 2,
+                    0, 0,
+                    2, 0
+                },
+                new bool[]
+                {
+                    false, true,
+                    true, false,
+                    false, true,
+                    true, false
+                },
+                ref cube
+            );
+        }
+
+        // Поворот нижней грани против часовой стрелки
+        public static void Bi()
 		{
 			DoMoveInside(
 				4,
@@ -494,8 +806,41 @@ namespace RubiksAutoSolve
 			);
 		}
 
-		// Поворот фронтовой грани по часовой стрелки
-		public static void D()
+        public static void Bi(ref char[][,] cube)
+        {
+            DoMoveInside(
+                4,
+                false,
+                ref cube
+            );
+            DoMoveOutside(
+                new int[]
+                {
+                    5,
+                    3,
+                    0,
+                    1
+                },
+                new int[]
+                {
+                    2, 2,
+                    2, 0,
+                    0, 0,
+                    0, 2
+                },
+                new bool[]
+                {
+                    false, true,
+                    true, false,
+                    false, true,
+                    true, false
+                },
+                ref cube
+            );
+        }
+
+        // Поворот фронтовой грани по часовой стрелки
+        public static void D()
 		{
 			DoMoveInside(
 				5,
@@ -526,8 +871,41 @@ namespace RubiksAutoSolve
 			);
 		}
 
-		// Поворот фронтовой грани против часовой стрелки
-		public static void Di()
+        public static void D(ref char[][,] cube)
+        {
+            DoMoveInside(
+                5,
+                true,
+                ref cube
+            );
+            DoMoveOutside(
+                new int[]
+                {
+                    4,
+                    3,
+                    2,
+                    1
+                },
+                new int[]
+                {
+                    2, 2,
+                    2, 2,
+                    2, 2,
+                    2, 2
+                },
+                new bool[]
+                {
+                    false, true,
+                    false, true,
+                    false, true,
+                    false, true
+                },
+                ref cube
+            );
+        }
+
+        // Поворот фронтовой грани против часовой стрелки
+        public static void Di()
 		{
 			DoMoveInside(
 				5,
@@ -557,11 +935,44 @@ namespace RubiksAutoSolve
 				}
 			);
 		}
-		
-		//   Нестандартные движения
-		//  Повороты центральных слоев
-		// Движение центральной стороны относительно левой стороны по часовой стрелке
-		public static void M()
+
+        public static void Di(ref char[][,] cube)
+        {
+            DoMoveInside(
+                5,
+                false,
+                ref cube
+            );
+            DoMoveOutside(
+                new int[]
+                {
+                    4,
+                    1,
+                    2,
+                    3
+                },
+                new int[]
+                {
+                    2, 2,
+                    2, 2,
+                    2, 2,
+                    2, 2
+                },
+                new bool[]
+                {
+                    false, true,
+                    false, true,
+                    false, true,
+                    false, true
+                },
+                ref cube
+            );
+        }
+
+        //   Нестандартные движения
+        //  Повороты центральных слоев
+        // Движение центральной стороны относительно левой стороны по часовой стрелке
+        public static void M()
 		{
 			DoMoveOutside(
 				new int[]
@@ -909,6 +1320,50 @@ namespace RubiksAutoSolve
 			}
 		}
 
+        private static void DoMoveOutside(int[] cubeFace, int[] fixedNumber, bool[] isFixed, ref char[][,] cube)
+        {
+            // Одномерный массив для ликвидация последовательности в формуле внутренних блоков
+            int[] delta = new int[8];
+            // Переменная для свапа элементов
+            char cache;
+            // Поворот внешних блоков
+            for (int k = 0; k < 3; k++)
+            {
+                // Определение фиксирования
+                for (int i = 0; i < 8; i++)
+                {
+                    delta[i] = (isFixed[i] ? k : 0);
+                }
+
+                // cache = cube[0]
+                cache = cube[cubeFace[0]]
+                [
+                    Math.Abs(fixedNumber[0] - k + delta[0]),
+                    Math.Abs(fixedNumber[1] - k + delta[1])
+                ];
+
+                for (int i = 0, j = -2; i < 3; i++, j += 2)
+                {
+                    cube[cubeFace[i]]
+                    [
+                        Math.Abs(fixedNumber[j + 2] - k + delta[j + 2]),
+                        Math.Abs(fixedNumber[j + 3] - k + delta[j + 3])
+                    ] = cube[cubeFace[i + 1]]
+                    [
+                        Math.Abs(fixedNumber[j + 4] - k + delta[j + 4]),
+                        Math.Abs(fixedNumber[j + 5] - k + delta[j + 5])
+                    ];
+                }
+
+                // cube[3] = cache
+                cube[cubeFace[3]]
+                [
+                    Math.Abs(fixedNumber[6] - k + delta[6]),
+                    Math.Abs(fixedNumber[7] - k + delta[7])
+                ] = cache;
+            }
+        }
+
         // Универсальный метод для поворота внутренних блоков грани
         private static void DoMoveInside(int edge, bool invert)
 		{
@@ -952,5 +1407,48 @@ namespace RubiksAutoSolve
 				] = cache;
 			}
 		}
+
+        private static void DoMoveInside(int edge, bool invert, ref char[][,] cube)
+        {
+            // Определение, в какую сторону прокручивать внутренние блоки			
+            int invertOne = (invert ? 0 : 2); // По часовой
+            int invertTwo = (invert ? 2 : 0); // Против часовой
+                                              // Переменная для свапа
+            char cache;
+
+            // Поворот внутренних блоков
+            for (int i = 0; i < 2; i++)
+            {
+                cache = cube[edge][i, 0];
+                cube[edge][i, 0] = cube[edge]
+                [
+                    invertOne,
+                    Math.Abs(invertTwo - i)
+                ];
+                cube[edge]
+                [
+                    invertOne,
+                    Math.Abs(invertTwo - i)
+                ] = cube[edge]
+                [
+                    2 - i,
+                    2
+                ];
+                cube[edge]
+                [
+                    2 - i,
+                    2
+                ] = cube[edge]
+                [
+                    invertTwo,
+                    Math.Abs(invertOne - i)
+                ];
+                cube[edge]
+                [
+                    invertTwo,
+                    Math.Abs(invertOne - i)
+                ] = cache;
+            }
+        }
 	}
 }
