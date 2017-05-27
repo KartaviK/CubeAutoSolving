@@ -10,14 +10,14 @@ namespace RubiksAutoSolve
         private const int edgesCount = 6;
 
 		// Инициализация массива
-		public static char[][,] cube = new char[edgesCount][,]
+		public static string[][,] cube = new string[edgesCount][,]
 		{
-			new char[3,3],
-			new char[3,3],
-			new char[3,3],
-			new char[3,3],
-			new char[3,3],
-			new char[3,3]
+			new string[3,3],
+			new string[3,3],
+			new string[3,3],
+			new string[3,3],
+			new string[3,3],
+			new string[3,3]
 		};
 
         /// <summary>
@@ -25,14 +25,14 @@ namespace RubiksAutoSolve
         /// </summary>
 		public static void ResetCube()
 		{
-			char[] colors = new char[edgesCount]
+			string[] colors = new string[edgesCount]
 			{
-				'y',
-				'r',
-				'g',
-				'o',
-				'b',
-				'w'
+				"y",
+				"r",
+				"g",
+				"o",
+				"b",
+				"w"
 			};
 
 			for (int k = 0; k < edgesCount; k++)
@@ -171,13 +171,13 @@ namespace RubiksAutoSolve
         /// Вызывает функции вращения граней по их названию
         /// </summary>
         /// <param name="formula">Строка с формулой</param>
-        public static void DoMovesByFormula(string formula, ref char[][,] cube)
+        public static void DoMovesByFormula(string formula, ref string[][,] cube)
         {
             string[] moves = FormulaToMoves(formula);
 
             foreach (string move in moves)
             {
-                MethodInfo moveMethod = typeof(Rotate).GetMethod(move, new Type[] { typeof(char[][,]).MakeByRefType() });
+                MethodInfo moveMethod = typeof(Rotate).GetMethod(move, new Type[] { typeof(string[][,]).MakeByRefType() });
                 moveMethod.Invoke(null, new object[] { cube });
             }
         }
@@ -221,7 +221,7 @@ namespace RubiksAutoSolve
 			);
 		}
 
-        public static void U(ref char[][,] cube)
+        public static void U(ref string[][,] cube)
         {
             DoMoveInside(
                 0,
@@ -286,7 +286,7 @@ namespace RubiksAutoSolve
 			);
 		}
 
-        public static void Ui(ref char[][,] cube)
+        public static void Ui(ref string[][,] cube)
         {
             DoMoveInside(
                 0,
@@ -351,7 +351,7 @@ namespace RubiksAutoSolve
 			);
 		}
 
-        public static void L(ref char[][,] cube)
+        public static void L(ref string[][,] cube)
         {
             DoMoveInside(
                 1,
@@ -416,7 +416,7 @@ namespace RubiksAutoSolve
 			);
 		}
 
-        public static void Li(ref char[][,] cube)
+        public static void Li(ref string[][,] cube)
         {
             DoMoveInside(
                 1,
@@ -481,7 +481,7 @@ namespace RubiksAutoSolve
 			);
 		}
 
-        public static void F(ref char[][,] cube)
+        public static void F(ref string[][,] cube)
         {
             DoMoveInside(
                 2,
@@ -546,7 +546,7 @@ namespace RubiksAutoSolve
 			);
 		}
 
-        public static void Fi(ref char[][,] cube)
+        public static void Fi(ref string[][,] cube)
         {
             DoMoveInside(
                 2,
@@ -611,7 +611,7 @@ namespace RubiksAutoSolve
 			);
 		}
 
-        public static void R(ref char[][,] cube)
+        public static void R(ref string[][,] cube)
         {
             DoMoveInside(
                 3,
@@ -676,7 +676,7 @@ namespace RubiksAutoSolve
 			);
 		}
 
-        public static void Ri(ref char[][,] cube)
+        public static void Ri(ref string[][,] cube)
         {
             DoMoveInside(
                 3,
@@ -741,7 +741,7 @@ namespace RubiksAutoSolve
 			);
 		}
 
-        public static void B(ref char[][,] cube)
+        public static void B(ref string[][,] cube)
         {
             DoMoveInside(
                 4,
@@ -806,7 +806,7 @@ namespace RubiksAutoSolve
 			);
 		}
 
-        public static void Bi(ref char[][,] cube)
+        public static void Bi(ref string[][,] cube)
         {
             DoMoveInside(
                 4,
@@ -871,7 +871,7 @@ namespace RubiksAutoSolve
 			);
 		}
 
-        public static void D(ref char[][,] cube)
+        public static void D(ref string[][,] cube)
         {
             DoMoveInside(
                 5,
@@ -936,7 +936,7 @@ namespace RubiksAutoSolve
 			);
 		}
 
-        public static void Di(ref char[][,] cube)
+        public static void Di(ref string[][,] cube)
         {
             DoMoveInside(
                 5,
@@ -1281,7 +1281,7 @@ namespace RubiksAutoSolve
 			// Одномерный массив для ликвидация последовательности в формуле внутренних блоков
 			int[] delta = new int[8];
 			// Переменная для свапа элементов
-			char cache;
+			string cache;
 			// Поворот внешних блоков
 			for (int k = 0; k < 3; k++)
 			{
@@ -1320,12 +1320,12 @@ namespace RubiksAutoSolve
 			}
 		}
 
-        private static void DoMoveOutside(int[] cubeFace, int[] fixedNumber, bool[] isFixed, ref char[][,] cube)
+        private static void DoMoveOutside(int[] cubeFace, int[] fixedNumber, bool[] isFixed, ref string[][,] cube)
         {
             // Одномерный массив для ликвидация последовательности в формуле внутренних блоков
             int[] delta = new int[8];
             // Переменная для свапа элементов
-            char cache;
+            string cache;
             // Поворот внешних блоков
             for (int k = 0; k < 3; k++)
             {
@@ -1371,7 +1371,7 @@ namespace RubiksAutoSolve
 			int invertOne = (invert ? 0 : 2); // По часовой
 			int invertTwo = (invert ? 2 : 0); // Против часовой
 			// Переменная для свапа
-			char cache;
+			string cache;
 
 			// Поворот внутренних блоков
 			for (int i = 0; i < 2; i++)
@@ -1408,13 +1408,13 @@ namespace RubiksAutoSolve
 			}
 		}
 
-        private static void DoMoveInside(int edge, bool invert, ref char[][,] cube)
+        private static void DoMoveInside(int edge, bool invert, ref string[][,] cube)
         {
             // Определение, в какую сторону прокручивать внутренние блоки			
             int invertOne = (invert ? 0 : 2); // По часовой
             int invertTwo = (invert ? 2 : 0); // Против часовой
                                               // Переменная для свапа
-            char cache;
+            string cache;
 
             // Поворот внутренних блоков
             for (int i = 0; i < 2; i++)

@@ -3,19 +3,19 @@
 namespace RubiksAutoSolve
 {
 	abstract class SolvingMethod
-	{
+	{/*
 		public abstract void SolveCube();
 
 		//Универсальный метод проверки ориентации
 		private void CheckOrientation()
 		{
             string formula = "";
-            char firstElement = Rotate.cube[0][1, 0];
-            char secondElement = Rotate.cube[3][2, 1];
-
+            string firstElement = Rotate.cube[0][1, 0];
+            string secondElement = Rotate.cube[3][2, 1];
+            
 			switch (firstElement)
 			{
-				case 'b':
+				case "b":
 					if (secondElement == 'o')
 						formula = "L D' L' D L";
 					else if (secondElement == 'r')
@@ -51,7 +51,7 @@ namespace RubiksAutoSolve
 
             Rotate.DoMovesByFormula(formula);
 		}
-
+        *//*
 		public void SolveCross()
 		{
 			// string formula = "";
@@ -195,7 +195,7 @@ namespace RubiksAutoSolve
 		private void FourElementsCross()
 		{
 
-		}
+		}*/
 	}
 }
 /*

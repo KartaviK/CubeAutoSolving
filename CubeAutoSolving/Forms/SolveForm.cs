@@ -11,24 +11,27 @@ namespace RubiksAutoSolve
 {
 	public partial class SolveForm : Form
 	{
-        public SolveForm()
+        public SolveForm(Cube cube)
 		{
+            this.cube = cube;
 			InitializeComponent();
         }
-        
+
+        private Cube cube;
         private int position = 0;
         private ulong numberAttempts = 0;
         public string firstPhaseAnswer = "";
         public bool stopAlg = false;
         private List<string> formulsCache = new List<string>();
+        private List<string[][,]> cacheCube = new List<string[][,]>();
         private string[][] firstMoves =
         {
-            new string[] { "U", "Ui", "U2" },
-            new string[] { "D", "Di", "D2" },
-            new string[] { "R", "Ri", "R2" },
-            new string[] { "L", "Li", "L2" },
-            new string[] { "F", "Fi", "F2" },
-            new string[] { "B", "Bi", "B2" }
+            new string[] { "U", "Ui", "Ud" },
+            new string[] { "D", "Di", "Dd" },
+            new string[] { "R", "Ri", "Rd" },
+            new string[] { "L", "Li", "Ld" },
+            new string[] { "F", "Fi", "Fd" },
+            new string[] { "B", "Bi", "Bd" }
         };
 
         private string[][] secondMoves =
@@ -41,32 +44,35 @@ namespace RubiksAutoSolve
             new string[] { "B2" }
         };
 
-        private Stopwatch time = new Stopwatch();
-        private char[][,] cacheCube = new char[6][,]
+        private Stopwatch time = new Stopwatch();/*
+        private string[][,] cacheCube = new string[6][,]
         {
-            new char[3,3],
-            new char[3,3],
-            new char[3,3],
-            new char[3,3],
-            new char[3,3],
-            new char[3,3]
-        };
+            new string[3,3],
+            new string[3,3],
+            new string[3,3],
+            new string[3,3],
+            new string[3,3],
+            new string[3,3]
+        };*/
 
-        private void Phase(int position, string pattern, char[][,] cube)
+        private bool Phase(int position, string pattern, string[][,] cube)
         {
             if (stopAlg)
             {
-                return;
+                return false;
             }
 
-            if (SimpleRotate.CheckFirstPhase(ref cube))
+            formulsCache.Add(pattern);
+            //cacheCube.Add(cube);
+            
+            if (SimpleRotate.IsCubeSolved(ref cube))
             {
-                firstPhaseAnswer = pattern;
+                formulsCache.Add(pattern);
                 stopAlg = true;
 
-                return;
+                return true;
             }
-
+            
             int last = position - 1;
             int penultimate = position - 2;
             string[] elements = pattern.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
@@ -112,38 +118,54 @@ namespace RubiksAutoSolve
                         }
                     }
                 }
-
-                string formula = "";
                 
                 for (int variant = 0; variant < firstMoves[turn].Length; variant++)
                 {
-                    formula = pattern + firstMoves[turn][variant];
-                    Rotate.DoMovesByFormula(firstMoves[turn][variant], ref cube);
+                    string[][,] tempCube = new string[6][,]
+                    {
+                        new string[3,3],
+                        new string[3,3],
+                        new string[3,3],
+                        new string[3,3],
+                        new string[3,3],
+                        new string[3,3]
+                    };
+
+                    tempCube = SimpleRotate.CopyCube(ref cube);
+
+                    SimpleRotate.DoMove(firstMoves[turn][variant], ref tempCube);
 
                     if (position < this.position)
-                        Phase(position + 1, $"{formula} ", cube);
+                        return Phase(position + 1, $"{pattern}{firstMoves[turn][variant]} ", tempCube);
                 }
             }
+
+            return false;
         }
         
         private void solveButton_Click(object sender, EventArgs e)
         {
-            char[][,] cc = new char[6][,]
-                {
-                    new char[3,3],
-                    new char[3,3],
-                    new char[3,3],
-                    new char[3,3],
-                    new char[3,3],
-                    new char[3,3]
-                };
+            if (SimpleRotate.IsCubeSolved(ref this.cube))
+            {
+                richTextBox1.AppendText($"Cube is not scrambled{Environment.NewLine}");
+
+                return;
+            }
+
+            string[][,] firstCopy = new string[6][,]
+            {
+                new string[3,3],
+                new string[3,3],
+                new string[3,3],
+                new string[3,3],
+                new string[3,3],
+                new string[3,3]
+            };
 
             for (int i = 0; i < 6; i++)
             {
-                Array.Copy(Rotate.cube[i], cc[i], Rotate.cube[i].Length);
+                Array.Copy(this.cube.edge[i], firstCopy[i], this.cube[i].Length);
             }
-
-            SimpleRotate.Ri(ref cc);
 
             time.Start();
             pictureBox1.BackColor = Color.Red;
@@ -151,39 +173,44 @@ namespace RubiksAutoSolve
             numberAttempts = 0;
             this.position = Convert.ToInt32(textBox1.Text);
             
+            
             Parallel.For(0, 6, (i, state) => {
-                char[][,] bb = new char[6][,]
+                string[][,] iteratorCopy = new string[6][,]
                 {
-                    new char[3,3],
-                    new char[3,3],
-                    new char[3,3],
-                    new char[3,3],
-                    new char[3,3],
-                    new char[3,3]
+                    new string[3,3],
+                    new string[3,3],
+                    new string[3,3],
+                    new string[3,3],
+                    new string[3,3],
+                    new string[3,3]
                 };
 
-                for (int j = 0; j < 6; j++)
-                {
-                    Array.Copy(cc[j], bb[j], cc[j].Length);
-                }
+                iteratorCopy = SimpleRotate.CopyCube(ref firstCopy);
 
                 for (int z = 0; z < 3; z++)
                 {
-                    Rotate.DoMovesByFormula(firstMoves[i][z], ref bb);
-
-                    if (!SimpleRotate.CheckFirstPhase(ref bb))
+                    SimpleRotate.DoMove(firstMoves[i][z], ref iteratorCopy);
+                    //formulsCache.Add(firstMoves[i][z] + Environment.NewLine);
+                    
+                    if (!SimpleRotate.CheckFirstPhase(ref iteratorCopy))
                     {
-                        Phase(1, $"{firstMoves[i][z]} ", bb);
+                        if (Phase(1, $"{firstMoves[i][z]} ", iteratorCopy))
+                        {
+
+                        }
                     }
                     else
                     {
                         firstPhaseAnswer = $"{firstMoves[i][z]} ";
                         state.Stop();
                     }
-                    
+
+                    formulsCache.Add(firstMoves[i][z]);
+                    //cacheCube.Add(iteratorCopy);
+
                     for (int q = 0; q < 6; q++)
                     {
-                        Array.Copy(bb[q], cc[q], cc[q].Length);
+                        Array.Copy(iteratorCopy[q], firstCopy[q], iteratorCopy[q].Length);
                     }
                 }
             });
@@ -194,6 +221,28 @@ namespace RubiksAutoSolve
             richTextBox1.AppendText(firstPhaseAnswer + Environment.NewLine);
             pictureBox1.BackColor = Color.Green;
 
+            int a = 0;
+            
+            foreach(string str in formulsCache)
+            {
+                richTextBox1.AppendText($"{str}{Environment.NewLine}");
+                /*
+                for (int i = 0; i < 6; i++)
+                {
+                    for (int j = 0; j < 3; j++)
+                    {
+                        for (int z = 0; z < 3; z++)
+                        {
+                            //richTextBox1.AppendText($"{(cacheCube[a])[i][j, z]} ");
+                        }
+                    }
+
+                    richTextBox1.AppendText($"{Environment.NewLine}");
+                }
+                */
+                //a++;
+            }
+            
             time.Reset();
         }
     }

@@ -1,7 +1,7 @@
 ﻿namespace RubiksAutoSolve
 {
 	class CFOP : SolvingMethod
-	{
+	{/*
 		public override void SolveCube()
 		{
 			SolveCross();
@@ -23,6 +23,6 @@
 		private void PermutateLastLayer()
 		{
 
-		}
+		}*/
 	}
 }

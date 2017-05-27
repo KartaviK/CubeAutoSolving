@@ -6,6 +6,8 @@ namespace RubiksAutoSolve
 {
 	public partial class MainForm : Form
 	{
+        public Cube mainCube = new Cube();
+
 		// Инициализация цвета для блоков picture
 		Color[] systemColors =
 		{
@@ -138,7 +140,7 @@ namespace RubiksAutoSolve
 
 		private void MainForm_Load(object sender, EventArgs e)
 		{
-			Rotate.ResetCube();
+            mainCube.Reset();
 
 			RefreshCube();
 		}
@@ -146,9 +148,9 @@ namespace RubiksAutoSolve
 		// Метод для начала автономной сборки куба
 		private void startButton_Click(object sender, EventArgs e)
 		{
-            SolveForm dataForm = new SolveForm();
+            SolveForm dataForm = new SolveForm(this.mainCube);
             dataForm.ShowDialog();
-			LayerByLayer lbl = new LayerByLayer();
+			//LayerByLayer lbl = new LayerByLayer();
             dataForm.Close();
 			//lbl.SolveCube();
 			RefreshCube();
@@ -158,20 +160,20 @@ namespace RubiksAutoSolve
 		private void resetButton_Click(object sender, EventArgs e)
 		{
 			scrambleBox.Text = "";
-			Rotate.ResetCube();
-			RefreshCube();
+            mainCube.Reset();
+            RefreshCube();
 		}
 
 		private void scrambleButton_Click(object sender, EventArgs e)
 		{
-			if (String.IsNullOrWhiteSpace(scrambleBox.Text))
-			{
-				scrambleBox.Text = Rotate.ScrambleCube();
-			}
-			else
-			{
-				Rotate.DoMovesByFormula(Rotate.ConvertScramble(scrambleBox.Text));
-			}	
+            if (String.IsNullOrWhiteSpace(scrambleBox.Text))
+            {
+                scrambleBox.Text = Rotate.ScrambleCube();
+            }
+            else
+            {
+                Rotate.DoMovesByFormula(Rotate.ConvertScramble(scrambleBox.Text));
+            }
 
 			RefreshCube();
 		}
@@ -193,7 +195,7 @@ namespace RubiksAutoSolve
 				{ 
 					for (int j = 0; j < 3; j++)
 					{
-						pictureElements[k][i, j].BackColor = Rotate.cube[k][i, j].ToColor();
+                        pictureElements[k][i, j].BackColor = mainCube.edge[k][i, j].ToColor();
 					}
 				}
 			}
@@ -202,28 +204,28 @@ namespace RubiksAutoSolve
 
 	public static class Extentions
 	{
-		public static Color ToColor(this char character)
+		public static Color ToColor(this string character)
 		{
 			Color color = new Color();
 
 			switch (character)
 			{
-				case 'y':
+				case "y":
 					color = Color.Yellow;
 					break;
-				case 'r':
+				case "r":
 					color = Color.Red;
 					break;
-				case 'g':
+				case "g":
 					color = Color.Green;
 					break;
-				case 'o':
+				case "o":
 					color = Color.Orange;
 					break;
-				case 'b':
+				case "b":
 					color = Color.Blue;
 					break;
-				case 'w':
+				case "w":
 					color = Color.White;
 					break;
 			}
