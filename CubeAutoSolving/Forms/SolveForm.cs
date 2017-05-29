@@ -11,9 +11,9 @@ namespace RubiksAutoSolve
 {
 	public partial class SolveForm : Form
 	{
-        public SolveForm(Cube cube)
+        public SolveForm()
 		{
-            this.cube = cube;
+            //this.cube = cube;
 			InitializeComponent();
         }
 
@@ -145,7 +145,7 @@ namespace RubiksAutoSolve
         
         private void solveButton_Click(object sender, EventArgs e)
         {
-            if (SimpleRotate.IsCubeSolved(ref this.cube))
+            if (SimpleRotate.IsCubeSolved(ref Rotate.cube))
             {
                 richTextBox1.AppendText($"Cube is not scrambled{Environment.NewLine}");
 
@@ -164,7 +164,7 @@ namespace RubiksAutoSolve
 
             for (int i = 0; i < 6; i++)
             {
-                Array.Copy(this.cube.edge[i], firstCopy[i], this.cube[i].Length);
+                Array.Copy(Rotate.cube, firstCopy[i], Rotate.cube[i].Length);
             }
 
             time.Start();

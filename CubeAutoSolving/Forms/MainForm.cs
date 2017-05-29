@@ -6,7 +6,7 @@ namespace RubiksAutoSolve
 {
 	public partial class MainForm : Form
 	{
-        public Cube mainCube = new Cube();
+        //public Cube mainCube = new Cube();
 
 		// Инициализация цвета для блоков picture
 		Color[] systemColors =
@@ -140,7 +140,7 @@ namespace RubiksAutoSolve
 
 		private void MainForm_Load(object sender, EventArgs e)
 		{
-            mainCube.Reset();
+            Rotate.ResetCube();
 
 			RefreshCube();
 		}
@@ -148,7 +148,7 @@ namespace RubiksAutoSolve
 		// Метод для начала автономной сборки куба
 		private void startButton_Click(object sender, EventArgs e)
 		{
-            SolveForm dataForm = new SolveForm(this.mainCube);
+            SolveForm dataForm = new SolveForm();
             dataForm.ShowDialog();
 			//LayerByLayer lbl = new LayerByLayer();
             dataForm.Close();
@@ -160,7 +160,7 @@ namespace RubiksAutoSolve
 		private void resetButton_Click(object sender, EventArgs e)
 		{
 			scrambleBox.Text = "";
-            mainCube.Reset();
+            Rotate.ResetCube();
             RefreshCube();
 		}
 
@@ -195,7 +195,7 @@ namespace RubiksAutoSolve
 				{ 
 					for (int j = 0; j < 3; j++)
 					{
-                        pictureElements[k][i, j].BackColor = mainCube.edge[k][i, j].ToColor();
+                        pictureElements[k][i, j].BackColor = Rotate.cube[k][i, j].ToColor();
 					}
 				}
 			}

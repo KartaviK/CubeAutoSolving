@@ -47,23 +47,13 @@ namespace RubiksAutoSolve
 
         public void Reset()
         {
-            string[] colors = new string[6]
-            {
-                "y",
-                "r",
-                "g",
-                "o",
-                "b",
-                "w"
-            };
-
             for (int i = 0; i < 6; i++)
             {
                 for (int j = 0; j < 3; j++)
                 {
                     for (int z = 0; z < 3; z++)
                     {
-                        this.edge[i][j, z] = colors[i];
+                        this.edge[i][j, z] = this.colors[i];
                     }
                 }
             }

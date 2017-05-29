@@ -20,6 +20,8 @@ namespace RubiksAutoSolve
 			new string[3,3]
 		};
 
+
+
         /// <summary>
         /// Возвращает куб в собранное положение
         /// </summary>

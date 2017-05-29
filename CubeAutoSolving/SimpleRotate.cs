@@ -16,6 +16,8 @@ namespace RubiksAutoSolve
             "w"
         };
 
+
+
         public static void DoMove(string move, ref string[][,] cube)
         {
             MethodInfo moveMethod = typeof(SimpleRotate).GetMethod(move, new Type[] { typeof(string[][,]).MakeByRefType() });
