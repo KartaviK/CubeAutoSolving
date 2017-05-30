@@ -11,9 +11,9 @@ namespace RubiksAutoSolve
 {
 	public partial class SolveForm : Form
 	{
-        public SolveForm()
+        public SolveForm(Cube cube)
 		{
-            //this.cube = cube;
+            this.cube = cube;
 			InitializeComponent();
         }
 
@@ -22,8 +22,8 @@ namespace RubiksAutoSolve
         private ulong numberAttempts = 0;
         public string firstPhaseAnswer = "";
         public bool stopAlg = false;
-        private List<string> formulsCache = new List<string>();
-        private List<string[][,]> cacheCube = new List<string[][,]>();
+        private List<string> formulsCache = new List<string>(); // TODO
+        private List<string[][,]> cacheCube = new List<string[][,]>(); // TODO
         private string[][] firstMoves =
         {
             new string[] { "U", "Ui", "Ud" },
@@ -44,33 +44,23 @@ namespace RubiksAutoSolve
             new string[] { "B2" }
         };
 
-        private Stopwatch time = new Stopwatch();/*
-        private string[][,] cacheCube = new string[6][,]
-        {
-            new string[3,3],
-            new string[3,3],
-            new string[3,3],
-            new string[3,3],
-            new string[3,3],
-            new string[3,3]
-        };*/
+        private Stopwatch time = new Stopwatch();
 
-        private bool Phase(int position, string pattern, string[][,] cube)
+        private void Phase(int position, string pattern, Cube cube)
         {
             if (stopAlg)
             {
-                return false;
+                return;
             }
 
             formulsCache.Add(pattern);
-            //cacheCube.Add(cube);
             
             if (SimpleRotate.IsCubeSolved(ref cube))
             {
                 formulsCache.Add(pattern);
                 stopAlg = true;
 
-                return true;
+                return;
             }
             
             int last = position - 1;
@@ -121,83 +111,41 @@ namespace RubiksAutoSolve
                 
                 for (int variant = 0; variant < firstMoves[turn].Length; variant++)
                 {
-                    string[][,] tempCube = new string[6][,]
-                    {
-                        new string[3,3],
-                        new string[3,3],
-                        new string[3,3],
-                        new string[3,3],
-                        new string[3,3],
-                        new string[3,3]
-                    };
-
-                    tempCube = SimpleRotate.CopyCube(ref cube);
-
-                    SimpleRotate.DoMove(firstMoves[turn][variant], ref tempCube);
+                    Cube tempCube = (Cube)cube.Clone();
+                    tempCube.DoRotate(firstMoves[turn][variant]);
 
                     if (position < this.position)
-                        return Phase(position + 1, $"{pattern}{firstMoves[turn][variant]} ", tempCube);
+                        Phase(position + 1, $"{pattern}{firstMoves[turn][variant]} ", (Cube)tempCube.Clone());
                 }
             }
-
-            return false;
         }
         
         private void solveButton_Click(object sender, EventArgs e)
         {
-            if (SimpleRotate.IsCubeSolved(ref Rotate.cube))
+            if (SimpleRotate.IsCubeSolved(ref cube))
             {
                 richTextBox1.AppendText($"Cube is not scrambled{Environment.NewLine}");
 
                 return;
             }
 
-            string[][,] firstCopy = new string[6][,]
-            {
-                new string[3,3],
-                new string[3,3],
-                new string[3,3],
-                new string[3,3],
-                new string[3,3],
-                new string[3,3]
-            };
-
-            for (int i = 0; i < 6; i++)
-            {
-                Array.Copy(Rotate.cube, firstCopy[i], Rotate.cube[i].Length);
-            }
-
-            time.Start();
+            Cube firstCopy = (Cube)cube.Clone();
             pictureBox1.BackColor = Color.Red;
             this.Refresh();
             numberAttempts = 0;
             this.position = Convert.ToInt32(textBox1.Text);
-            
-            
-            Parallel.For(0, 6, (i, state) => {
-                string[][,] iteratorCopy = new string[6][,]
-                {
-                    new string[3,3],
-                    new string[3,3],
-                    new string[3,3],
-                    new string[3,3],
-                    new string[3,3],
-                    new string[3,3]
-                };
 
-                iteratorCopy = SimpleRotate.CopyCube(ref firstCopy);
+            time.Start();
+            Parallel.For(0, 6, (i, state) => {
+                Cube iteratorCopy = (Cube)cube.Clone();
 
                 for (int z = 0; z < 3; z++)
                 {
-                    SimpleRotate.DoMove(firstMoves[i][z], ref iteratorCopy);
-                    //formulsCache.Add(firstMoves[i][z] + Environment.NewLine);
+                    iteratorCopy.DoRotate(firstMoves[i][z]);
                     
                     if (!SimpleRotate.CheckFirstPhase(ref iteratorCopy))
                     {
-                        if (Phase(1, $"{firstMoves[i][z]} ", iteratorCopy))
-                        {
-
-                        }
+                        Phase(1, $"{firstMoves[i][z]} ", iteratorCopy);
                     }
                     else
                     {
@@ -206,12 +154,6 @@ namespace RubiksAutoSolve
                     }
 
                     formulsCache.Add(firstMoves[i][z]);
-                    //cacheCube.Add(iteratorCopy);
-
-                    for (int q = 0; q < 6; q++)
-                    {
-                        Array.Copy(iteratorCopy[q], firstCopy[q], iteratorCopy[q].Length);
-                    }
                 }
             });
             
@@ -220,8 +162,6 @@ namespace RubiksAutoSolve
             richTextBox1.AppendText(time.Elapsed.TotalSeconds.ToString() + Environment.NewLine);
             richTextBox1.AppendText(firstPhaseAnswer + Environment.NewLine);
             pictureBox1.BackColor = Color.Green;
-
-            int a = 0;
             
             foreach(string str in formulsCache)
             {

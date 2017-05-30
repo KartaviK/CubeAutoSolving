@@ -6,7 +6,7 @@ namespace RubiksAutoSolve
 {
 	public partial class MainForm : Form
 	{
-        //public Cube mainCube = new Cube();
+        public Cube mainCube = new Cube();
 
 		// Инициализация цвета для блоков picture
 		Color[] systemColors =
@@ -140,7 +140,7 @@ namespace RubiksAutoSolve
 
 		private void MainForm_Load(object sender, EventArgs e)
 		{
-            Rotate.ResetCube();
+            mainCube.Reset();
 
 			RefreshCube();
 		}
@@ -148,11 +148,9 @@ namespace RubiksAutoSolve
 		// Метод для начала автономной сборки куба
 		private void startButton_Click(object sender, EventArgs e)
 		{
-            SolveForm dataForm = new SolveForm();
+            SolveForm dataForm = new SolveForm(mainCube);
             dataForm.ShowDialog();
-			//LayerByLayer lbl = new LayerByLayer();
             dataForm.Close();
-			//lbl.SolveCube();
 			RefreshCube();
 		}
 
@@ -160,7 +158,7 @@ namespace RubiksAutoSolve
 		private void resetButton_Click(object sender, EventArgs e)
 		{
 			scrambleBox.Text = "";
-            Rotate.ResetCube();
+            this.mainCube.Reset();
             RefreshCube();
 		}
 
@@ -168,11 +166,11 @@ namespace RubiksAutoSolve
 		{
             if (String.IsNullOrWhiteSpace(scrambleBox.Text))
             {
-                scrambleBox.Text = Rotate.ScrambleCube();
+                scrambleBox.Text = mainCube.ScrambleCube();
             }
             else
             {
-                Rotate.DoMovesByFormula(Rotate.ConvertScramble(scrambleBox.Text));
+                mainCube.DoRotatesByFormula(mainCube.ConvertScramble(scrambleBox.Text));
             }
 
 			RefreshCube();
@@ -182,7 +180,7 @@ namespace RubiksAutoSolve
 		{
 			Button moveButton = (Button)sender;
 			string moveName = moveButton.Text;
-			Rotate.DoMovesByFormula(moveName);
+			mainCube.DoRotatesByFormula(moveName);
 			RefreshCube();
 		}
 
@@ -195,7 +193,7 @@ namespace RubiksAutoSolve
 				{ 
 					for (int j = 0; j < 3; j++)
 					{
-                        pictureElements[k][i, j].BackColor = Rotate.cube[k][i, j].ToColor();
+                        pictureElements[k][i, j].BackColor = this.mainCube.edge[k][i, j].ToColor();
 					}
 				}
 			}

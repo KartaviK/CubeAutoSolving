@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Collections.Generic;
 using System.Reflection;
 
 namespace RubiksAutoSolve
 {
-    public class Cube
+    public class Cube : ICloneable
     {
         private string[] colors = new string[6]
         {
@@ -24,7 +23,16 @@ namespace RubiksAutoSolve
 
         public Cube()
         {
-            this.edge = new Edge[6];
+            this.edge = new Edge[6]
+            {
+                new Edge(),
+                new Edge(),
+                new Edge(),
+                new Edge(),
+                new Edge(),
+                new Edge(),
+            };
+
             for (int i = 0; i < 6; i++)
             {
                 for (int j = 0; j < 3; j++)
@@ -34,14 +42,6 @@ namespace RubiksAutoSolve
                         this.edge[i][j, z] = colors[i];
                     }
                 }
-            }
-        }
-
-        public Cube(string[][,] cube)
-        {
-            for (int i = 0; i < 6; i++)
-            {
-
             }
         }
 
@@ -117,20 +117,26 @@ namespace RubiksAutoSolve
             }
 
             formula = string.Join(" ", scramble);
-            DoMovesByFormula(formula);
+            DoRotatesByFormula(formula);
 
             return ConvertScramble(formula);
         }
 
-        public void DoMovesByFormula(string formula)
+        public void DoRotatesByFormula(string formula)
         {
             string[] moves = FormulaToMoves(formula);
 
             foreach (string move in moves)
             {
-                MethodInfo moveMethod = typeof(Rotate).GetMethod(move, new Type[] { });
-                moveMethod.Invoke(null, null);
+                MethodInfo moveMethod = typeof(SimpleRotate).GetMethod(move, new Type[] { typeof(Cube).MakeByRefType() });
+                moveMethod.Invoke(null, new object[] { this });
             }
+        }
+
+        public void DoRotate(string move)
+        {
+            MethodInfo moveMethod = typeof(SimpleRotate).GetMethod(move, new Type[] { typeof(Cube).MakeByRefType() });
+            moveMethod.Invoke(null, new object[] { this });
         }
 
         private static string[] FormulaToMoves(string formula)
@@ -143,8 +149,7 @@ namespace RubiksAutoSolve
             {
                 if (element.EndsWith("2"))
                 {
-                    move = element.Replace("2", "");
-                    moves.Add(move);
+                    move = element.Replace("2", "d");
                 }
                 else if (element.EndsWith("'"))
                 {
@@ -159,6 +164,24 @@ namespace RubiksAutoSolve
             }
 
             return moves.ToArray();
+        }
+
+        public object Clone()
+        {
+            Cube newCube = new Cube();
+
+            for (int i = 0; i < 6; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    for (int z = 0; z < 3; z++)
+                    {
+                        newCube.edge[i][j, z] = this.edge[i][j, z];
+                    }
+                }
+            }
+
+            return newCube;
         }
     }
 
@@ -178,9 +201,14 @@ namespace RubiksAutoSolve
             }
         }
 
-        Edge(string[,] elements)
+        public Edge(string[,] elements)
         {
             this.elements = elements;
+        }
+
+        public Edge()
+        {
+            this.elements = new string[3, 3];
         }
     }
 }
