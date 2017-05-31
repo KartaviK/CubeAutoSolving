@@ -71,14 +71,14 @@ namespace RubiksAutoSolve
                         moves[i].Replace('R', 'L');
                         break;
                     case 'U':
-                        moves[i].Replace('U', 'B');
+                        moves[i].Replace('U', 'D');
                         break;
                     case 'L':
                         moves[i].Replace('L', 'R');
-                        break;
+                        break;/*
                     case 'B':
                         moves[i].Replace('B', 'U');
-                        break;
+                        break;*/
                 }
             }
 
@@ -128,15 +128,18 @@ namespace RubiksAutoSolve
 
             foreach (string move in moves)
             {
-                MethodInfo moveMethod = typeof(SimpleRotate).GetMethod(move, new Type[] { typeof(Cube).MakeByRefType() });
+                MethodInfo moveMethod = typeof(Rotate).GetMethod(move, new Type[] { typeof(Cube).MakeByRefType() });
                 moveMethod.Invoke(null, new object[] { this });
             }
         }
 
         public void DoRotate(string move)
         {
-            MethodInfo moveMethod = typeof(SimpleRotate).GetMethod(move, new Type[] { typeof(Cube).MakeByRefType() });
-            moveMethod.Invoke(null, new object[] { this });
+            if (move != "")
+            {
+                MethodInfo moveMethod = typeof(Rotate).GetMethod(move, new Type[] { typeof(Cube).MakeByRefType() });
+                moveMethod.Invoke(null, new object[] { this });
+            }
         }
 
         private static string[] FormulaToMoves(string formula)

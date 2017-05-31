@@ -4,7 +4,6 @@ namespace RubiksAutoSolve
 {
 	class LayerByLayer : SolvingMethod
 	{
-		private int position = 0;
 		public bool stopAlg = false;
         
 		//public override void SolveCube()

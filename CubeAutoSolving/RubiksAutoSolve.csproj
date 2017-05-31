@@ -57,10 +57,9 @@
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SimpleRotate.cs" />
+    <Compile Include="Rotate.cs" />
     <Compile Include="SolvingMethods\CFOP.cs" />
     <Compile Include="SolvingMethods\LayerByLayer.cs" />
-    <Compile Include="Rotate.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SolvingMethods\SolvingMethod.cs" />
