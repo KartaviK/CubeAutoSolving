@@ -45,6 +45,9 @@ namespace RubiksAutoSolve
             }
         }
 
+        /// <summary>
+        /// Повернути куб у зібрану конфігурацію
+        /// </summary>
         public void Reset()
         {
             for (int i = 0; i < 6; i++)
@@ -59,6 +62,11 @@ namespace RubiksAutoSolve
             }
         }
 
+        /// <summary>
+        /// Конвертування скрамблу
+        /// </summary>
+        /// <param name="scramble">Скрамбл</param>
+        /// <returns>Строку з конвертованим скрамблом</returns>
         public string ConvertScramble(string scramble)
         {
             string[] moves = scramble.Split(' ');
@@ -75,16 +83,17 @@ namespace RubiksAutoSolve
                         break;
                     case 'L':
                         moves[i].Replace('L', 'R');
-                        break;/*
-                    case 'B':
-                        moves[i].Replace('B', 'U');
-                        break;*/
+                        break;
                 }
             }
 
             return string.Join(" ", moves);
         }
 
+        /// <summary>
+        /// Генерує скрамбл
+        /// </summary>
+        /// <returns>Конвертований скрамбл</returns>
         public string ScrambleCube()
         {
             Random random = new Random();
@@ -122,31 +131,47 @@ namespace RubiksAutoSolve
             return ConvertScramble(formula);
         }
 
+        /// <summary>
+        /// Виконує формулу з декількома ходами
+        /// </summary>
+        /// <param name="formula">Формула</param>
         public void DoRotatesByFormula(string formula)
         {
             string[] moves = FormulaToMoves(formula);
 
             foreach (string move in moves)
             {
-                MethodInfo moveMethod = typeof(Rotate).GetMethod(move, new Type[] { typeof(Cube).MakeByRefType() });
+                MethodInfo moveMethod = 
+                    typeof(Rotate).GetMethod(move, new Type[] { typeof(Cube).MakeByRefType() });
                 moveMethod.Invoke(null, new object[] { this });
             }
         }
 
+        /// <summary>
+        /// Спеціальна функція для виконання одного ходу
+        /// </summary>
+        /// <param name="move">Хід</param>
         public void DoRotate(string move)
         {
             if (move != "")
             {
-                MethodInfo moveMethod = typeof(Rotate).GetMethod(move, new Type[] { typeof(Cube).MakeByRefType() });
+                MethodInfo moveMethod =
+                    typeof(Rotate).GetMethod(move, new Type[] { typeof(Cube).MakeByRefType() });
                 moveMethod.Invoke(null, new object[] { this });
             }
         }
 
+        /// <summary>
+        /// Конвертує ходи формули у зрозумілий вид для алгоритму
+        /// </summary>
+        /// <param name="formula">Формула</param>
+        /// <returns>Масив конвертованих ходів</returns>
         private static string[] FormulaToMoves(string formula)
         {
             List<string> moves = new List<string>();
             string move = "";
-            string[] array = formula.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] array =
+                formula.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
             foreach (string element in array)
             {
@@ -169,6 +194,10 @@ namespace RubiksAutoSolve
             return moves.ToArray();
         }
 
+        /// <summary>
+        /// Клонує куб для алгоритму
+        /// </summary>
+        /// <returns>Новий обєкт куба</returns>
         public object Clone()
         {
             Cube newCube = new Cube();

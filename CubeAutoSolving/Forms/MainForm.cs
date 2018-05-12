@@ -7,8 +7,7 @@ namespace RubiksAutoSolve
 	public partial class MainForm : Form
 	{
         public Cube mainCube = new Cube();
-
-		// Инициализация цвета для блоков picture
+        
 		Color[] systemColors =
 		{
 			Color.Blue,
@@ -144,8 +143,7 @@ namespace RubiksAutoSolve
 
 			RefreshCube();
 		}
-
-		// Метод для начала автономной сборки куба
+        
 		private void startButton_Click(object sender, EventArgs e)
 		{
             SolveForm dataForm = new SolveForm(mainCube);
@@ -153,8 +151,7 @@ namespace RubiksAutoSolve
             dataForm.Close();
 			RefreshCube();
 		}
-
-		// Методы кнопок для поворотов граней
+        
 		private void resetButton_Click(object sender, EventArgs e)
 		{
 			scrambleBox.Text = "";
@@ -170,7 +167,14 @@ namespace RubiksAutoSolve
             }
             else
             {
-                mainCube.DoRotatesByFormula(mainCube.ConvertScramble(scrambleBox.Text));
+                try
+                {
+                    mainCube.DoRotatesByFormula(mainCube.ConvertScramble(scrambleBox.Text));
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
 
 			RefreshCube();
@@ -183,8 +187,7 @@ namespace RubiksAutoSolve
 			mainCube.DoRotatesByFormula(moveName);
 			RefreshCube();
 		}
-
-		// Метод для визуализации массива в интерфейс
+        
 		public void RefreshCube()
 		{
 			for (int k = 0; k < 6; k++)

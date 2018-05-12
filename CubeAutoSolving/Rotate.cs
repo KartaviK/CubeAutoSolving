@@ -18,9 +18,9 @@ namespace RubiksAutoSolve
 
         #region Rotates
         /// <summary>
-        /// Поворот верхней грани по часовой стрелке
+        /// Обертання верхньої грані за часовою стрілкою
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на куб</param>
         public static void U(ref Cube cube)
         {
             // Внутренние блоки
@@ -54,9 +54,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поворот верхней грани против часовой стрелки
+        /// Обертання верхньої грані проти часової стрілки
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void Ui(ref Cube cube)
         {
             string cache = cube.edge[0][0, 0];
@@ -88,9 +88,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поворот верхней грани дважды
+        /// Поворот верхньої грані два рази
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void Ud(ref Cube cube)
         {
             string cache = cube.edge[0][0, 0];
@@ -127,9 +127,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поворот нижней грани по часовой стрелке
+        /// Поворот нижньої грані за часовою стрілкою
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void D(ref Cube cube)
         {
             string cache = cube.edge[5][0, 0];
@@ -161,9 +161,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поворот нижней грани против часовой стрелки
+        /// Поворот нижньої грані проти часової стрілки
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void Di(ref Cube cube)
         {
             string cache = cube.edge[5][0, 0];
@@ -195,9 +195,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поврот нижней грани дважды
+        /// Поврот нижньої грані два рази
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void Dd(ref Cube cube)
         {
             string cache = cube.edge[5][0, 0];
@@ -234,9 +234,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поворот правой грани по часовой стрелке
+        /// Поворот правої грані за часовою стрілкою
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void R(ref Cube cube)
         {
             string cache = cube.edge[3][0, 0];
@@ -268,9 +268,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поворот правой грани против часовой стрелки
+        /// Поворот правої грані проти часової стрілки
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void Ri(ref Cube cube)
         {
             string cache = cube.edge[3][0, 0];
@@ -302,9 +302,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поврот правой грани дважды
+        /// Поврот правої грані два рази
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void Rd(ref Cube cube)
         {
             string cache = cube.edge[3][0, 0];
@@ -341,9 +341,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поворот левой грани по часовой стрелке
+        /// Поворот лівої грані за часовою стрілкою
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void L(ref Cube cube)
         {
             string cache = cube.edge[1][0, 0];
@@ -375,9 +375,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поворот левой грани против часовой стрелки
+        /// Поворот лівої грані проти часової стрілки
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void Li(ref Cube cube)
         {
             string cache = cube.edge[1][0, 0];
@@ -409,9 +409,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поврот левой грани дважды
+        /// Поворот лівої грані два рази
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void Ld(ref Cube cube)
         {
             string cache = cube.edge[1][0, 0];
@@ -448,9 +448,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поворот фронтальной грани по часовой стрелке
+        /// Поворот фронтальної грані за часовою стрілкою
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void F(ref Cube cube)
         {
             string cache = cube.edge[2][0, 0];
@@ -482,9 +482,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поворот фронтальной грани против часовой стрелки
+        /// Поворот фронтальної грані проти часової стрілки
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void Fi(ref Cube cube)
         {
             string cache = cube.edge[2][0, 0];
@@ -516,9 +516,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поврот фронтальной грани дважды
+        /// Поврот фронтальної грані два рази
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void Fd(ref Cube cube)
         {
             string cache = cube.edge[2][0, 0];
@@ -555,9 +555,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поворот задней грани по часовой стрелке
+        /// Поворот задньої грані за часовою стрілкою
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void B(ref Cube cube)
         {
             string cache = cube.edge[4][0, 0];
@@ -589,9 +589,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поворот задней грани против часовой стрелки
+        /// Поворот задньої грані проти часової стрілки
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void Bi(ref Cube cube)
         {
             string cache = cube.edge[4][0, 0];
@@ -623,9 +623,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поврот задней грани дважды
+        /// Поврот задньої грані два рази
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void Bd(ref Cube cube)
         {
             string cache = cube.edge[4][0, 0];
@@ -662,9 +662,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поворот центральной грани относительно левой по часовой стрелке
+        /// Поворот центрової грані относительно лівої за часовою стрілкою
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void M(ref Cube cube)
         {
             string cache = cube.edge[5][1, 2];
@@ -685,9 +685,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поворот центральной грани относительно левой против часовой стрелки
+        /// Поворот центрової грані относительно лівої проти часової стрілки
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void Mi(ref Cube cube)
         {
             string cache = cube.edge[5][1, 2];
@@ -708,9 +708,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поворот центральной грани относительно левой дважды
+        /// Поворот центрової грані относительно лівої два рази
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void Md(ref Cube cube)
         {
             string cache = cube.edge[5][1, 2];
@@ -734,9 +734,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поворот центральной грани относительно нижней по часовой стрелке
+        /// Поворот центрової грані относительно нижньої за часовою стрілкою
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void E(ref Cube cube)
         {
             string cache = cube.edge[4][0, 1];
@@ -757,9 +757,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поворот центральной грани относительно нижней против часовой стрелки
+        /// Поворот центрової грані относительно нижньої проти часової стрілки
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void Ei(ref Cube cube)
         {
             string cache = cube.edge[4][0, 1];
@@ -780,9 +780,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поворот центральной грани относительно нижней дважды
+        /// Поворот центрової грані относительно нижньої два рази
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void Ed(ref Cube cube)
         {
             string cache = cube.edge[2][2, 1];
@@ -806,9 +806,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поворот центральной грани относительно фронтальной по часовой стрелке
+        /// Поворот центрової грані относительно фронтальної за часовою стрілкою
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void S(ref Cube cube)
         {
             string cache = cube.edge[0][0, 1];
@@ -829,9 +829,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поворот центральной грани относительно фронтальной против часовой стрелки
+        /// Поворот центрової грані относительно фронтальної проти часової стрілки
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void Si(ref Cube cube)
         {
             string cache = cube.edge[0][0, 1];
@@ -852,9 +852,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поворот центральной грани относительно фронтальной дважды
+        /// Поворот центрової грані относительно фронтальної два рази
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void Sd(ref Cube cube)
         {
             string cache = cube.edge[0][0, 1];
@@ -880,9 +880,9 @@ namespace RubiksAutoSolve
 
         #region Twise rotates
         /// <summary>
-        /// Поврот правой грани вместе с центральной по часовой стрелке
+        /// Поврот правої грані разом з центровою за часовою стрілкою
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void Rw(ref Cube cube)
         {
             R(ref cube);
@@ -890,9 +890,9 @@ namespace RubiksAutoSolve
         }
         
         /// <summary>
-        /// Поворот правой грани вместе с центральной против часовой стрелки
+        /// Поворот правої грані разом з центровою проти часової стрілки
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void Rwi(ref Cube cube)
         {
             Ri(ref cube);
@@ -900,9 +900,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поворот правой грани вместе с центральной дважды
+        /// Поворот правої грані разом з центровою два рази
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void Rwd(ref Cube cube)
         {
             Rd(ref cube);
@@ -910,9 +910,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поворот левой грани вместе с центральной по часовой стрелке
+        /// Поворот лівої грані разом з центровою за часовою стрілкою
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void Lw(ref Cube cube)
         {
             L(ref cube);
@@ -920,9 +920,9 @@ namespace RubiksAutoSolve
         }
         
         /// <summary>
-        /// Поворот левой грани вместе с центральной против часовой стрелки
+        /// Поворот лівої грані разом з центровою проти часової стрілки
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void Lwi(ref Cube cube)
         {
             Li(ref cube);
@@ -930,9 +930,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поворот левой грани вместе с центральной дважды
+        /// Поворот лівої грані разом з центровою два рази
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void Lwd(ref Cube cube)
         {
             Ld(ref cube);
@@ -940,9 +940,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поворот фронтальной грани вместе с центральной по часовой стрелке
+        /// Поворот фронтальної грані разом з центровою за часовою стрілкою
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void Fw(ref Cube cube)
         {
             F(ref cube);
@@ -950,9 +950,9 @@ namespace RubiksAutoSolve
         }
         
         /// <summary>
-        /// Поворот фронтальной грани вместе с централньой против часовой стрелки
+        /// Поворот фронтальної грані разом з централньой проти часової стрілки
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void Fwi(ref Cube cube)
         {
             Fi(ref cube);
@@ -960,9 +960,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поворот фронталньой грани вместе с центральной дважды
+        /// Поворот фронталньой грані разом з центровою два рази
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void Fwd(ref Cube cube)
         {
             Fd(ref cube);
@@ -970,9 +970,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поворот задней грани вместе с центральной по часовой стрелке
+        /// Поворот задньої грані разом з центровою за часовою стрілкою
         /// </summary>
-        /// <param name="cube">ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void Bw(ref Cube cube)
         {
             B(ref cube);
@@ -980,9 +980,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поворот задней грани вместе с центральной грани против часовой стрелки
+        /// Поворот задньої грані разом з центровою грані проти часової стрілки
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void Bwi(ref Cube cube)
         {
             Bi(ref cube);
@@ -990,9 +990,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поворот задней грани вместе с центральной дважды
+        /// Поворот задньої грані разом з центровою два рази
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void Bwd(ref Cube cube)
         {
             Bd(ref cube);
@@ -1000,9 +1000,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поворот верхней грани вместе с центральной по часовой стрелке
+        /// Поворот верхньої грані разом з центровою за часовою стрілкою
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void Uw(ref Cube cube)
         {
             U(ref cube);
@@ -1010,9 +1010,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поворот верхней грани вместе с центральной против часовой стрелки
+        /// Поворот верхньої грані разом з центровою проти часової стрілки
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void Uwi(ref Cube cube)
         {
             Ui(ref cube);
@@ -1020,9 +1020,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поворот верхней  грани вместе с центральной дважды
+        /// Поворот верхньої  грані разом з центровою два рази
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void Uwd(ref Cube cube)
         {
             Ud(ref cube);
@@ -1030,9 +1030,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поворот нижней грани вместе с центральной по часовой стрелке
+        /// Поворот нижньої грані разом з центровою за часовою стрілкою
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void Dw(ref Cube cube)
         {
             D(ref cube);
@@ -1040,9 +1040,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поворот нижней грани вместе с центральной против часовой стрелки
+        /// Поворот нижньої грані разом з центровою проти часової стрілки
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void Dwi(ref Cube cube)
         {
             Di(ref cube);
@@ -1050,9 +1050,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поворот нижней грани вместе с центральной дважды
+        /// Поворот нижньої грані разом з центровою два рази
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void Dwd(ref Cube cube)
         {
             Dd(ref cube);
@@ -1062,9 +1062,9 @@ namespace RubiksAutoSolve
 
         #region Cube rotates
         /// <summary>
-        /// Поворот всего куба по часовой стрелке относительно правой стороны
+        /// Поворот усоьго куба за часовою стрілкою относительно правої стороны
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void x(ref Cube cube)
         {
             R(ref cube);
@@ -1073,9 +1073,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поворот всего куба против часовой стрелки относительно правой стороны
+        /// Поворот усоьго куба проти часової стрілки относительно правої стороны
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void xi(ref Cube cube)
         {
             Ri(ref cube);
@@ -1084,9 +1084,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поворот всего куба дважды относительно правой стороны
+        /// Поворот усоьго куба два рази относительно правої стороны
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void xd(ref Cube cube)
         {
             Rd(ref cube);
@@ -1095,9 +1095,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поворот всего куба по часовой стрелке относительно верхней стороны
+        /// Поворот усоьго куба за часовою стрілкою относительно верхньої стороны
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void y(ref Cube cube)
         {
             U(ref cube);
@@ -1106,9 +1106,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поворот всего куба против часовой стрелки относительно верхней стороны
+        /// Поворот усоьго куба проти часової стрілки относительно верхньої стороны
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void yi(ref Cube cube)
         {
             Ui(ref cube);
@@ -1117,9 +1117,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поворот всего куба дважды относительно верхней стороны
+        /// Поворот усоьго куба два рази относительно верхньої стороны
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void yd(ref Cube cube)
         {
             Ud(ref cube);
@@ -1128,9 +1128,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поворот всего куба по часовой стрелке относителньо фронтальной стороны
+        /// Поворот усоьго куба за часовою стрілкою относителньо фронтальної стороны
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void z(ref Cube cube)
         {
             F(ref cube);
@@ -1139,9 +1139,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поворот всего куба против часовой стрелки относителньо фронтальной стороны
+        /// Поворот усоьго куба проти часової стрілки относителньо фронтальної стороны
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void zi(ref Cube cube)
         {
             Fi(ref cube);
@@ -1150,9 +1150,9 @@ namespace RubiksAutoSolve
         }
 
         /// <summary>
-        /// Поворот всего куба дважды относителньо фронтальной стороны
+        /// Поворот усоьго куба два рази относителньо фронтальної стороны
         /// </summary>
-        /// <param name="cube">Ссылка на куб</param>
+        /// <param name="cube">Силка на об'єкт куба</param>
         public static void zd(ref Cube cube)
         {
             Fd(ref cube);
@@ -1161,6 +1161,12 @@ namespace RubiksAutoSolve
         }
         #endregion 
 
+        /// <summary>
+        /// Функція перевірки рішення першої фази алгоритму
+        /// </summary>
+        /// <param name="cube">Силка на куб</param>
+        /// <param name="pattern">Якщо формула потребує поворота куба, додає хід</param>
+        /// <returns>Якщо фаза вірішена, повертає true</returns>
         public static bool CheckFirstPhase(ref Cube cube, ref string pattern)
         {
             if ((cube.edge[0][0, 0] == cube.edge[0][1, 1] || cube.edge[0][0, 0] == cube.edge[5][1, 1])
@@ -1280,6 +1286,11 @@ namespace RubiksAutoSolve
             return false;
         }
 
+        /// <summary>
+        /// Перевірка на кінцеве рішення другої фази (повна сборка куба)
+        /// </summary>
+        /// <param name="cube">Силка на куб</param>
+        /// <returns>Якщо куб зібран, повертає true</returns>
         public static bool IsCubeSolved(ref Cube cube)
         {
             for (int i = 0; i < 6; i++)
